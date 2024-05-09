@@ -1,0 +1,853 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C82097F12BEC137A0020EBE1 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82097F02BEC137A0020EBE1 /* AccountsView.swift */; };
+		C89C9D222BEC9DD50066DA14 /* AccountRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D212BEC9DD50066DA14 /* AccountRowView.swift */; };
+		C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D232BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift */; };
+		C89C9D262BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D252BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift */; };
+		C89C9D282BEC9E3D0066DA14 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D272BEC9E3D0066DA14 /* CardView.swift */; };
+		C89C9D2A2BEC9E550066DA14 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D292BEC9E550066DA14 /* String+.swift */; };
+		C89C9D2C2BEC9E7E0066DA14 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D2B2BEC9E7E0066DA14 /* RoundedCorner.swift */; };
+		C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D2D2BEC9EA20066DA14 /* MapView.swift */; };
+		C89C9D302BEC9EC10066DA14 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D2F2BEC9EC10066DA14 /* FormView.swift */; };
+		C89C9D322BEC9ED50066DA14 /* TermsString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D312BEC9ED50066DA14 /* TermsString.swift */; };
+		C89C9D342BEC9EEC0066DA14 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D332BEC9EEC0066DA14 /* RoundedTextField.swift */; };
+		C89C9D362BEC9F070066DA14 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D352BEC9F070066DA14 /* RoundedButton.swift */; };
+		C89C9D382BEC9F1C0066DA14 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D372BEC9F1C0066DA14 /* BackButton.swift */; };
+		C89C9D3A2BEC9F2E0066DA14 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D392BEC9F2E0066DA14 /* Animations.swift */; };
+		C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */; };
+		C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA82BE9318A00E17993 /* ContentView.swift */; };
+		C8E60AAB2BE9318C00E17993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E60AAA2BE9318C00E17993 /* Assets.xcassets */; };
+		C8E60AAE2BE9318C00E17993 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E60AAD2BE9318C00E17993 /* Preview Assets.xcassets */; };
+		C8E60AB82BE9318D00E17993 /* freshNest_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AB72BE9318D00E17993 /* freshNest_iOSTests.swift */; };
+		C8E60AC22BE9318D00E17993 /* freshNest_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AC12BE9318D00E17993 /* freshNest_iOSUITests.swift */; };
+		C8E60AC42BE9318D00E17993 /* freshNest_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AC32BE9318D00E17993 /* freshNest_iOSUITestsLaunchTests.swift */; };
+		C8E60AD82BE9338D00E17993 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AD72BE9338D00E17993 /* Color+.swift */; };
+		C8E60ADE2BE9345700E17993 /* AppUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60ADD2BE9345700E17993 /* AppUserInterface.swift */; };
+		C8E60AE02BE934EC00E17993 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60ADF2BE934EC00E17993 /* OnboardingView.swift */; };
+		C8E60AE22BE9386F00E17993 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AE12BE9386F00E17993 /* SplashScreen.swift */; };
+		C8E60AE42BE9746200E17993 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AE32BE9746200E17993 /* HomeView.swift */; };
+		C8E60AE62BE977FA00E17993 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AE52BE977FA00E17993 /* SignUpView.swift */; };
+		C8E60AE82BE97D2300E17993 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AE72BE97D2300E17993 /* LoginView.swift */; };
+		C8E60AEF2BE9841F00E17993 /* JobCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AEE2BE9841F00E17993 /* JobCardCell.swift */; };
+		C8E60AF22BE987F400E17993 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF12BE987F400E17993 /* TestData.swift */; };
+		C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF32BE9883400E17993 /* JobModel.swift */; };
+		C8E60AF62BE98B5100E17993 /* ScheduledJobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF52BE98B5100E17993 /* ScheduledJobsView.swift */; };
+		C8E60AF82BE9902500E17993 /* AvailableJobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF72BE9902500E17993 /* AvailableJobsView.swift */; };
+		C8E60AFB2BEAD2A800E17993 /* EarningsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AFA2BEAD2A800E17993 /* EarningsMainView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8E60AB42BE9318D00E17993 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8E60A9B2BE9318A00E17993 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E60AA22BE9318A00E17993;
+			remoteInfo = "freshNest-iOS";
+		};
+		C8E60ABE2BE9318D00E17993 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8E60A9B2BE9318A00E17993 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E60AA22BE9318A00E17993;
+			remoteInfo = "freshNest-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C82097F02BEC137A0020EBE1 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		C89C9D212BEC9DD50066DA14 /* AccountRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRowView.swift; sourceTree = "<group>"; };
+		C89C9D232BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPlaceholderTextField.swift; sourceTree = "<group>"; };
+		C89C9D252BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsEntryBottomSheet.swift; sourceTree = "<group>"; };
+		C89C9D272BEC9E3D0066DA14 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C89C9D292BEC9E550066DA14 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		C89C9D2B2BEC9E7E0066DA14 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		C89C9D2D2BEC9EA20066DA14 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		C89C9D2F2BEC9EC10066DA14 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		C89C9D312BEC9ED50066DA14 /* TermsString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsString.swift; sourceTree = "<group>"; };
+		C89C9D332BEC9EEC0066DA14 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		C89C9D352BEC9F070066DA14 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		C89C9D372BEC9F1C0066DA14 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		C89C9D392BEC9F2E0066DA14 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		C8E60AA32BE9318A00E17993 /* freshNest-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "freshNest-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freshNest_iOSApp.swift; sourceTree = "<group>"; };
+		C8E60AA82BE9318A00E17993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C8E60AAA2BE9318C00E17993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8E60AAD2BE9318C00E17993 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C8E60AB32BE9318D00E17993 /* freshNest-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "freshNest-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E60AB72BE9318D00E17993 /* freshNest_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freshNest_iOSTests.swift; sourceTree = "<group>"; };
+		C8E60ABD2BE9318D00E17993 /* freshNest-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "freshNest-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E60AC12BE9318D00E17993 /* freshNest_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freshNest_iOSUITests.swift; sourceTree = "<group>"; };
+		C8E60AC32BE9318D00E17993 /* freshNest_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freshNest_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C8E60AD72BE9338D00E17993 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		C8E60ADD2BE9345700E17993 /* AppUserInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserInterface.swift; sourceTree = "<group>"; };
+		C8E60ADF2BE934EC00E17993 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		C8E60AE12BE9386F00E17993 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		C8E60AE32BE9746200E17993 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C8E60AE52BE977FA00E17993 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		C8E60AE72BE97D2300E17993 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C8E60AEE2BE9841F00E17993 /* JobCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardCell.swift; sourceTree = "<group>"; };
+		C8E60AF12BE987F400E17993 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		C8E60AF32BE9883400E17993 /* JobModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobModel.swift; sourceTree = "<group>"; };
+		C8E60AF52BE98B5100E17993 /* ScheduledJobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledJobsView.swift; sourceTree = "<group>"; };
+		C8E60AF72BE9902500E17993 /* AvailableJobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableJobsView.swift; sourceTree = "<group>"; };
+		C8E60AFA2BEAD2A800E17993 /* EarningsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsMainView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8E60AA02BE9318A00E17993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E60AB02BE9318D00E17993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E60ABA2BE9318D00E17993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C82097EF2BEC136E0020EBE1 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				C82097F02BEC137A0020EBE1 /* AccountsView.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		C8E60A9A2BE9318A00E17993 = {
+			isa = PBXGroup;
+			children = (
+				C8E60AA52BE9318A00E17993 /* freshNest-iOS */,
+				C8E60AB62BE9318D00E17993 /* freshNest-iOSTests */,
+				C8E60AC02BE9318D00E17993 /* freshNest-iOSUITests */,
+				C8E60AA42BE9318A00E17993 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8E60AA42BE9318A00E17993 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AA32BE9318A00E17993 /* freshNest-iOS.app */,
+				C8E60AB32BE9318D00E17993 /* freshNest-iOSTests.xctest */,
+				C8E60ABD2BE9318D00E17993 /* freshNest-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8E60AA52BE9318A00E17993 /* freshNest-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AF02BE987E700E17993 /* TestData */,
+				C8E60AD62BE9331300E17993 /* Assets */,
+				C8E60AD52BE9330D00E17993 /* AppWide */,
+				C8E60AD42BE932FC00E17993 /* Extensions */,
+				C8E60AD32BE932F600E17993 /* Constants */,
+				C8E60AD22BE932EA00E17993 /* Shared Components */,
+				C8E60AD12BE932DD00E17993 /* Views */,
+				C8E60AD02BE932D400E17993 /* API */,
+				C8E60AAC2BE9318C00E17993 /* Preview Content */,
+			);
+			path = "freshNest-iOS";
+			sourceTree = "<group>";
+		};
+		C8E60AAC2BE9318C00E17993 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AAD2BE9318C00E17993 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C8E60AB62BE9318D00E17993 /* freshNest-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AB72BE9318D00E17993 /* freshNest_iOSTests.swift */,
+			);
+			path = "freshNest-iOSTests";
+			sourceTree = "<group>";
+		};
+		C8E60AC02BE9318D00E17993 /* freshNest-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AC12BE9318D00E17993 /* freshNest_iOSUITests.swift */,
+				C8E60AC32BE9318D00E17993 /* freshNest_iOSUITestsLaunchTests.swift */,
+			);
+			path = "freshNest-iOSUITests";
+			sourceTree = "<group>";
+		};
+		C8E60AD02BE932D400E17993 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C8E60AD12BE932DD00E17993 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AD92BE933D500E17993 /* Modules */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C8E60AD22BE932EA00E17993 /* Shared Components */ = {
+			isa = PBXGroup;
+			children = (
+				C89C9D232BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift */,
+				C89C9D312BEC9ED50066DA14 /* TermsString.swift */,
+				C89C9D212BEC9DD50066DA14 /* AccountRowView.swift */,
+				C89C9D2B2BEC9E7E0066DA14 /* RoundedCorner.swift */,
+				C89C9D2F2BEC9EC10066DA14 /* FormView.swift */,
+				C89C9D332BEC9EEC0066DA14 /* RoundedTextField.swift */,
+				C89C9D352BEC9F070066DA14 /* RoundedButton.swift */,
+				C89C9D372BEC9F1C0066DA14 /* BackButton.swift */,
+				C89C9D392BEC9F2E0066DA14 /* Animations.swift */,
+			);
+			path = "Shared Components";
+			sourceTree = "<group>";
+		};
+		C8E60AD32BE932F600E17993 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60ADD2BE9345700E17993 /* AppUserInterface.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C8E60AD42BE932FC00E17993 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AD72BE9338D00E17993 /* Color+.swift */,
+				C89C9D292BEC9E550066DA14 /* String+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C8E60AD52BE9330D00E17993 /* AppWide */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */,
+				C8E60AA82BE9318A00E17993 /* ContentView.swift */,
+			);
+			path = AppWide;
+			sourceTree = "<group>";
+		};
+		C8E60AD62BE9331300E17993 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AAA2BE9318C00E17993 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C8E60AD92BE933D500E17993 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C82097EF2BEC136E0020EBE1 /* Accounts */,
+				C8E60AF92BEAD29700E17993 /* Earnings */,
+				C8E60AE92BE983F000E17993 /* Jobs */,
+				C8E60ADC2BE9341900E17993 /* Home */,
+				C8E60ADB2BE933E200E17993 /* Authentication */,
+				C8E60ADA2BE933DA00E17993 /* Onboarding */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C8E60ADA2BE933DA00E17993 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60ADF2BE934EC00E17993 /* OnboardingView.swift */,
+				C8E60AE12BE9386F00E17993 /* SplashScreen.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C8E60ADB2BE933E200E17993 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AE52BE977FA00E17993 /* SignUpView.swift */,
+				C8E60AE72BE97D2300E17993 /* LoginView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C8E60ADC2BE9341900E17993 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AE32BE9746200E17993 /* HomeView.swift */,
+				C89C9D2D2BEC9EA20066DA14 /* MapView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C8E60AE92BE983F000E17993 /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AED2BE9840E00E17993 /* Model */,
+				C8E60AEC2BE9840700E17993 /* Components */,
+				C8E60AEB2BE9840000E17993 /* Scheduled */,
+				C8E60AEA2BE983F700E17993 /* Available */,
+			);
+			path = Jobs;
+			sourceTree = "<group>";
+		};
+		C8E60AEA2BE983F700E17993 /* Available */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AF72BE9902500E17993 /* AvailableJobsView.swift */,
+			);
+			path = Available;
+			sourceTree = "<group>";
+		};
+		C8E60AEB2BE9840000E17993 /* Scheduled */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AF52BE98B5100E17993 /* ScheduledJobsView.swift */,
+			);
+			path = Scheduled;
+			sourceTree = "<group>";
+		};
+		C8E60AEC2BE9840700E17993 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AEE2BE9841F00E17993 /* JobCardCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C8E60AED2BE9840E00E17993 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AF32BE9883400E17993 /* JobModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C8E60AF02BE987E700E17993 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AF12BE987F400E17993 /* TestData.swift */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
+		C8E60AF92BEAD29700E17993 /* Earnings */ = {
+			isa = PBXGroup;
+			children = (
+				C8E60AFA2BEAD2A800E17993 /* EarningsMainView.swift */,
+				C89C9D272BEC9E3D0066DA14 /* CardView.swift */,
+				C89C9D252BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift */,
+			);
+			path = Earnings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8E60AA22BE9318A00E17993 /* freshNest-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E60AC72BE9318D00E17993 /* Build configuration list for PBXNativeTarget "freshNest-iOS" */;
+			buildPhases = (
+				C8E60A9F2BE9318A00E17993 /* Sources */,
+				C8E60AA02BE9318A00E17993 /* Frameworks */,
+				C8E60AA12BE9318A00E17993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "freshNest-iOS";
+			productName = "freshNest-iOS";
+			productReference = C8E60AA32BE9318A00E17993 /* freshNest-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8E60AB22BE9318D00E17993 /* freshNest-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E60ACA2BE9318D00E17993 /* Build configuration list for PBXNativeTarget "freshNest-iOSTests" */;
+			buildPhases = (
+				C8E60AAF2BE9318D00E17993 /* Sources */,
+				C8E60AB02BE9318D00E17993 /* Frameworks */,
+				C8E60AB12BE9318D00E17993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E60AB52BE9318D00E17993 /* PBXTargetDependency */,
+			);
+			name = "freshNest-iOSTests";
+			productName = "freshNest-iOSTests";
+			productReference = C8E60AB32BE9318D00E17993 /* freshNest-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C8E60ABC2BE9318D00E17993 /* freshNest-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E60ACD2BE9318D00E17993 /* Build configuration list for PBXNativeTarget "freshNest-iOSUITests" */;
+			buildPhases = (
+				C8E60AB92BE9318D00E17993 /* Sources */,
+				C8E60ABA2BE9318D00E17993 /* Frameworks */,
+				C8E60ABB2BE9318D00E17993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E60ABF2BE9318D00E17993 /* PBXTargetDependency */,
+			);
+			name = "freshNest-iOSUITests";
+			productName = "freshNest-iOSUITests";
+			productReference = C8E60ABD2BE9318D00E17993 /* freshNest-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8E60A9B2BE9318A00E17993 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					C8E60AA22BE9318A00E17993 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					C8E60AB22BE9318D00E17993 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = C8E60AA22BE9318A00E17993;
+					};
+					C8E60ABC2BE9318D00E17993 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = C8E60AA22BE9318A00E17993;
+					};
+				};
+			};
+			buildConfigurationList = C8E60A9E2BE9318A00E17993 /* Build configuration list for PBXProject "freshNest-iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8E60A9A2BE9318A00E17993;
+			productRefGroup = C8E60AA42BE9318A00E17993 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8E60AA22BE9318A00E17993 /* freshNest-iOS */,
+				C8E60AB22BE9318D00E17993 /* freshNest-iOSTests */,
+				C8E60ABC2BE9318D00E17993 /* freshNest-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8E60AA12BE9318A00E17993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E60AAE2BE9318C00E17993 /* Preview Assets.xcassets in Resources */,
+				C8E60AAB2BE9318C00E17993 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E60AB12BE9318D00E17993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E60ABB2BE9318D00E17993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8E60A9F2BE9318A00E17993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C89C9D302BEC9EC10066DA14 /* FormView.swift in Sources */,
+				C8E60AE22BE9386F00E17993 /* SplashScreen.swift in Sources */,
+				C8E60AF22BE987F400E17993 /* TestData.swift in Sources */,
+				C89C9D342BEC9EEC0066DA14 /* RoundedTextField.swift in Sources */,
+				C8E60AE42BE9746200E17993 /* HomeView.swift in Sources */,
+				C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */,
+				C8E60AE82BE97D2300E17993 /* LoginView.swift in Sources */,
+				C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */,
+				C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */,
+				C8E60AD82BE9338D00E17993 /* Color+.swift in Sources */,
+				C8E60AEF2BE9841F00E17993 /* JobCardCell.swift in Sources */,
+				C82097F12BEC137A0020EBE1 /* AccountsView.swift in Sources */,
+				C89C9D382BEC9F1C0066DA14 /* BackButton.swift in Sources */,
+				C89C9D222BEC9DD50066DA14 /* AccountRowView.swift in Sources */,
+				C89C9D362BEC9F070066DA14 /* RoundedButton.swift in Sources */,
+				C89C9D262BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift in Sources */,
+				C89C9D3A2BEC9F2E0066DA14 /* Animations.swift in Sources */,
+				C89C9D322BEC9ED50066DA14 /* TermsString.swift in Sources */,
+				C8E60AF82BE9902500E17993 /* AvailableJobsView.swift in Sources */,
+				C8E60AE62BE977FA00E17993 /* SignUpView.swift in Sources */,
+				C8E60ADE2BE9345700E17993 /* AppUserInterface.swift in Sources */,
+				C89C9D282BEC9E3D0066DA14 /* CardView.swift in Sources */,
+				C8E60AFB2BEAD2A800E17993 /* EarningsMainView.swift in Sources */,
+				C8E60AE02BE934EC00E17993 /* OnboardingView.swift in Sources */,
+				C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */,
+				C8E60AF62BE98B5100E17993 /* ScheduledJobsView.swift in Sources */,
+				C89C9D2A2BEC9E550066DA14 /* String+.swift in Sources */,
+				C89C9D2C2BEC9E7E0066DA14 /* RoundedCorner.swift in Sources */,
+				C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E60AAF2BE9318D00E17993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E60AB82BE9318D00E17993 /* freshNest_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E60AB92BE9318D00E17993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E60AC22BE9318D00E17993 /* freshNest_iOSUITests.swift in Sources */,
+				C8E60AC42BE9318D00E17993 /* freshNest_iOSUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8E60AB52BE9318D00E17993 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E60AA22BE9318A00E17993 /* freshNest-iOS */;
+			targetProxy = C8E60AB42BE9318D00E17993 /* PBXContainerItemProxy */;
+		};
+		C8E60ABF2BE9318D00E17993 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E60AA22BE9318A00E17993 /* freshNest-iOS */;
+			targetProxy = C8E60ABE2BE9318D00E17993 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C8E60AC52BE9318D00E17993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C8E60AC62BE9318D00E17993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C8E60AC82BE9318D00E17993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"freshNest-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 7KHTT82T5H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8E60AC92BE9318D00E17993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"freshNest-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 7KHTT82T5H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C8E60ACB2BE9318D00E17993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KHTT82T5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/freshNest-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/freshNest-iOS";
+			};
+			name = Debug;
+		};
+		C8E60ACC2BE9318D00E17993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KHTT82T5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/freshNest-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/freshNest-iOS";
+			};
+			name = Release;
+		};
+		C8E60ACE2BE9318D00E17993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KHTT82T5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "freshNest-iOS";
+			};
+			name = Debug;
+		};
+		C8E60ACF2BE9318D00E17993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KHTT82T5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "freshNest-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8E60A9E2BE9318A00E17993 /* Build configuration list for PBXProject "freshNest-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E60AC52BE9318D00E17993 /* Debug */,
+				C8E60AC62BE9318D00E17993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E60AC72BE9318D00E17993 /* Build configuration list for PBXNativeTarget "freshNest-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E60AC82BE9318D00E17993 /* Debug */,
+				C8E60AC92BE9318D00E17993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E60ACA2BE9318D00E17993 /* Build configuration list for PBXNativeTarget "freshNest-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E60ACB2BE9318D00E17993 /* Debug */,
+				C8E60ACC2BE9318D00E17993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E60ACD2BE9318D00E17993 /* Build configuration list for PBXNativeTarget "freshNest-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E60ACE2BE9318D00E17993 /* Debug */,
+				C8E60ACF2BE9318D00E17993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8E60A9B2BE9318A00E17993 /* Project object */;
+}
