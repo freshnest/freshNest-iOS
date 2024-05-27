@@ -72,7 +72,7 @@ struct OnboardingView: View {
             .padding(16)
         }
         .fullScreenCover(isPresented: $showSignUpScreen, content: {
-            SignUpView()
+            SignUpView(isBackButtonHidden: false)
         })
     }
 }

@@ -14,7 +14,7 @@ struct AccountsView: View {
     @State var showOnboarding = false
     let emergencyNumber = "tel://911"
     var longPress: some Gesture {
-        LongPressGesture(minimumDuration: 2)
+        LongPressGesture(minimumDuration: 1)
             .updating($isDetectingLongPress) {
                 currentState, gestureState,
                 _ in
@@ -84,7 +84,7 @@ struct AccountsView: View {
                                     .fill(Color(hex: /*PastelColor.redVibrant.hexCode*/"#FF6961"))
                                     .frame(width: proxy.size.width, height: 100)
                                     .offset(x: completedLongPress ? 0 : (isDetectingLongPress ? 0 : -(proxy.size.width)))
-                                    .animation(.easeInOut(duration: 2), value: isDetectingLongPress)
+                                    .animation(.easeInOut(duration: 1), value: isDetectingLongPress)
                                 
                                 Text("Logout")
                                     .font(.headline)
@@ -101,7 +101,7 @@ struct AccountsView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.bottom, 16)
                         .gesture(
-                            LongPressGesture(minimumDuration: 2)
+                            LongPressGesture(minimumDuration: 1)
                                 .updating(
                                     $isDetectingLongPress,
                                     body: { currentState, state, _ in
@@ -116,7 +116,7 @@ struct AccountsView: View {
                             if completedLongPress {
                                 let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                                 impactMed.impactOccurred()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                DispatchQueue.main.asyncAfter(deadline: .now()) {
                                     // logout API CALL
                                     showOnboarding = true
                                 }
@@ -128,7 +128,7 @@ struct AccountsView: View {
             .padding(16)
         }
         .fullScreenCover(isPresented: $showOnboarding, content: {
-            OnboardingView()
+            SignUpView(isBackButtonHidden: true)
         })
     }
 }

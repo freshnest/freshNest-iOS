@@ -10,6 +10,9 @@ import SwiftUI
 struct EarningsMainView: View {
     @State private var isFirstCard = false
     @State private var showCardDetailsEntryBottomSheet = false
+    @State private var showEarningListView = false
+    @State private var animate = false
+
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
@@ -23,6 +26,12 @@ struct EarningsMainView: View {
                         Spacer()
                     }
                     CardView(cardNumber: "1234123412341234", accountHolderName: "John Doe", expiry: "12/31", isStatic: true)
+                        .modifier(HoloEffect(animate: $animate))
+                        .onAppear {
+                            self.animate = true
+                        }
+                    
+                    
                     Button(action: {
                         showCardDetailsEntryBottomSheet.toggle()
                     }){
@@ -44,7 +53,9 @@ struct EarningsMainView: View {
                     
                     Spacer()
                     
-                    RoundedButton(title: "View Earnings", action: {}, color: Color(hex: AppUserInterface.Colors.appButtonGrey), textColor: .black)
+                    RoundedButton(title: "View Earnings", action: {
+                        showEarningListView.toggle()
+                    }, color: Color(hex: AppUserInterface.Colors.appButtonBlack), textColor: .white)
                     
                 }
             }
@@ -53,6 +64,9 @@ struct EarningsMainView: View {
         .sheet(isPresented: $showCardDetailsEntryBottomSheet, content: {
             CardDetailsEntryBottomSheet()
                 .presentationDetents([.large])
+        })
+        .fullScreenCover(isPresented: $showEarningListView, content: {
+            EarningListView()
         })
         .navigationBarBackButtonHidden()
     }

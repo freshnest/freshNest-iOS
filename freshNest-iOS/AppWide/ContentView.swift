@@ -11,21 +11,21 @@ struct ContentView: View {
     @State private var showOnboarding = false
     var body: some View {
         ZStack {
-            if showOnboarding {
-                OnboardingView()
-                    .preferredColorScheme(.light)
-            } else {
-                SplashScreen()
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            withAnimation {
-                                self.showOnboarding = true
-                            }
-                        }
-                    }
-            }
-//            AccountsView()
-//                .preferredColorScheme(.light)
+//            if showOnboarding {
+//                OnboardingView()
+//                    .preferredColorScheme(.light)
+//            } else {
+//                SplashScreen()
+//                    .onAppear {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                            withAnimation {
+//                                self.showOnboarding = true
+//                            }
+//                        }
+//                    }
+//            }
+            MainView()
+                .preferredColorScheme(.light)
         }
     }
 }

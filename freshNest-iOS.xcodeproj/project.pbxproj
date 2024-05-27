@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		C82097F12BEC137A0020EBE1 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82097F02BEC137A0020EBE1 /* AccountsView.swift */; };
+		C84B9AD52BF5FE030025A31F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9AD42BF5FE030025A31F /* ImagePicker.swift */; };
+		C84B9AD72BF622C90025A31F /* WorkFlowSuccessScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9AD62BF622C90025A31F /* WorkFlowSuccessScreen.swift */; };
+		C84B9ADA2BF63B380025A31F /* JobInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9AD92BF63B380025A31F /* JobInfoView.swift */; };
+		C84B9ADC2BF7CF790025A31F /* EarningListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9ADB2BF7CF790025A31F /* EarningListView.swift */; };
+		C87966352BF2B8130065FB39 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966342BF2B8130065FB39 /* CardStack.swift */; };
+		C87966372BF2B8550065FB39 /* WorkFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966362BF2B8550065FB39 /* WorkFlowView.swift */; };
+		C87966392BF2BA520065FB39 /* TaskFlowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966382BF2BA520065FB39 /* TaskFlowData.swift */; };
+		C886A3B72BED4D3A00E059B0 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3B62BED4D3A00E059B0 /* CustomTabBar.swift */; };
+		C886A3B92BED574800E059B0 /* TabTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3B82BED574800E059B0 /* TabTestView.swift */; };
+		C886A3BB2BED5CE700E059B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3BA2BED5CE700E059B0 /* MainView.swift */; };
+		C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3BE2BED623000E059B0 /* MessagesMainView.swift */; };
+		C886A3C12BED623700E059B0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3C02BED623600E059B0 /* CalendarView.swift */; };
 		C89C9D222BEC9DD50066DA14 /* AccountRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D212BEC9DD50066DA14 /* AccountRowView.swift */; };
 		C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D232BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift */; };
 		C89C9D262BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C9D252BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift */; };
@@ -62,6 +74,19 @@
 
 /* Begin PBXFileReference section */
 		C82097F02BEC137A0020EBE1 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		C84B9AD42BF5FE030025A31F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C84B9AD62BF622C90025A31F /* WorkFlowSuccessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowSuccessScreen.swift; sourceTree = "<group>"; };
+		C84B9AD92BF63B380025A31F /* JobInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobInfoView.swift; sourceTree = "<group>"; };
+		C84B9ADB2BF7CF790025A31F /* EarningListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningListView.swift; sourceTree = "<group>"; };
+		C8694B982BFEADEC00B88DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C87966342BF2B8130065FB39 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
+		C87966362BF2B8550065FB39 /* WorkFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowView.swift; sourceTree = "<group>"; };
+		C87966382BF2BA520065FB39 /* TaskFlowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFlowData.swift; sourceTree = "<group>"; };
+		C886A3B62BED4D3A00E059B0 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		C886A3B82BED574800E059B0 /* TabTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTestView.swift; sourceTree = "<group>"; };
+		C886A3BA2BED5CE700E059B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C886A3BE2BED623000E059B0 /* MessagesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesMainView.swift; sourceTree = "<group>"; };
+		C886A3C02BED623600E059B0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C89C9D212BEC9DD50066DA14 /* AccountRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRowView.swift; sourceTree = "<group>"; };
 		C89C9D232BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPlaceholderTextField.swift; sourceTree = "<group>"; };
 		C89C9D252BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsEntryBottomSheet.swift; sourceTree = "<group>"; };
@@ -133,6 +158,39 @@
 			path = Accounts;
 			sourceTree = "<group>";
 		};
+		C84B9AD82BF63B270025A31F /* JobVIew */ = {
+			isa = PBXGroup;
+			children = (
+				C84B9AD92BF63B380025A31F /* JobInfoView.swift */,
+			);
+			path = JobVIew;
+			sourceTree = "<group>";
+		};
+		C87966332BF2B76D0065FB39 /* WorkFlow */ = {
+			isa = PBXGroup;
+			children = (
+				C87966362BF2B8550065FB39 /* WorkFlowView.swift */,
+				C84B9AD62BF622C90025A31F /* WorkFlowSuccessScreen.swift */,
+			);
+			path = WorkFlow;
+			sourceTree = "<group>";
+		};
+		C886A3BC2BED621C00E059B0 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				C886A3BE2BED623000E059B0 /* MessagesMainView.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		C886A3BD2BED622600E059B0 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C886A3C02BED623600E059B0 /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		C8E60A9A2BE9318A00E17993 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +255,7 @@
 		C8E60AD02BE932D400E17993 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				C8694B982BFEADEC00B88DD8 /* Info.plist */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -204,6 +263,7 @@
 		C8E60AD12BE932DD00E17993 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C87966332BF2B76D0065FB39 /* WorkFlow */,
 				C8E60AD92BE933D500E17993 /* Modules */,
 			);
 			path = Views;
@@ -221,6 +281,9 @@
 				C89C9D352BEC9F070066DA14 /* RoundedButton.swift */,
 				C89C9D372BEC9F1C0066DA14 /* BackButton.swift */,
 				C89C9D392BEC9F2E0066DA14 /* Animations.swift */,
+				C886A3B62BED4D3A00E059B0 /* CustomTabBar.swift */,
+				C87966342BF2B8130065FB39 /* CardStack.swift */,
+				C84B9AD42BF5FE030025A31F /* ImagePicker.swift */,
 			);
 			path = "Shared Components";
 			sourceTree = "<group>";
@@ -262,6 +325,8 @@
 		C8E60AD92BE933D500E17993 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C886A3BD2BED622600E059B0 /* Calendar */,
+				C886A3BC2BED621C00E059B0 /* Messages */,
 				C82097EF2BEC136E0020EBE1 /* Accounts */,
 				C8E60AF92BEAD29700E17993 /* Earnings */,
 				C8E60AE92BE983F000E17993 /* Jobs */,
@@ -294,6 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				C8E60AE32BE9746200E17993 /* HomeView.swift */,
+				C886A3BA2BED5CE700E059B0 /* MainView.swift */,
+				C886A3B82BED574800E059B0 /* TabTestView.swift */,
 				C89C9D2D2BEC9EA20066DA14 /* MapView.swift */,
 			);
 			path = Home;
@@ -302,6 +369,7 @@
 		C8E60AE92BE983F000E17993 /* Jobs */ = {
 			isa = PBXGroup;
 			children = (
+				C84B9AD82BF63B270025A31F /* JobVIew */,
 				C8E60AED2BE9840E00E17993 /* Model */,
 				C8E60AEC2BE9840700E17993 /* Components */,
 				C8E60AEB2BE9840000E17993 /* Scheduled */,
@@ -346,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				C8E60AF12BE987F400E17993 /* TestData.swift */,
+				C87966382BF2BA520065FB39 /* TaskFlowData.swift */,
 			);
 			path = TestData;
 			sourceTree = "<group>";
@@ -356,6 +425,7 @@
 				C8E60AFA2BEAD2A800E17993 /* EarningsMainView.swift */,
 				C89C9D272BEC9E3D0066DA14 /* CardView.swift */,
 				C89C9D252BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift */,
+				C84B9ADB2BF7CF790025A31F /* EarningListView.swift */,
 			);
 			path = Earnings;
 			sourceTree = "<group>";
@@ -497,17 +567,25 @@
 				C8E60AE42BE9746200E17993 /* HomeView.swift in Sources */,
 				C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */,
 				C8E60AE82BE97D2300E17993 /* LoginView.swift in Sources */,
+				C84B9AD52BF5FE030025A31F /* ImagePicker.swift in Sources */,
 				C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */,
+				C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */,
 				C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */,
+				C886A3BB2BED5CE700E059B0 /* MainView.swift in Sources */,
 				C8E60AD82BE9338D00E17993 /* Color+.swift in Sources */,
+				C84B9AD72BF622C90025A31F /* WorkFlowSuccessScreen.swift in Sources */,
 				C8E60AEF2BE9841F00E17993 /* JobCardCell.swift in Sources */,
 				C82097F12BEC137A0020EBE1 /* AccountsView.swift in Sources */,
 				C89C9D382BEC9F1C0066DA14 /* BackButton.swift in Sources */,
 				C89C9D222BEC9DD50066DA14 /* AccountRowView.swift in Sources */,
 				C89C9D362BEC9F070066DA14 /* RoundedButton.swift in Sources */,
+				C87966392BF2BA520065FB39 /* TaskFlowData.swift in Sources */,
 				C89C9D262BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift in Sources */,
+				C886A3B72BED4D3A00E059B0 /* CustomTabBar.swift in Sources */,
 				C89C9D3A2BEC9F2E0066DA14 /* Animations.swift in Sources */,
+				C886A3C12BED623700E059B0 /* CalendarView.swift in Sources */,
 				C89C9D322BEC9ED50066DA14 /* TermsString.swift in Sources */,
+				C84B9ADC2BF7CF790025A31F /* EarningListView.swift in Sources */,
 				C8E60AF82BE9902500E17993 /* AvailableJobsView.swift in Sources */,
 				C8E60AE62BE977FA00E17993 /* SignUpView.swift in Sources */,
 				C8E60ADE2BE9345700E17993 /* AppUserInterface.swift in Sources */,
@@ -519,6 +597,10 @@
 				C89C9D2A2BEC9E550066DA14 /* String+.swift in Sources */,
 				C89C9D2C2BEC9E7E0066DA14 /* RoundedCorner.swift in Sources */,
 				C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */,
+				C886A3B92BED574800E059B0 /* TabTestView.swift in Sources */,
+				C87966352BF2B8130065FB39 /* CardStack.swift in Sources */,
+				C84B9ADA2BF63B380025A31F /* JobInfoView.swift in Sources */,
+				C87966372BF2B8550065FB39 /* WorkFlowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +763,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"freshNest-iOS/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "freshNest-iOS/Preview\\ Content freshNest-iOS/API/Info.plist";
 				DEVELOPMENT_TEAM = 7KHTT82T5H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -710,7 +792,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"freshNest-iOS/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "freshNest-iOS/Preview\\ Content freshNest-iOS/API/Info.plist";
 				DEVELOPMENT_TEAM = 7KHTT82T5H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

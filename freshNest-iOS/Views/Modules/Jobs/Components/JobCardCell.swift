@@ -49,7 +49,7 @@ struct JobCardCell: View {
                     .foregroundColor(Color.black.opacity(0.9))
                     .lineLimit(1)
             }
-            RoundedButton(title: data.jobType == .scheduled ? getFormattedTime() : "Match", action: {}, color: Color(hex: AppUserInterface.Colors.appButtonBlack), textColor: .white)
+            RoundedButton(title: data.jobType == .scheduled ? getFormattedTime() : "View Job Info", action: {}, color: Color(hex: AppUserInterface.Colors.appButtonBlack), textColor: .white)
         }
         .padding()
         .frame(maxWidth: 400, alignment: .leading)

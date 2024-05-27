@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    var isBackButtonHidden = false
     @State private var email = ""
     @State private var firstName = ""
     @State private var lastName = ""
@@ -15,7 +16,9 @@ struct SignUpView: View {
     @State private var showLoginScreen = false
     var body: some View {
         VStack(alignment: .leading) {
-            BackButton()
+            if !isBackButtonHidden {
+                BackButton()
+            }
             VStack(alignment: .leading, spacing: 8) {
                 Text("Let’s Get Started!")
                     .font(.system(size: 28, weight: .bold))

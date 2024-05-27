@@ -34,10 +34,12 @@ struct CardView: View {
                 Spacer()
                 VStack(alignment: .leading, spacing: 16) {
                     if !isStatic {
-                        Text(cardNumber.formatCardNumber()).textCase(.uppercase)
+                        Text(cardNumber.formatCardNumber())
+                            .textCase(.uppercase)
                             .font(.system(size: 24, weight: .bold))
                     } else {
-                        Text(!showMaskedNumber ? cardNumber.maskCardNumber() : cardNumber.formatCardNumber()).textCase(.uppercase)
+                        Text(!showMaskedNumber ? cardNumber.maskCardNumber() : cardNumber.formatCardNumber())
+                            .textCase(.uppercase)
                             .font(.system(size: 24, weight: .bold))
                     }
                 }
@@ -72,5 +74,40 @@ struct CardView: View {
                     )
             }
         )
+    }
+}
+
+struct HoloEffect: ViewModifier {
+    @Binding var animate: Bool
+
+    func body(content: Content) -> some View {
+        content
+            .background(
+                ZStack {
+                    // Base gradient background
+                    LinearGradient(
+                        gradient: Gradient(colors: [.gray, .white, .gray]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .blur(radius: 10)
+                    
+                    // Holo effect
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color.white.opacity(0),
+                            Color.white.opacity(0.6),
+                            Color.white.opacity(0)
+                        ]),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                    .blendMode(.overlay)
+                    .rotationEffect(.degrees(45))
+                    .offset(x: animate ? 300 : -300)  // Adjust the offset to create the movement effect
+                    .animation(Animation.linear(duration: 3.0).repeatForever(autoreverses: false), value: animate)
+                }
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
