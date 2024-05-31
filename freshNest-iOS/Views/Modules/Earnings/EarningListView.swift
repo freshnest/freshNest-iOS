@@ -13,7 +13,7 @@ struct EarningListView: View {
             ZStack {
                 Spacer()
                 Text("Your Earnings")
-                    .font(.system(size: 28, weight: .bold))
+                    .font(.cascaded(ofSize: .h28, weight: .bold))
                     .accessibility(addTraits: .isHeader)
                     .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                 Spacer()
@@ -35,9 +35,9 @@ struct EarningListView: View {
                 .overlay(
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Balance")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(.cascaded(ofSize: .h16, weight: .medium))
                         Text("$ 1355.97")
-                            .font(.system(size: 42, weight: .bold))
+                            .font(.cascaded(ofSize: .h42, weight: .bold))
                             .foregroundStyle(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
@@ -49,15 +49,15 @@ struct EarningListView: View {
                                     endPoint: .bottom
                                 ))
                         Text("All pending amount will be added once they are verified.")
-                                .font(.system(size: 12))
+                            .font(.cascaded(ofSize: .h12, weight: .regular))
                                 .foregroundColor(.gray)
                     }
-                    .padding(.leading, 16) // Adjust padding to your needs
+                    .padding(.leading, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 )
             
             Text("Recent Earnings")
-                .font(.system(size: 24, weight: .medium))
+                .font(.cascaded(ofSize: .h24, weight: .medium))
                 .padding(.top, 32)
             
            
@@ -91,15 +91,15 @@ struct EarningListViewCell : View {
                     HStack {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(address ?? "Fenway Street, Massachussets")
-                                .font(.system(size: 18, weight: .medium))
+                                .font(.cascaded(ofSize: .h18, weight: .medium))
                             
                             Text(date ?? "26th May 2024")
-                                .font(.system(size: 16, weight: .medium))
+                                .font(.cascaded(ofSize: .h16, weight: .medium))
                                 .foregroundStyle(.black.opacity(0.6))
                         }
                         Spacer()
                         Text(amount ?? "$125.00")
-                            .font(.system(size: 28, weight: .medium))
+                            .font(.cascaded(ofSize: .h28, weight: .medium))
                         
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

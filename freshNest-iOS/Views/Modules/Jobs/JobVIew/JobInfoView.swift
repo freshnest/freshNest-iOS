@@ -53,11 +53,11 @@ struct JobInfoView: View {
             
             VStack(alignment: .leading) {
                 Text("Centre Place Graslin - 14th Street")
-                    .font(.system(size: 32, weight: .bold))
+                    .font(.cascaded(ofSize: .h32, weight: .bold))
                 
                 HStack {
                     Text(data?.address ?? "Fenway, Boston, Massachusetts")
-                        .font(.system(size: 14, weight: .regular))
+                        .font(.cascaded(ofSize: .h14, weight: .regular))
                         .foregroundStyle(.black.opacity(0.4))
                     Spacer()
                     
@@ -65,7 +65,7 @@ struct JobInfoView: View {
                 
                 HStack {
                     Text(data?.timeToDestination ?? "15 mins away")
-                        .font(.system(size: 18, weight: .medium))
+                        .font(.cascaded(ofSize: .h18, weight: .medium))
                         .foregroundStyle(.green)
                         .padding(4)
                         .background(
@@ -76,7 +76,7 @@ struct JobInfoView: View {
                 }
                 
                 Text("Work Items")
-                    .font(.system(size: 20, weight: .bold))
+                    .font(.cascaded(ofSize: .h20, weight: .bold))
                     .padding(.top, 32)
                 
                 //                NonInteractiveMapView()
@@ -96,15 +96,15 @@ struct JobInfoView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Payout Amount")
-                            .font(.system(size: 16, weight: .regular))
+                            .font(.cascaded(ofSize: .h16, weight: .regular))
                             .foregroundStyle(.gray)
                         Text(data?.amount ?? "$77")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.cascaded(ofSize: .h20, weight: .bold))
                     }
                     Spacer()
                     HStack {
                         Text("Match")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.cascaded(ofSize: .h16, weight: .bold))
                             .foregroundStyle(.white)                            .padding()
                             .frame(minWidth: 0, maxWidth: 150)
                             .background( LinearGradient(
@@ -149,7 +149,7 @@ struct WorkItemCell: View {
                         Spacer()
                         
                         Text(text)
-                            .font(.system(size: 14, weight: .medium))
+                            .font(.cascaded(ofSize: .h14, weight: .medium))
                         
                     }
                         .padding(18)

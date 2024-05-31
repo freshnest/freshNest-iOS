@@ -29,8 +29,8 @@ struct WorkFlowSuccessScreen: View {
                     }
                 Spacer()
             }
-            Text("Great work! Your job is being reviewed for approval. We will notify you when it's approved.")
-                .font(.system(size: 24, weight: .medium))
+            Text("Great work! Your job is being reviewed for approval. \n\nWe will notify you when it's approved.")
+                .font(.cascaded(ofSize: .h24, weight: .medium))
             
             Spacer()
             
@@ -41,7 +41,7 @@ struct WorkFlowSuccessScreen: View {
         .padding(16)
         .navigationBarBackButtonHidden()
         .fullScreenCover(isPresented: $showHomeScreen, content: {
-            HomeView()
+            MainView()
         })
     }
 }

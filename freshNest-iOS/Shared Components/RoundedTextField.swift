@@ -18,8 +18,10 @@ struct RoundedTextField: View {
         HStack {
             if isSecure && !showPassword {
                 SecureField(placeholderText, text: $text)
+                    .font(.cascaded(ofSize: .h16, weight: .regular))
             } else {
                 TextField(placeholderText, text: $text)
+                    .font(.cascaded(ofSize: .h16, weight: .regular))
             }
             
             Button(action: {

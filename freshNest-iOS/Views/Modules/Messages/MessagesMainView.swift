@@ -19,7 +19,7 @@ struct InboxMainView: View {
             ZStack {
                 Spacer()
                 Text("Inbox")
-                    .font(.system(size: 28, weight: .bold))
+                    .font(.cascaded(ofSize: .h28, weight: .bold))
                     .accessibility(addTraits: .isHeader)
                     .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                 Spacer()
@@ -77,9 +77,9 @@ struct NotificationItemCell : View {
                 .padding(.trailing, 24) 
             VStack(alignment: .leading) {
                 Text("You have 5 upcoming cleaning bookings scheduled!")
-                    .font(.system(size: 18, weight: .medium))
+                    .font(.cascaded(ofSize: .h18, weight: .medium))
                 Text("May 12, 2024")
-                    .font(.system(size: 14, weight: .light))
+                    .font(.cascaded(ofSize: .h14, weight: .regular))
             }
         }
     }
@@ -155,11 +155,11 @@ struct NotificationCell: View {
                 
                 VStack(alignment: .leading) {
                     Text(name)
-                        .font(.system(size: 16, weight: .regular))
+                        .font(.cascaded(ofSize: .h16, weight: .regular))
                     Text(message)
-                        .font(.system(size: 18, weight: .medium))
+                        .font(.cascaded(ofSize: .h18, weight: .medium))
                     Text(bookingStatus)
-                        .font(.system(size: 16, weight: .light))
+                        .font(.cascaded(ofSize: .h16, weight: .regular))
                 }
             }
             Divider()
@@ -176,10 +176,10 @@ struct NotificationEmptyViewCell : View {
                 .foregroundStyle(.black)
             
             Text("No Notifications yet")
-                .font(.system(size: 16, weight: .medium))
+                .font(.cascaded(ofSize: .h16, weight: .medium))
             
             Text("You've got a blank slate (for now). We'll let you know when the update arrives")
-                .font(.system(size: 16, weight: .regular))
+                .font(.cascaded(ofSize: .h16, weight: .regular))
                 .multilineTextAlignment(.center)
         }
     }

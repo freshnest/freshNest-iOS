@@ -22,7 +22,7 @@ struct FadeInOutView: View {
         HStack(spacing: 0) {
             ForEach(0..<words.count) { index in
                 Text(self.words[index])
-                    .font(.system(size: 32, weight: .bold))
+                    .font(.cascaded(ofSize: .h32, weight: .bold))
                     .foregroundColor(.black)
                     .opacity(opacity)
                     .animation(

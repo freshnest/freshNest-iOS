@@ -17,10 +17,9 @@ struct EarningsMainView: View {
         NavigationView {
             ZStack(alignment: .top) {
                 VStack(spacing: 24) {
-                    ZStack {
-                        Spacer()
+                    HStack {
                         Text("Earnings")
-                            .font(.system(size: 28, weight: .bold))
+                            .font(.cascaded(ofSize: .h28, weight: .bold))
                             .accessibility(addTraits: .isHeader)
                             .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                         Spacer()
@@ -45,7 +44,7 @@ struct EarningsMainView: View {
                                         .resizable()
                                         .frame(width: 24, height: 24)
                                     Text(isFirstCard ? "Add New Card" : "Add Different Card")
-                                        .font(.system(size: 14, weight: .regular))
+                                        .font(.cascaded(ofSize: .h14, weight: .regular))
                                 }
                                 .foregroundColor(.black)
                             }

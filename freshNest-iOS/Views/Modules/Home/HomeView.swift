@@ -13,21 +13,21 @@ struct HomeView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            VStack {
+            VStack(spacing: 0) {
                 MapView()
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Hello, John")
-                            .font(.system(size: 32, weight: .bold))
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Hello there, John")
+                            .font(.cascaded(ofSize: .h32, weight: .bold))
                         Text("You have 4 jobs scheduled!")
-                            .font(.system(size: 18, weight: .regular))
+                            .font(.cascaded(ofSize: .h24, weight: .regular))
                     }
                     .padding(.vertical, 20)
                     VStack(spacing: 20) {
                         HStack {
                             Text("Scheduled Jobs")
                                 .frame(height: 40)
-                                .font(.system(size: 16, weight: .medium))
+                                .font(.cascaded(ofSize: .h16, weight: .medium))
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -42,7 +42,7 @@ struct HomeView: View {
                         HStack {
                             Text("Available Jobs")
                                 .frame(height: 40)
-                                .font(.system(size: 16, weight: .medium))
+                                .font(.cascaded(ofSize: .h16, weight: .medium))
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(minWidth: 0, maxWidth: .infinity)

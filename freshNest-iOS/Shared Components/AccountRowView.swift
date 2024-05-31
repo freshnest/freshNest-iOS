@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsRowView: View {
-    //    var systemImage: String
+        var systemImage: String
     var title: String
     //    var color: String
     var optionalText: String?
@@ -17,17 +17,17 @@ struct SettingsRowView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            //            Image(systemName: systemImage)
-            //                .font(.system(.body, design: .rounded))
-            //                .foregroundColor(.white)
-            //                .frame(
-            //                    width: dynamicTypeSize > .xLarge ? 40 : 30, height: dynamicTypeSize > .xLarge ? 40 : 30,
-            //                    alignment: .center
-            //                )
-            //                .background(Color(hex: color), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+//                        Image(systemName: systemImage)
+//                            .font(.system(.body, design: .rounded))
+//                            .foregroundColor(.black)
+//                            .frame(
+//                                width: dynamicTypeSize > .xLarge ? 40 : 30, height: dynamicTypeSize > .xLarge ? 40 : 30,
+//                                alignment: .center
+//                            )
+//                            .background(.black, in: RoundedRectangle(cornerRadius: 6, style: .continuous))
             
             Text(LocalizedStringKey(title))
-                .font(.system(.body, design: .rounded).weight(.medium))
+                .font(.cascaded(ofSize: .h18, weight: .regular))
                 .lineLimit(1)
                 .foregroundColor(Color.black.opacity(0.9))
             
@@ -35,7 +35,7 @@ struct SettingsRowView: View {
             
             if optionalText != nil {
                 Text(optionalText!)
-                    .font(.system(.body, design: .rounded))
+                    .font(.cascaded(ofSize: .h16, weight: .regular))
                     .foregroundColor(.gray.opacity(0.6))
                     .layoutPriority(1)
                     .padding(.trailing, -8)
@@ -43,9 +43,9 @@ struct SettingsRowView: View {
             
             Image(systemName: "chevron.forward")
                 .font(.system(.subheadline, design: .rounded))
-            //                .font(.system(size: 15))
                 .foregroundColor(.gray.opacity(0.6))
         }
+        .frame(height: 20)
         .frame(maxWidth: .infinity)
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
     }

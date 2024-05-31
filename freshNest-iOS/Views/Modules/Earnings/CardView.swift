@@ -36,20 +36,20 @@ struct CardView: View {
                     if !isStatic {
                         Text(cardNumber.formatCardNumber())
                             .textCase(.uppercase)
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.cascaded(ofSize: .h24, weight: .bold))
                     } else {
                         Text(!showMaskedNumber ? cardNumber.maskCardNumber() : cardNumber.formatCardNumber())
                             .textCase(.uppercase)
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.cascaded(ofSize: .h24, weight: .bold))
                     }
                 }
                 Spacer()
                 HStack {
                     Text(accountHolderName)
-                        .font(.system(size: 16, weight: .bold))
+                        .font(.cascaded(ofSize: .h16, weight: .bold))
                     Spacer()
                     Text(expiry)
-                        .font(.system(size: 12, weight: .regular))
+                        .font(.cascaded(ofSize: .h12, weight: .regular))
                 }
             }
             .padding(16)

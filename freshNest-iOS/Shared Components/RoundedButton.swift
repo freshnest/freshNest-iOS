@@ -15,7 +15,7 @@ struct RoundedButton: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(.system(size: 16, weight: .medium))
+                .font(.cascaded(ofSize: .h16, weight: .medium))
                 .foregroundColor(textColor)
                 .padding()
                 .frame(minWidth: 0, maxWidth: .infinity)

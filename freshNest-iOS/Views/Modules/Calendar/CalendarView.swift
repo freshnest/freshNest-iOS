@@ -19,13 +19,18 @@ struct CalendarView: View {
                          VStack(spacing: 16) {
                              ForEach(chunkedJobs(for: selectedDate), id: \.self) { jobGroup in
                                  VStack {
-                                     ForEach(jobGroup) { job in
-                                         CalendarViewItemCell(
-                                             amount: job.amount,
-                                             workItems: job.workItems,
-                                             timeToDestination: job.timeToDestination,
-                                             address: job.address
-                                         )
+                                     ForEach(Array(jobGroup.enumerated()), id: \.element.id) { index, job in
+                                         VStack(spacing: 0) {
+                                             CalendarViewItemCell(
+                                                amount: job.amount,
+                                                workItems: job.workItems,
+                                                timeToDestination: job.timeToDestination,
+                                                address: job.address
+                                             )
+                                             if index < jobGroup.count - 1 {
+                                                 Divider()
+                                             }
+                                         }
                                          .padding(.bottom, 8)
                                      }
                                  }
@@ -70,7 +75,7 @@ struct CalendarViewItemCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(timeToDestination)
-                .font(.system(size: 12, weight: .regular))
+                .font(.cascaded(ofSize: .h12, weight: .regular))
                 .foregroundStyle(.white)
                 .padding(4)
                 .background(
@@ -79,13 +84,13 @@ struct CalendarViewItemCell: View {
                 )
             HStack {
                 Text(workItems)
-                    .font(.system(size: 18, weight: .medium))
+                    .font(.cascaded(ofSize: .h18, weight: .medium))
                 Spacer()
                 Text(amount)
-                    .font(.system(size: 18, weight: .regular))
+                    .font(.cascaded(ofSize: .h18, weight: .regular))
             }
             Text(address)
-                .font(.system(size: 14, weight: .regular))
+                .font(.cascaded(ofSize: .h14, weight: .regular))
         }
         .padding(8)
     }
@@ -113,9 +118,9 @@ struct CalendarViewCell: View {
         VStack(spacing: 4){
             HStack(alignment: .bottom, spacing: 4) {
                 Text(formattedMonth)
-                    .font(.system(size: 24, weight: .medium))
+                    .font(.cascaded(ofSize: .h24, weight: .medium))
                 Text(formattedYear)
-                    .font(.system(size: 18, weight: .regular))
+                    .font(.cascaded(ofSize: .h18, weight: .regular))
                     .foregroundStyle(.black.opacity(0.4))
             }
             ScrollView(.horizontal, showsIndicators: false) {
@@ -168,11 +173,11 @@ struct CalendarDateView: View {
                         .frame(width: 4, height: 4)
                 }
                 Text(String(format: "%02d", Calendar.current.component(.day, from: date)))
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.cascaded(ofSize: .h24, weight: .bold))
                     .foregroundColor(.black.opacity(0.7))
                 
                 Text(date.weekdayLetter).textCase(.uppercase)
-                    .font(.system(size: 12, weight: .regular))
+                    .font(.cascaded(ofSize: .h12, weight: .regular))
                     .foregroundColor(isSelected ? .black : .gray)
                 
                 if isSelected {

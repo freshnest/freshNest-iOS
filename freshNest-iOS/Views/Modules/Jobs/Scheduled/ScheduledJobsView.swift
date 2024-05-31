@@ -14,7 +14,7 @@ struct ScheduledJobsView: View {
                 ZStack {
                     Spacer()
                     Text("Scheduled Jobs")
-                        .font(.system(size: 28, weight: .bold))
+                        .font(.cascaded(ofSize: .h28, weight: .bold))
                         .accessibility(addTraits: .isHeader)
                         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                     Spacer()

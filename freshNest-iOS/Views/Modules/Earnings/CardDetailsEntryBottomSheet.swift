@@ -18,13 +18,13 @@ struct CardDetailsEntryBottomSheet: View {
             ZStack {
                 Spacer()
                 Text("Add New Card")
-                    .font(.system(size: 20, weight: .medium))
+                    .font(.cascaded(ofSize: .h20, weight: .medium))
                 Spacer()
             }
             .padding(.vertical, 24)
             VStack {
                 Text("Start typing to add your credit card details.Everything will upadate according to your data.")
-                    .font(.system(size: 14, weight: .regular))
+                    .font(.cascaded(ofSize: .h14, weight: .regular))
                     .foregroundStyle(Color.black.opacity(0.5))
                     .padding(.horizontal, 16)
                 if !cardNumber.isEmpty {

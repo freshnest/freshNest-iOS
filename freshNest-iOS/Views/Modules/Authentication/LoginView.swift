@@ -16,10 +16,10 @@ struct LoginView: View {
             BackButton()
             VStack(alignment: .leading, spacing: 8) {
                 Text("Welcome to FreshNest")
-                    .font(.system(size: 28, weight: .bold))
+                    .font(.cascaded(ofSize: .h28, weight: .bold))
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appTitleColor))
                 Text("Please enter your details for logging into your account.")
-                    .font(.system(size: 12, weight: .regular))
+                    .font(.cascaded(ofSize: .h12, weight: .regular))
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appTitleColor).opacity(0.6))
             }
             .padding(.top, 40)
@@ -39,7 +39,7 @@ struct LoginView: View {
         .padding(16)
         .frame(maxWidth: .infinity)
         .fullScreenCover(isPresented: $showHomeScreen, content: {
-            HomeView()
+            MainView()
         })
     }
 }

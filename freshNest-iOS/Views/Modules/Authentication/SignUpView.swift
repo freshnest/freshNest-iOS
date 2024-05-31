@@ -21,10 +21,10 @@ struct SignUpView: View {
             }
             VStack(alignment: .leading, spacing: 8) {
                 Text("Let’s Get Started!")
-                    .font(.system(size: 28, weight: .bold))
+                    .font(.cascaded(ofSize: .h28, weight: .bold))
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appTitleColor))
                 Text("Fill the form to continue.")
-                    .font(.system(size: 12, weight: .regular))
+                    .font(.cascaded(ofSize: .h12, weight: .regular))
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appTitleColor).opacity(0.6))
             }
             .padding(.top, 40)

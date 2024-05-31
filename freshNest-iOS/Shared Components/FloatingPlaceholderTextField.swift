@@ -18,12 +18,12 @@ struct FloatingPlaceholderTextField: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(fieldHeading)
-                .font(.system(size: 10, weight: .regular))
+                .font(.cascaded(ofSize: .h10, weight: .regular))
                 .foregroundStyle(.black.opacity(0.5))
                 .padding(.horizontal, 32)
             VStack(alignment: .leading) {
                 TextField(placeholder, text: $text)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(.cascaded(ofSize: .h16, weight: .medium))
                     .keyboardType(keyboardType)
                     .onChange(of: text) { newValue in
                         if newValue.count > characterLimit {

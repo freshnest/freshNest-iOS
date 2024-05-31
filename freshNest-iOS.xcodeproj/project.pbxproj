@@ -8,10 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C82097F12BEC137A0020EBE1 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82097F02BEC137A0020EBE1 /* AccountsView.swift */; };
+		C84951E52C09989200A2265B /* AccountUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84951E42C09989200A2265B /* AccountUserInfoCell.swift */; };
 		C84B9AD52BF5FE030025A31F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9AD42BF5FE030025A31F /* ImagePicker.swift */; };
 		C84B9AD72BF622C90025A31F /* WorkFlowSuccessScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9AD62BF622C90025A31F /* WorkFlowSuccessScreen.swift */; };
 		C84B9ADA2BF63B380025A31F /* JobInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9AD92BF63B380025A31F /* JobInfoView.swift */; };
 		C84B9ADC2BF7CF790025A31F /* EarningListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9ADB2BF7CF790025A31F /* EarningListView.swift */; };
+		C85EA87C2C0727870048C56A /* UberMove-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85EA8792C0727870048C56A /* UberMove-Bold.ttf */; };
+		C85EA87D2C0727870048C56A /* UberMove-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85EA87A2C0727870048C56A /* UberMove-Medium.ttf */; };
+		C85EA87E2C0727870048C56A /* UberMove-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85EA87B2C0727870048C56A /* UberMove-Regular.ttf */; };
+		C85EA8812C0727AE0048C56A /* Label+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85EA8802C0727AE0048C56A /* Label+.swift */; };
+		C85EA8842C0727CC0048C56A /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85EA8832C0727CC0048C56A /* AppFont.swift */; };
+		C85EA8872C07282D0048C56A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85EA8862C07282D0048C56A /* TestView.swift */; };
 		C87966352BF2B8130065FB39 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966342BF2B8130065FB39 /* CardStack.swift */; };
 		C87966372BF2B8550065FB39 /* WorkFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966362BF2B8550065FB39 /* WorkFlowView.swift */; };
 		C87966392BF2BA520065FB39 /* TaskFlowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966382BF2BA520065FB39 /* TaskFlowData.swift */; };
@@ -74,10 +81,18 @@
 
 /* Begin PBXFileReference section */
 		C82097F02BEC137A0020EBE1 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		C84951E42C09989200A2265B /* AccountUserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUserInfoCell.swift; sourceTree = "<group>"; };
 		C84B9AD42BF5FE030025A31F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C84B9AD62BF622C90025A31F /* WorkFlowSuccessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowSuccessScreen.swift; sourceTree = "<group>"; };
 		C84B9AD92BF63B380025A31F /* JobInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobInfoView.swift; sourceTree = "<group>"; };
 		C84B9ADB2BF7CF790025A31F /* EarningListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningListView.swift; sourceTree = "<group>"; };
+		C85EA8792C0727870048C56A /* UberMove-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Bold.ttf"; sourceTree = "<group>"; };
+		C85EA87A2C0727870048C56A /* UberMove-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Medium.ttf"; sourceTree = "<group>"; };
+		C85EA87B2C0727870048C56A /* UberMove-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Regular.ttf"; sourceTree = "<group>"; };
+		C85EA8802C0727AE0048C56A /* Label+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+.swift"; sourceTree = "<group>"; };
+		C85EA8832C0727CC0048C56A /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		C85EA8862C07282D0048C56A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		C85EA8882C0728A20048C56A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C8694B982BFEADEC00B88DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C87966342BF2B8130065FB39 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		C87966362BF2B8550065FB39 /* WorkFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowView.swift; sourceTree = "<group>"; };
@@ -154,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C82097F02BEC137A0020EBE1 /* AccountsView.swift */,
+				C84951E42C09989200A2265B /* AccountUserInfoCell.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -164,6 +180,33 @@
 				C84B9AD92BF63B380025A31F /* JobInfoView.swift */,
 			);
 			path = JobVIew;
+			sourceTree = "<group>";
+		};
+		C85EA87F2C0727920048C56A /* Font Group */ = {
+			isa = PBXGroup;
+			children = (
+				C85EA8792C0727870048C56A /* UberMove-Bold.ttf */,
+				C85EA87A2C0727870048C56A /* UberMove-Medium.ttf */,
+				C85EA87B2C0727870048C56A /* UberMove-Regular.ttf */,
+			);
+			path = "Font Group";
+			sourceTree = "<group>";
+		};
+		C85EA8822C0727C30048C56A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C85EA87F2C0727920048C56A /* Font Group */,
+				C85EA8832C0727CC0048C56A /* AppFont.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		C85EA8852C0728210048C56A /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C85EA8862C07282D0048C56A /* TestView.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		C87966332BF2B76D0065FB39 /* WorkFlow */ = {
@@ -214,6 +257,7 @@
 		C8E60AA52BE9318A00E17993 /* freshNest-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C85EA8882C0728A20048C56A /* Info.plist */,
 				C8E60AF02BE987E700E17993 /* TestData */,
 				C8E60AD62BE9331300E17993 /* Assets */,
 				C8E60AD52BE9330D00E17993 /* AppWide */,
@@ -263,7 +307,7 @@
 		C8E60AD12BE932DD00E17993 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C87966332BF2B76D0065FB39 /* WorkFlow */,
+				C85EA8852C0728210048C56A /* Test */,
 				C8E60AD92BE933D500E17993 /* Modules */,
 			);
 			path = Views;
@@ -301,6 +345,7 @@
 			children = (
 				C8E60AD72BE9338D00E17993 /* Color+.swift */,
 				C89C9D292BEC9E550066DA14 /* String+.swift */,
+				C85EA8802C0727AE0048C56A /* Label+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,6 +362,7 @@
 		C8E60AD62BE9331300E17993 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C85EA8822C0727C30048C56A /* Font */,
 				C8E60AAA2BE9318C00E17993 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -325,6 +371,7 @@
 		C8E60AD92BE933D500E17993 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C87966332BF2B76D0065FB39 /* WorkFlow */,
 				C886A3BD2BED622600E059B0 /* Calendar */,
 				C886A3BC2BED621C00E059B0 /* Messages */,
 				C82097EF2BEC136E0020EBE1 /* Accounts */,
@@ -535,7 +582,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8E60AAE2BE9318C00E17993 /* Preview Assets.xcassets in Resources */,
+				C85EA87E2C0727870048C56A /* UberMove-Regular.ttf in Resources */,
 				C8E60AAB2BE9318C00E17993 /* Assets.xcassets in Resources */,
+				C85EA87D2C0727870048C56A /* UberMove-Medium.ttf in Resources */,
+				C85EA87C2C0727870048C56A /* UberMove-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +618,7 @@
 				C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */,
 				C8E60AE82BE97D2300E17993 /* LoginView.swift in Sources */,
 				C84B9AD52BF5FE030025A31F /* ImagePicker.swift in Sources */,
+				C85EA8842C0727CC0048C56A /* AppFont.swift in Sources */,
 				C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */,
 				C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */,
 				C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */,
@@ -583,6 +634,7 @@
 				C89C9D262BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift in Sources */,
 				C886A3B72BED4D3A00E059B0 /* CustomTabBar.swift in Sources */,
 				C89C9D3A2BEC9F2E0066DA14 /* Animations.swift in Sources */,
+				C85EA8872C07282D0048C56A /* TestView.swift in Sources */,
 				C886A3C12BED623700E059B0 /* CalendarView.swift in Sources */,
 				C89C9D322BEC9ED50066DA14 /* TermsString.swift in Sources */,
 				C84B9ADC2BF7CF790025A31F /* EarningListView.swift in Sources */,
@@ -590,6 +642,7 @@
 				C8E60AE62BE977FA00E17993 /* SignUpView.swift in Sources */,
 				C8E60ADE2BE9345700E17993 /* AppUserInterface.swift in Sources */,
 				C89C9D282BEC9E3D0066DA14 /* CardView.swift in Sources */,
+				C85EA8812C0727AE0048C56A /* Label+.swift in Sources */,
 				C8E60AFB2BEAD2A800E17993 /* EarningsMainView.swift in Sources */,
 				C8E60AE02BE934EC00E17993 /* OnboardingView.swift in Sources */,
 				C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */,
@@ -598,6 +651,7 @@
 				C89C9D2C2BEC9E7E0066DA14 /* RoundedCorner.swift in Sources */,
 				C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */,
 				C886A3B92BED574800E059B0 /* TabTestView.swift in Sources */,
+				C84951E52C09989200A2265B /* AccountUserInfoCell.swift in Sources */,
 				C87966352BF2B8130065FB39 /* CardStack.swift in Sources */,
 				C84B9ADA2BF63B380025A31F /* JobInfoView.swift in Sources */,
 				C87966372BF2B8550065FB39 /* WorkFlowView.swift in Sources */,
@@ -767,6 +821,7 @@
 				DEVELOPMENT_TEAM = 7KHTT82T5H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "freshNest-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -796,6 +851,7 @@
 				DEVELOPMENT_TEAM = 7KHTT82T5H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "freshNest-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

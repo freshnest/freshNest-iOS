@@ -17,7 +17,7 @@ struct WorkFlowView: View {
                     ZStack {
                         Spacer()
                         Text("Task List")
-                            .font(.system(size: 28, weight: .bold))
+                            .font(.cascaded(ofSize: .h28, weight: .bold))
                             .accessibility(addTraits: .isHeader)
                             .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                         Spacer()
@@ -29,11 +29,11 @@ struct WorkFlowView: View {
                     .padding(.bottom, 16)
 
                     Text("Fenway, Boston, Massachussets")
-                        .font(.system(size: 18, weight: .medium))
+                        .font(.cascaded(ofSize: .h18, weight: .medium))
                         .foregroundStyle(.black.opacity(0.6))
                     VStack(alignment: .center) {
                         Text("Apartment Cleaning")
-                            .font(.system(size: 24, weight: .medium))
+                            .font(.cascaded(ofSize: .h24, weight: .medium))
                             .foregroundStyle(.black.opacity(0.8))
                     }
                     .padding(.top, 8)
@@ -76,7 +76,7 @@ struct CircularButton: View {
                     .foregroundColor(.black)
                     .padding(8)
                 Text(text)
-                    .font(.system(size: 12))
+                    .font(.cascaded(ofSize: .h12, weight: .regular))
                     .foregroundStyle(.black)
             }
             .frame(height: 80)
@@ -101,13 +101,13 @@ struct CardView1: View {
             .overlay(
                 VStack(alignment: .leading) {
                     Text(task.title)
-                        .font(.system(.title2, design: .rounded).weight(.bold))
+                        .font(.cascaded(ofSize: .h24, weight: .bold))
                         .padding(.horizontal, 16)
                         .padding(.top, 16)
                         .foregroundColor(Color.black.opacity(0.9))
                         .lineLimit(2)
                     Text(task.description)
-                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .font(.cascaded(ofSize: .h12, weight: .bold))
                         .padding(.horizontal, 16)
                         .foregroundColor(Color.black.opacity(0.3))
                     
@@ -151,7 +151,7 @@ struct SubtaskView: View {
                 .padding(.trailing, 8)
             
             Text(subtask)
-                .font(.system(.body).weight(.regular))
+                .font(.cascaded(ofSize: .h14, weight: .regular))
                 .strikethrough(isChecked, color: .black)
             
             Spacer()
@@ -188,7 +188,7 @@ struct TaskItemView: View {
             HStack {
                 if allSubtasksCompletedAndVerified {
                     Text("Completed")
-                        .font(.system(size: 12, weight: .regular))
+                        .font(.cascaded(ofSize: .h12, weight: .regular))
                         .foregroundStyle(Color(hex: "#00E676"))
                         .padding(4)
                         .background(
@@ -197,7 +197,7 @@ struct TaskItemView: View {
                         )
                 } else {
                     Text("In progress")
-                        .font(.system(size: 12, weight: .regular))
+                        .font(.cascaded(ofSize: .h12, weight: .regular))
                         .foregroundStyle(Color(hex: "#3E90F0"))
                         .padding(4)
                         .background(
@@ -209,8 +209,7 @@ struct TaskItemView: View {
             }
             HStack {
                 Text(task.title)
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.cascaded(ofSize: .h24, weight: .bold))
                 Spacer()
                 Image(systemName: showSubtasks ? "chevron.up.circle.fill" : "chevron.down.circle.fill")
                     .foregroundColor(.black.opacity(0.8))
@@ -220,7 +219,8 @@ struct TaskItemView: View {
             }
             Text(task.description)
                 .foregroundColor(.secondary)
-                .font(.subheadline)
+                .font(.cascaded(ofSize: .h16, weight: .regular))
+            
             
             if showSubtasks {
                 ForEach(task.subtasks.indices, id: \.self) { index in
@@ -270,7 +270,7 @@ struct TaskItemView: View {
                     Text("Select atleast one image for verification of the completed task!")
                         .lineLimit(2, reservesSpace: true)
                         .foregroundColor(.secondary)
-                        .font(.caption)
+                        .font(.cascaded(ofSize: .h14, weight: .regular))
                     if selectedImages.contains { $0 != nil } {
                         RoundedButton(title: "Submit verification images", action: {
                             showSubtasks.toggle()
@@ -284,7 +284,7 @@ struct TaskItemView: View {
                     .frame(width: 12, height: 16)
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appPrimaryBlue))
                 Text("\(task.subtasks.count) Sub-Task")
-                    .font(.system(size: 12, weight: .medium))
+                    .font(.cascaded(ofSize: .h12, weight: .medium))
                     .foregroundStyle(.gray)
             }
         }
