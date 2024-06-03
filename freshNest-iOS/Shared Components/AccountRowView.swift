@@ -8,24 +8,15 @@
 import SwiftUI
 
 struct SettingsRowView: View {
-        var systemImage: String
+    var systemImage: String
     var title: String
-    //    var color: String
+    var action: () -> Void = {}
     var optionalText: String?
     
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
         HStack(spacing: 12) {
-//                        Image(systemName: systemImage)
-//                            .font(.system(.body, design: .rounded))
-//                            .foregroundColor(.black)
-//                            .frame(
-//                                width: dynamicTypeSize > .xLarge ? 40 : 30, height: dynamicTypeSize > .xLarge ? 40 : 30,
-//                                alignment: .center
-//                            )
-//                            .background(.black, in: RoundedRectangle(cornerRadius: 6, style: .continuous))
-            
             Text(LocalizedStringKey(title))
                 .font(.cascaded(ofSize: .h18, weight: .regular))
                 .lineLimit(1)
@@ -48,6 +39,9 @@ struct SettingsRowView: View {
         .frame(height: 20)
         .frame(maxWidth: .infinity)
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        .onTapGesture {
+            action()
+        }
     }
 }
 

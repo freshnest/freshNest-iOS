@@ -13,6 +13,8 @@ struct AccountsView: View {
     @State var completedLongPress = false
     @State var showOnboarding = false
     let emergencyNumber = "tel://911"
+    @AppStorage("notification") var notificationStatus : Bool = false
+    @AppStorage("isVacationModeEnabled") var isVacationModeEnabled = false
     var longPress: some Gesture {
         LongPressGesture(minimumDuration: 1)
             .updating($isDetectingLongPress) {
@@ -24,6 +26,14 @@ struct AccountsView: View {
                 self.completedLongPress = finished
             }
     }
+    
+    @State var showVacationModeView = false
+    @State var showWorkingHoursView = false
+    @State var showNotificationsView = false
+    @State var showEditJobRadiusView = false
+    @State var showEditProfileView = false
+    @State var showSupportItems = false
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .center) {
@@ -48,9 +58,9 @@ struct AccountsView: View {
                                     .font(.cascaded(ofSize: .h18, weight: .bold))
                                     .padding(.vertical, 16)
                                 VStack(spacing: 16) {
-                                    SettingsRowView(systemImage: "person.crop.circle", title: "Edit Profile")
+                                    SettingsRowView(systemImage: "person.crop.circle", title: "Edit Profile", action: { showEditProfileView.toggle() })
                                     Divider()
-                                    SettingsRowView(systemImage: "location.circle", title: "Edit Job Radius")
+                                    SettingsRowView(systemImage: "location.circle", title: "Edit Job Radius", action: { showEditJobRadiusView.toggle() }, optionalText: "5 miles")
                                     Divider()
                                 }
                             }
@@ -60,7 +70,7 @@ struct AccountsView: View {
                                     .font(.cascaded(ofSize: .h18, weight: .bold))
                                     .padding(.vertical, 16)
                                 VStack(spacing: 16) {
-                                    SettingsRowView(systemImage: "bell.circle", title: "Notification")
+                                    SettingsRowView(systemImage: "bell.circle", title: "Notification", action: { showNotificationsView.toggle() }, optionalText: notificationStatus ? "On" : "Off")
                                     Divider()
                                 }
                             }
@@ -70,9 +80,9 @@ struct AccountsView: View {
                                     .font(.cascaded(ofSize: .h18, weight: .bold))
                                     .padding(.vertical, 16)
                                 VStack(spacing: 16) {
-                                    SettingsRowView(systemImage: "clock", title: "Working Hours")
+                                    SettingsRowView(systemImage: "clock", title: "Working Hours", action: { showWorkingHoursView.toggle() })
                                     Divider()
-                                    SettingsRowView(systemImage: "airplane.circle", title: "Vacation Mode")
+                                    SettingsRowView(systemImage: "airplane.circle", title: "Vacation Mode", action: { showVacationModeView.toggle() }, optionalText: isVacationModeEnabled ? "On" : "Off")
                                     Divider()
                                 }
                             }
@@ -84,9 +94,9 @@ struct AccountsView: View {
                                 VStack(spacing: 16) {
                                     SettingsRowView(systemImage: "doc.text", title: "Tax Information")
                                     Divider()
-                                    SettingsRowView(systemImage: "globe", title: "App Language")
+                                    SettingsRowView(systemImage: "globe", title: "App Language", optionalText: "English")
                                     Divider()
-                                    SettingsRowView(systemImage: "questionmark.circle", title: "Support")
+                                    SettingsRowView(systemImage: "questionmark.circle", title: "Support", action: { showSupportItems.toggle() })
                                     Divider()
                                 }
                             }
@@ -98,7 +108,7 @@ struct AccountsView: View {
                                 VStack(spacing: 16) {
                                     SettingsRowView(systemImage: "star.circle", title: "Reviews")
                                     Divider()
-                                    SettingsRowView(systemImage: "checkmark.shield", title: "Background check")
+                                    SettingsRowView(systemImage: "checkmark.shield", title: "Background check", optionalText: "Unverified")
                                     Divider()
                                 }
                             }
@@ -192,6 +202,25 @@ struct AccountsView: View {
         }
         .fullScreenCover(isPresented: $showOnboarding, content: {
             SignUpView(isBackButtonHidden: true)
+        })
+        .fullScreenCover(isPresented: $showVacationModeView, content: {
+            VacationModeView()
+        })
+        .fullScreenCover(isPresented: $showNotificationsView, content: {
+            SettingsNotificationView()
+        })
+        .fullScreenCover(isPresented: $showEditProfileView, content: {
+            EditProfileView()
+        })
+        .fullScreenCover(isPresented: $showWorkingHoursView, content: {
+            WorkingHoursView()
+        })
+        .fullScreenCover(isPresented: $showEditJobRadiusView, content: {
+            EditJobRadiusView()
+        })
+        .sheet(isPresented: $showSupportItems, content: {
+            SupportItemsView()
+                .presentationDetents([.large])
         })
     }
 }

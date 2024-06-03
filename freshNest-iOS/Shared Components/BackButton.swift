@@ -10,11 +10,10 @@ import SwiftUI
 struct BackButton: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        Image(systemName: "arrow.left")
-            .font(.system(.title2, design: .rounded).weight(.semibold))
-            .foregroundColor(Color.black)
-            .onTapGesture {
-                presentationMode.wrappedValue.dismiss()
-            }
+        Button(action: { presentationMode.wrappedValue.dismiss() }) {
+            Image(systemName: "arrow.left")
+                .font(.system(.title2, design: .rounded).weight(.semibold))
+                .foregroundColor(Color.black)
+        }
     }
 }

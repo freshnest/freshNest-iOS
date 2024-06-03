@@ -19,6 +19,21 @@
 		C85EA8812C0727AE0048C56A /* Label+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85EA8802C0727AE0048C56A /* Label+.swift */; };
 		C85EA8842C0727CC0048C56A /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85EA8832C0727CC0048C56A /* AppFont.swift */; };
 		C85EA8872C07282D0048C56A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85EA8862C07282D0048C56A /* TestView.swift */; };
+		C866A1232C0DC04600054244 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1222C0DC04600054244 /* EditProfileView.swift */; };
+		C866A1252C0DC04F00054244 /* EditJobRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1242C0DC04F00054244 /* EditJobRadiusView.swift */; };
+		C866A1272C0DC08A00054244 /* SettingsNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1262C0DC08A00054244 /* SettingsNotificationView.swift */; };
+		C866A1292C0DC0A000054244 /* WorkingHoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1282C0DC0A000054244 /* WorkingHoursView.swift */; };
+		C866A12B2C0DC0B500054244 /* VacationModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A12A2C0DC0B500054244 /* VacationModeView.swift */; };
+		C866A12F2C0DC0E300054244 /* TaxInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A12E2C0DC0E300054244 /* TaxInformationView.swift */; };
+		C866A1312C0DC0F000054244 /* AppLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1302C0DC0F000054244 /* AppLanguageView.swift */; };
+		C866A1332C0DC10300054244 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1322C0DC10300054244 /* ReviewsView.swift */; };
+		C866A1352C0DC11200054244 /* BackgroundCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1342C0DC11200054244 /* BackgroundCheckView.swift */; };
+		C866A1372C0DC2E900054244 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1362C0DC2E900054244 /* HeaderCell.swift */; };
+		C866A13B2C0DD3F200054244 /* SupportItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A13A2C0DD3F200054244 /* SupportItemsView.swift */; };
+		C866A13D2C0DD9B100054244 /* SupportEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A13C2C0DD9B100054244 /* SupportEmail.swift */; };
+		C866A13F2C0DD9F300054244 /* Device+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A13E2C0DD9F300054244 /* Device+.swift */; };
+		C866A1412C0DDBB400054244 /* App+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866A1402C0DDBB400054244 /* App+.swift */; };
+		C866A1452C0DDC5700054244 /* DeviceModels.json in Resources */ = {isa = PBXBuildFile; fileRef = C866A1442C0DDC5700054244 /* DeviceModels.json */; };
 		C87966352BF2B8130065FB39 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966342BF2B8130065FB39 /* CardStack.swift */; };
 		C87966372BF2B8550065FB39 /* WorkFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966362BF2B8550065FB39 /* WorkFlowView.swift */; };
 		C87966392BF2BA520065FB39 /* TaskFlowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87966382BF2BA520065FB39 /* TaskFlowData.swift */; };
@@ -93,6 +108,21 @@
 		C85EA8832C0727CC0048C56A /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		C85EA8862C07282D0048C56A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		C85EA8882C0728A20048C56A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C866A1222C0DC04600054244 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		C866A1242C0DC04F00054244 /* EditJobRadiusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJobRadiusView.swift; sourceTree = "<group>"; };
+		C866A1262C0DC08A00054244 /* SettingsNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNotificationView.swift; sourceTree = "<group>"; };
+		C866A1282C0DC0A000054244 /* WorkingHoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursView.swift; sourceTree = "<group>"; };
+		C866A12A2C0DC0B500054244 /* VacationModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationModeView.swift; sourceTree = "<group>"; };
+		C866A12E2C0DC0E300054244 /* TaxInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxInformationView.swift; sourceTree = "<group>"; };
+		C866A1302C0DC0F000054244 /* AppLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageView.swift; sourceTree = "<group>"; };
+		C866A1322C0DC10300054244 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
+		C866A1342C0DC11200054244 /* BackgroundCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCheckView.swift; sourceTree = "<group>"; };
+		C866A1362C0DC2E900054244 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		C866A13A2C0DD3F200054244 /* SupportItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportItemsView.swift; sourceTree = "<group>"; };
+		C866A13C2C0DD9B100054244 /* SupportEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportEmail.swift; sourceTree = "<group>"; };
+		C866A13E2C0DD9F300054244 /* Device+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+.swift"; sourceTree = "<group>"; };
+		C866A1402C0DDBB400054244 /* App+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+.swift"; sourceTree = "<group>"; };
+		C866A1442C0DDC5700054244 /* DeviceModels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DeviceModels.json; sourceTree = "<group>"; };
 		C8694B982BFEADEC00B88DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C87966342BF2B8130065FB39 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		C87966362BF2B8550065FB39 /* WorkFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowView.swift; sourceTree = "<group>"; };
@@ -168,8 +198,9 @@
 		C82097EF2BEC136E0020EBE1 /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
+				C866A12D2C0DC0C800054244 /* Components */,
+				C866A12C2C0DC0BF00054244 /* SecondaryViews */,
 				C82097F02BEC137A0020EBE1 /* AccountsView.swift */,
-				C84951E42C09989200A2265B /* AccountUserInfoCell.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -207,6 +238,31 @@
 				C85EA8862C07282D0048C56A /* TestView.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		C866A12C2C0DC0BF00054244 /* SecondaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				C866A12A2C0DC0B500054244 /* VacationModeView.swift */,
+				C866A1282C0DC0A000054244 /* WorkingHoursView.swift */,
+				C866A1262C0DC08A00054244 /* SettingsNotificationView.swift */,
+				C866A1242C0DC04F00054244 /* EditJobRadiusView.swift */,
+				C866A1222C0DC04600054244 /* EditProfileView.swift */,
+				C866A12E2C0DC0E300054244 /* TaxInformationView.swift */,
+				C866A1302C0DC0F000054244 /* AppLanguageView.swift */,
+				C866A1322C0DC10300054244 /* ReviewsView.swift */,
+				C866A1342C0DC11200054244 /* BackgroundCheckView.swift */,
+				C866A13A2C0DD3F200054244 /* SupportItemsView.swift */,
+			);
+			path = SecondaryViews;
+			sourceTree = "<group>";
+		};
+		C866A12D2C0DC0C800054244 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C84951E42C09989200A2265B /* AccountUserInfoCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		C87966332BF2B76D0065FB39 /* WorkFlow */ = {
@@ -328,6 +384,8 @@
 				C886A3B62BED4D3A00E059B0 /* CustomTabBar.swift */,
 				C87966342BF2B8130065FB39 /* CardStack.swift */,
 				C84B9AD42BF5FE030025A31F /* ImagePicker.swift */,
+				C866A1362C0DC2E900054244 /* HeaderCell.swift */,
+				C866A13C2C0DD9B100054244 /* SupportEmail.swift */,
 			);
 			path = "Shared Components";
 			sourceTree = "<group>";
@@ -346,6 +404,8 @@
 				C8E60AD72BE9338D00E17993 /* Color+.swift */,
 				C89C9D292BEC9E550066DA14 /* String+.swift */,
 				C85EA8802C0727AE0048C56A /* Label+.swift */,
+				C866A13E2C0DD9F300054244 /* Device+.swift */,
+				C866A1402C0DDBB400054244 /* App+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +424,7 @@
 			children = (
 				C85EA8822C0727C30048C56A /* Font */,
 				C8E60AAA2BE9318C00E17993 /* Assets.xcassets */,
+				C866A1442C0DDC5700054244 /* DeviceModels.json */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -585,6 +646,7 @@
 				C85EA87E2C0727870048C56A /* UberMove-Regular.ttf in Resources */,
 				C8E60AAB2BE9318C00E17993 /* Assets.xcassets in Resources */,
 				C85EA87D2C0727870048C56A /* UberMove-Medium.ttf in Resources */,
+				C866A1452C0DDC5700054244 /* DeviceModels.json in Resources */,
 				C85EA87C2C0727870048C56A /* UberMove-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,19 +677,26 @@
 				C8E60AF22BE987F400E17993 /* TestData.swift in Sources */,
 				C89C9D342BEC9EEC0066DA14 /* RoundedTextField.swift in Sources */,
 				C8E60AE42BE9746200E17993 /* HomeView.swift in Sources */,
+				C866A1412C0DDBB400054244 /* App+.swift in Sources */,
 				C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */,
 				C8E60AE82BE97D2300E17993 /* LoginView.swift in Sources */,
 				C84B9AD52BF5FE030025A31F /* ImagePicker.swift in Sources */,
 				C85EA8842C0727CC0048C56A /* AppFont.swift in Sources */,
+				C866A12F2C0DC0E300054244 /* TaxInformationView.swift in Sources */,
 				C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */,
+				C866A13B2C0DD3F200054244 /* SupportItemsView.swift in Sources */,
+				C866A1352C0DC11200054244 /* BackgroundCheckView.swift in Sources */,
 				C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */,
 				C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */,
 				C886A3BB2BED5CE700E059B0 /* MainView.swift in Sources */,
+				C866A1252C0DC04F00054244 /* EditJobRadiusView.swift in Sources */,
 				C8E60AD82BE9338D00E17993 /* Color+.swift in Sources */,
 				C84B9AD72BF622C90025A31F /* WorkFlowSuccessScreen.swift in Sources */,
 				C8E60AEF2BE9841F00E17993 /* JobCardCell.swift in Sources */,
+				C866A13D2C0DD9B100054244 /* SupportEmail.swift in Sources */,
 				C82097F12BEC137A0020EBE1 /* AccountsView.swift in Sources */,
 				C89C9D382BEC9F1C0066DA14 /* BackButton.swift in Sources */,
+				C866A1232C0DC04600054244 /* EditProfileView.swift in Sources */,
 				C89C9D222BEC9DD50066DA14 /* AccountRowView.swift in Sources */,
 				C89C9D362BEC9F070066DA14 /* RoundedButton.swift in Sources */,
 				C87966392BF2BA520065FB39 /* TaskFlowData.swift in Sources */,
@@ -636,8 +705,11 @@
 				C89C9D3A2BEC9F2E0066DA14 /* Animations.swift in Sources */,
 				C85EA8872C07282D0048C56A /* TestView.swift in Sources */,
 				C886A3C12BED623700E059B0 /* CalendarView.swift in Sources */,
+				C866A1272C0DC08A00054244 /* SettingsNotificationView.swift in Sources */,
+				C866A1372C0DC2E900054244 /* HeaderCell.swift in Sources */,
 				C89C9D322BEC9ED50066DA14 /* TermsString.swift in Sources */,
 				C84B9ADC2BF7CF790025A31F /* EarningListView.swift in Sources */,
+				C866A1312C0DC0F000054244 /* AppLanguageView.swift in Sources */,
 				C8E60AF82BE9902500E17993 /* AvailableJobsView.swift in Sources */,
 				C8E60AE62BE977FA00E17993 /* SignUpView.swift in Sources */,
 				C8E60ADE2BE9345700E17993 /* AppUserInterface.swift in Sources */,
@@ -648,12 +720,16 @@
 				C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */,
 				C8E60AF62BE98B5100E17993 /* ScheduledJobsView.swift in Sources */,
 				C89C9D2A2BEC9E550066DA14 /* String+.swift in Sources */,
+				C866A1292C0DC0A000054244 /* WorkingHoursView.swift in Sources */,
+				C866A1332C0DC10300054244 /* ReviewsView.swift in Sources */,
 				C89C9D2C2BEC9E7E0066DA14 /* RoundedCorner.swift in Sources */,
 				C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */,
+				C866A13F2C0DD9F300054244 /* Device+.swift in Sources */,
 				C886A3B92BED574800E059B0 /* TabTestView.swift in Sources */,
 				C84951E52C09989200A2265B /* AccountUserInfoCell.swift in Sources */,
 				C87966352BF2B8130065FB39 /* CardStack.swift in Sources */,
 				C84B9ADA2BF63B380025A31F /* JobInfoView.swift in Sources */,
+				C866A12B2C0DC0B500054244 /* VacationModeView.swift in Sources */,
 				C87966372BF2B8550065FB39 /* WorkFlowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

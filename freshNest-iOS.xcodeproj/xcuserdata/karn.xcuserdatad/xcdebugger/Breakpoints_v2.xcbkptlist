@@ -3,4 +3,69 @@
    uuid = "C90DA00B-721F-4735-87D9-55C7EDBB1DB1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "freshNest-iOS/Shared Components/BackButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2 - c1a6f747165547e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "freshNest_iOS.BackButton.body.getter : some"
+                  moduleName = "freshNest-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Shared%20Components/BackButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2 - 3e59bed7917d36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in freshNest_iOS.BackButton.body.getter : some"
+                  moduleName = "freshNest-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Shared%20Components/BackButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2 - a84afcdecc0a0280"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0 in freshNest_iOS.BackButton.body.getter : some"
+                  moduleName = "freshNest-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Shared%20Components/BackButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
