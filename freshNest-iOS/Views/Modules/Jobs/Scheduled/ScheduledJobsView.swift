@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ScheduledJobsView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var supabaseClient: SupabaseManager
+    @State var isLoading = false
     var body: some View {
         NavigationView {
             VStack {
@@ -19,23 +22,46 @@ struct ScheduledJobsView: View {
                         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                     Spacer()
                     HStack {
-                        BackButton()
+                        Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                            Image(systemName: "arrow.left")
+                                .font(.system(.title2, design: .rounded).weight(.semibold))
+                                .foregroundColor(Color.black)
+                        }
                         Spacer()
                     }
                 }
+                .padding(.bottom, 16)
                 
                 ScrollView(showsIndicators: false) {
-                    LazyVStack(alignment: .leading, spacing: 16) {
-                        ForEach(scheduledJobs, id: \.self) { job in
-                            NavigationLink(destination: WorkFlowView()) {
-                                JobCardCell(data: job)
-                                    .padding(4)
+                    VStack {
+                        if isLoading {
+                            ZStack {
+                                VStack {
+                                    Spacer()
+                                    GrowingArcIndicatorView(color: Color(hex: AppUserInterface.Colors.gradientColor1), lineWidth: 2)
+                                        .frame(width: 100)
+                                    Spacer()
+                                }
+                            }
+                        } else {
+                            if supabaseClient.scheduledJobsArray.isEmpty {
+                                EmptyStateView(message: "You don't have any scheduled jobs currently.", imageText: "📭")
+                            } else {
+                                ForEach(supabaseClient.scheduledJobsArray, id: \.self) { data in
+                                    ScheduledJobCardCell(data: data)
+                                        .padding(4)
+                                }
                             }
                         }
                     }
                 }
             }
             .padding(16)
+            .onAppear{
+                isLoading = true
+                supabaseClient.fetchScheduledJobs()
+                isLoading = false
+            }
         }
     }
 }

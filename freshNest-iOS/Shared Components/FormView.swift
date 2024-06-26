@@ -8,37 +8,19 @@
 import SwiftUI
 
 struct FormView: View {
-    @State private var email = ""
-    @State private var firstName = ""
-    @State private var lastName = ""
-    @State private var password = ""
+    @Binding var email: String
+    @Binding var firstName: String
+    @Binding var lastName: String
+    @Binding var password: String
     
     var body: some View {
-        VStack {
-            TextField("First Name", text: $firstName)
-                .font(.cascaded(ofSize: .h16, weight: .regular))
-                .frame(height: 44)
-                .background(.clear)
-                .cornerRadius(5.0)
-            Divider()
-            TextField("Last Name", text: $lastName)
-                .font(.cascaded(ofSize: .h16, weight: .regular))
-                .frame(height: 44)
-                .background(.clear)
-                .cornerRadius(5.0)
-            Divider()
-            TextField("Email", text: $email)
-                .font(.cascaded(ofSize: .h16, weight: .regular))
-                .frame(height: 44)
-                .background(.clear)
-                .cornerRadius(5.0)
-            Divider()
-            SecureField("Password", text: $password)
-                .font(.cascaded(ofSize: .h16, weight: .regular))
-                .frame(height: 44)
-                .background(.clear)
-                .cornerRadius(5.0)
-            Divider()
+        VStack(spacing: 8) {
+            HStack {
+                RoundedTextField(text: $firstName, placeholderText: "First Name", isSecure: false)
+                RoundedTextField(text: $lastName, placeholderText: "Last Name", isSecure: false)
+            }
+            RoundedTextField(text: $email, placeholderText: "johndoe@example.com", isSecure: false)
+            RoundedTextField(text: $password, placeholderText: "password", isSecure: true)
         }
     }
 }

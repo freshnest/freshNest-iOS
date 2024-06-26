@@ -11,6 +11,7 @@ struct EditJobRadiusView: View {
     @State private var selectedRadius: Int = 0
     @State private var initialRadius: Int = 0
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var supabaseClient: SupabaseManager
     var body: some View {
         VStack(spacing: 24) {
             HeaderCell(headerTitle: "Job Radius")
@@ -24,7 +25,7 @@ struct EditJobRadiusView: View {
                 Spacer()
                 
                 Picker("Select Radius", selection: $selectedRadius) {
-                    ForEach(5..<26) { radius in
+                    ForEach(Array(stride(from: 40, to: 110, by: 10)), id: \.self) { radius in
                         Text("\(radius) miles").tag(radius)
                     }
                 }
@@ -40,6 +41,7 @@ struct EditJobRadiusView: View {
             if selectedRadius != initialRadius {
                 RoundedButton(title: "Save", action: {
                     initialRadius = selectedRadius
+                    updateJobRadius(jobRadius: String(initialRadius))
                     presentationMode.wrappedValue.dismiss()
                 }, color: .black, textColor: .white)
             }
@@ -47,7 +49,27 @@ struct EditJobRadiusView: View {
         .padding(16)
         .navigationBarBackButtonHidden()
         .onAppear {
-            initialRadius = selectedRadius
+            if let selectedRadiusBackend = supabaseClient.userProfile?.jobRadius {
+                selectedRadius = Int(selectedRadiusBackend) ?? initialRadius
+            }
+        }
+    }
+    
+    func updateJobRadius(jobRadius: String){
+        Task {
+            do {
+                let updatedProfile = CleanersModel(jobRadius: jobRadius)
+                let currentUser = try await supabaseClient.supabase.auth.session.user
+                let response = try await supabaseClient.supabase
+                    .from("cleaners")
+                    .update(updatedProfile)
+                    .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
+                    .execute()
+                print("\(response.response.statusCode): JobRadius Updated Successfully")
+                try await supabaseClient.fetchUserData()
+            } catch {
+                print("Failed to update JobRadius: \(error.localizedDescription)")
+            }
         }
     }
 }

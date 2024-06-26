@@ -6,34 +6,20 @@
 //
 
 import SwiftUI
-
-//struct JobModel: Identifiable, Hashable {
-//    let id = UUID()
-//    var jobType: JobType
-//    var amount: String
-//    var workItems: String
-//    var timeToDestination: String
-//
-//    var date: Date
-//
-//    static func == (lhs: JobModel, rhs: JobModel) -> Bool {
-//        return lhs.id == rhs.id
-//    }
-//
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(id)
-//    }
-//}
-
-struct JobInfoView: View {
-    var data: JobModel?
+struct PropertyInfoView: View {
+    @Binding var data: PropertyInfoModel
+    @EnvironmentObject var supabaseClient: SupabaseManager
+    @Environment(\.presentationMode) var presentationMode
+    let generator = UIImpactFeedbackGenerator(style: .medium)
+    @State var isLoading = false
+    var jobID: String
+    var isMatchCTAShow = false
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Image("airbnbPlaceholderImage")
                 .resizable()
-                .frame(height: 260)
+                .frame(height: 250)
                 .scaledToFit()
-                .opacity(0.9)
                 .overlay {
                     VStack(alignment: .leading) {
                         HStack {
@@ -41,124 +27,150 @@ struct JobInfoView: View {
                                 .padding(8)
                                 .background(
                                     Circle()
+                                        .stroke(.black, lineWidth: 1)
                                         .foregroundStyle(.white)
                                 )
                             Spacer()
                         }
+                        .padding(.top, 16)
+                        Spacer()
+                        Divider()
+                            .padding(.horizontal, -16)
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .padding(.top, 32)
+            
+            VStack(alignment: .leading, spacing: 16) {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack(spacing: 4) {
+                            Text("Property Type: \(data.propertyType ?? "")")
+                                .font(.cascaded(ofSize: .h16, weight: .regular))
+                                .foregroundStyle(.black)
+                                .padding(4)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .stroke(Color.black.opacity(0.5), lineWidth: 1)
+                                )
+                            Spacer()
+                        }
+                        
+                        Text("\(data.propertyName ?? "")")
+                            .font(.cascaded(ofSize: .h28, weight: .bold))
+                        
+                        HStack(alignment: .center, spacing: 4) {
+                            Image(systemName: "mappin.and.ellipse")
+                                .font(.system(size: 18))
+                            
+                            Text("\(data.addressJSON?.street ?? ""), \(data.addressJSON?.city ?? ""), \(data.addressJSON?.state ?? "")")
+                                .font(.cascaded(ofSize: .h20, weight: .regular))
+                                .foregroundStyle(.black.opacity(0.4))
+                            Spacer()
+                            
+                        }
+
+                        
+                        Text("Work Items")
+                            .font(.cascaded(ofSize: .h20, weight: .bold))
+                            .padding(.top, 32)
+                        
+                        
+                        VStack(spacing: 8) {
+                            WorkItemCell(image: "bed.double.fill", text: "Bedroom: ", value: String(data.bedroomCount ?? 0))
+                            WorkItemCell(image: "shower.fill", text: "Bathroom: ", value: String(data.bathroomCount ?? 0))
+                            let isLaundryMachineAvailable = data.isLaundryMachineAvailable ?? false
+                            WorkItemCell(image: "washer.fill", text: "Laundry Machine: ", value: isLaundryMachineAvailable ? "Yes" : "No")
+                            let isCleaningSuppliesAvailable = data.isCleaningSuppliesAvailable ?? false
+                            WorkItemCell(image: "bubbles.and.sparkles.fill" , text: "Cleaning Supplies: ", value: isCleaningSuppliesAvailable ? "Yes" : "No")
+                        }
                         Spacer()
                     }
-                    .padding(.top, 32)
-                    .padding(16)
                 }
-            
-            VStack(alignment: .leading) {
-                Text("Centre Place Graslin - 14th Street")
-                    .font(.cascaded(ofSize: .h32, weight: .bold))
-                
-                HStack {
-                    Text(data?.address ?? "Fenway, Boston, Massachusetts")
-                        .font(.cascaded(ofSize: .h14, weight: .regular))
-                        .foregroundStyle(.black.opacity(0.4))
-                    Spacer()
-                    
-                }
-                
-                HStack {
-                    Text(data?.timeToDestination ?? "15 mins away")
-                        .font(.cascaded(ofSize: .h18, weight: .medium))
-                        .foregroundStyle(.green)
-                        .padding(4)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color(hex: "#00E676").opacity(0.2))
-                        )
-                    Spacer()
-                }
-                
-                Text("Work Items")
-                    .font(.cascaded(ofSize: .h20, weight: .bold))
-                    .padding(.top, 32)
-                
-                //                NonInteractiveMapView()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        WorkItemCell(image: "bed.double", text: "1 Bedroom")
-                        WorkItemCell(image: "shower", text: "1 Bathroom")
-                        WorkItemCell(image: "toilet", text: "1 Toilet")
-                        WorkItemCell(image: "fork.knife" , text: "1 Kitchen")
+                if isMatchCTAShow {
+                    VStack {
+                        Divider()
+                            .padding(.horizontal, -16)
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Payout Amount")
+                                    .font(.cascaded(ofSize: .h16, weight: .regular))
+                                    .foregroundStyle(.gray)
+                                Text("$\(data.cleaningFee ?? "")")
+                                    .font(.cascaded(ofSize: .h28, weight: .bold))
+                            }
+                            Spacer()
+                            HStack {
+                                Text("Match")
+                                    .font(.cascaded(ofSize: .h20, weight: .bold))
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .frame(minWidth: 0, maxWidth: 150)
+                                    .background( LinearGradient(
+                                        gradient: Gradient(colors: [Color(hex: AppUserInterface.Colors.gradientColor1), Color(hex: AppUserInterface.Colors.gradientColor1), Color(hex: AppUserInterface.Colors.gradientColor3)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    ))
+                                    .cornerRadius(30)
+                            }
+                            .onTapGesture {
+                                generator.impactOccurred()
+                                isLoading = true
+                                supabaseClient.matchWithJob(jobID: jobID)
+                                supabaseClient.fetchAvailableJobs{ success in
+                                    DispatchQueue.main.async {
+                                        isLoading = false
+                                        if success {
+                                            presentationMode.wrappedValue.dismiss()
+                                        } else {
+                                            // why would this come here??
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.vertical, 16)
                     }
+                    .frame(height: 100)
                 }
-                Spacer()
-                
-                Divider()
-                    .padding(.horizontal, -16)
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Payout Amount")
-                            .font(.cascaded(ofSize: .h16, weight: .regular))
-                            .foregroundStyle(.gray)
-                        Text(data?.amount ?? "$77")
-                            .font(.cascaded(ofSize: .h20, weight: .bold))
-                    }
-                    Spacer()
-                    HStack {
-                        Text("Match")
-                            .font(.cascaded(ofSize: .h16, weight: .bold))
-                            .foregroundStyle(.white)                            .padding()
-                            .frame(minWidth: 0, maxWidth: 150)
-                            .background( LinearGradient(
-                                gradient: Gradient(colors: [Color(hex: AppUserInterface.Colors.gradientColor1), Color(hex: AppUserInterface.Colors.gradientColor1), Color(hex: AppUserInterface.Colors.gradientColor3)]),
-                                startPoint: .top,
-                                endPoint: .bottom
-                            ))
-                            .cornerRadius(30)
-                    }
-                    .onTapGesture {
-                        // action
-                    }
-                }
-                .padding(.vertical, 16)
                 
             }
             .padding(16)
-            Spacer()
         }
         .ignoresSafeArea(.all)
         .navigationBarBackButtonHidden()
+        .overlay(
+            ZStack {
+                if isLoading {
+                    GlassBackGround(color: .black)
+                        .ignoresSafeArea(.all)
+                    GrowingArcIndicatorView(color: Color(hex: AppUserInterface.Colors.gradientColor1), lineWidth: 2)
+                        .frame(width: 50)
+                }
+            }
+        )
     }
 }
 
 struct WorkItemCell: View {
     var image: String
     var text: String
-    
+    var value: String
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.black.opacity(0.1), lineWidth: 1)
-                .foregroundColor(.white)
-                .frame(width: 120, height: 120)
-                .overlay(
-                    VStack(alignment: .center) {
-                        Image(systemName: image)
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.black)
-                        
-                        Spacer()
-                        
-                        Text(text)
-                            .font(.cascaded(ofSize: .h14, weight: .medium))
-                        
-                    }
-                        .padding(18)
-                        .frame(maxWidth: .infinity)
-                )
+        HStack(spacing: 4) {
+            Image(systemName: image)
+                .resizable()
+                .frame(width: 24, height: 24)
+                .foregroundColor(.black)
+            Text(text)
+                .font(.cascaded(ofSize: .h20, weight: .regular))
+            Text(value)
+                .font(.cascaded(ofSize: .h20, weight: .regular))
+            Spacer()
         }
     }
 }
 
-#Preview {
-    JobInfoView()
-}
+//#Preview {
+//    PropertyInfoView(data: .constant(PropertyInfoModel(propertyId: "", createdAt: Date(), propertyType: "Apartment", bedroomCount: 3, isLaundryMachineAvailable: true, isCleaningSuppliesAvailable: true, updatedAt: Date(), hostId: UUID(), cleaningFee: "191", addressJSON: Address(zip: "", city: "Boston", state: "MA", number: "12123", street: "Blue Stree", aptNumber: "123"), bathroomCount: 4, propertyName: "Havenwood Estate")))
+//}

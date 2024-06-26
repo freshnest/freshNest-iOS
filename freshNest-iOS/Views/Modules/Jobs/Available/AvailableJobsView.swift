@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AvailableJobsView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var supabaseClient: SupabaseManager
+    @State var isLoading = false
     var body: some View {
         NavigationView {
             VStack {
@@ -19,23 +22,52 @@ struct AvailableJobsView: View {
                         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                     Spacer()
                     HStack {
-                        BackButton()
+                        Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                            Image(systemName: "arrow.left")
+                                .font(.system(.title2, design: .rounded).weight(.semibold))
+                                .foregroundColor(Color.black)
+                        }
                         Spacer()
                     }
                 }
+                .padding(.bottom, 16)
                 
                 ScrollView(showsIndicators: false) {
-                    LazyVStack(alignment: .leading, spacing: 16) {
-                        ForEach(availableJobs, id: \.self) { job in
-                            NavigationLink(destination: JobInfoView(data: job)) {
-                                JobCardCell(data: job)
-                                    .padding(4)
+                    VStack {
+                        if isLoading {
+                            ZStack {
+                                VStack {
+                                    Spacer()
+                                    GrowingArcIndicatorView(color: Color(hex: AppUserInterface.Colors.gradientColor1), lineWidth: 2)
+                                        .frame(width: 100)
+                                    Spacer()
+                                }
+                            }
+                        } else {
+                            if supabaseClient.availableJobsArray.isEmpty {
+                                EmptyStateView(message: "You don't have any available jobs currently.", imageText: "📭")
+                            } else {
+                                ForEach(supabaseClient.availableJobsArray, id: \.self) { data in
+                                    AvailableJobCardCell(data: data)
+                                        .padding(4)
+                                }
                             }
                         }
                     }
                 }
             }
+            .onAppear{
+                fetchJobs()
+            }
             .padding(16)
+        }
+    }
+    private func fetchJobs() {
+        isLoading = true
+        supabaseClient.fetchAvailableJobs { success in
+            DispatchQueue.main.async {
+                isLoading = false
+            }
         }
     }
 }
@@ -43,3 +75,6 @@ struct AvailableJobsView: View {
 #Preview {
     AvailableJobsView()
 }
+
+// let currentUser = try await supabaseClient.supabase.auth.session.user
+// try await supabaseClient.supabase.rpc("accept_job", params: ["id": currentUser.id.uuidString]).execute()

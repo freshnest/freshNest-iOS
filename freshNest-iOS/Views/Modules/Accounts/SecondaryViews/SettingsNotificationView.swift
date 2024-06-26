@@ -63,6 +63,7 @@ struct SettingsNotificationView: View {
                     withAnimation(.easeInOut(duration: 0.2)) {
                         center.removeAllPendingNotificationRequests()
                         showNotifications.toggle()
+                        notificationStatus = showNotifications
                     }
                 } else {
                     center.getNotificationSettings { settings in
@@ -71,6 +72,7 @@ struct SettingsNotificationView: View {
                                 if success {
                                     withAnimation(.easeInOut(duration: 0.2)) {
                                         showNotifications.toggle()
+                                        notificationStatus = showNotifications
                                     }
                                 } else if let error = error {
                                     print(error.localizedDescription)
@@ -88,7 +90,7 @@ struct SettingsNotificationView: View {
                             withAnimation(.easeInOut(duration: 0.2)) {
                                 showNotifications.toggle()
                                 if showNotifications {
-                                    // something
+                                    notificationStatus = showNotifications
                                 }
                             }
                         }

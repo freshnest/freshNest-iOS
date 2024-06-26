@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct WorkFlowView: View {
+    @Binding var data: TaskListModel
     @State private var listViewToggle = false
     @State private var showSuccessScreen = false
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var supabaseClient: SupabaseManager
+    var dateTime: String?
     var body: some View {
         ZStack(alignment: .top) {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading, spacing: 0) {
                     ZStack {
                         Spacer()
-                        Text("Task List")
+                        Text(data.title ?? "Task List")
                             .font(.cascaded(ofSize: .h28, weight: .bold))
                             .accessibility(addTraits: .isHeader)
                             .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
@@ -28,25 +32,26 @@ struct WorkFlowView: View {
                     }
                     .padding(.bottom, 16)
 
-                    Text("Fenway, Boston, Massachussets")
-                        .font(.cascaded(ofSize: .h18, weight: .medium))
-                        .foregroundStyle(.black.opacity(0.6))
-                    VStack(alignment: .center) {
-                        Text("Apartment Cleaning")
-                            .font(.cascaded(ofSize: .h24, weight: .medium))
+                    HStack(alignment: .center) {
+                        Text("Scheduled For: \(getFormattedTime(from: dateTime))")
+                            .font(.cascaded(ofSize: .h20, weight: .medium))
                             .foregroundStyle(.black.opacity(0.8))
+                        Spacer()
                     }
-                    .padding(.top, 8)
+                    .padding(.vertical, 8)
+                    Text(data.notes ?? "")
+                        .font(.cascaded(ofSize: .h16, weight: .regular))
+                        .foregroundStyle(.black.opacity(0.6))
                 }
-                
+
                 Spacer()
-                List(taskFlow) { task in
+                List(data.task ?? []) { task in
                     TaskItemView(task: task)
                 }
                 .listStyle(.plain)
                 .scrollIndicators(.hidden)
                 .padding(.horizontal, -16)
-                
+
                 RoundedButton(title: "Finish Job", action: {
                     // TODO: api call
                     showSuccessScreen.toggle()
@@ -55,9 +60,25 @@ struct WorkFlowView: View {
             .padding(16)
         }
         .navigationBarBackButtonHidden()
-        .fullScreenCover(isPresented: $showSuccessScreen, content: {
+        .fullScreenCover(isPresented: $showSuccessScreen) {
             WorkFlowSuccessScreen()
-        })
+        }
+    }
+    
+    
+    func getFormattedTime(from dateTime: String?) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        guard let dateString = dateTime,
+              let date = dateFormatter.date(from: dateString) else {
+            return "Invalid date"
+        }
+        
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        let formattedDate = dateFormatter.string(from: date)
+        return formattedDate
     }
 }
 
@@ -138,7 +159,7 @@ struct CardView1: View {
 }
 
 struct SubtaskView: View {
-    let subtask: String
+    let subtask: String?
     @Binding var isChecked: Bool
     
     var body: some View {
@@ -150,7 +171,7 @@ struct SubtaskView: View {
                 .scaleEffect(isChecked ? 0.9 : 1)
                 .padding(.trailing, 8)
             
-            Text(subtask)
+            Text(subtask ?? "")
                 .font(.cascaded(ofSize: .h14, weight: .regular))
                 .strikethrough(isChecked, color: .black)
             
@@ -160,29 +181,28 @@ struct SubtaskView: View {
 }
 
 
-#Preview {
-    WorkFlowView()
-}
-
-
 //Color(hex: "#00E676")
 struct TaskItemView: View {
-    let task: TaskItem
+    let task: TaskModel
     @State private var showSubtasks = false
     @State private var subtaskStatus: [Bool]
     @State private var selectedImages: [UIImage?] = [nil, nil, nil]
     @State private var selectedImageIndex = 0
     @State private var isImagePickerPresented = false
-    init(task: TaskItem) {
+
+    init(task: TaskModel) {
         self.task = task
-        self._subtaskStatus = State(initialValue: Array(repeating: false, count: task.subtasks.count))
+        self._subtaskStatus = State(initialValue: Array(repeating: false, count: task.subtasks?.count ?? 0))
     }
+
     var allSubtasksCompleted: Bool {
         !subtaskStatus.contains(false)
     }
+
     var allSubtasksCompletedAndVerified: Bool {
         !subtaskStatus.contains(false) && selectedImages.contains { $0 != nil }
     }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -208,7 +228,7 @@ struct TaskItemView: View {
                 Spacer()
             }
             HStack {
-                Text(task.title)
+                Text(task.title ?? "")
                     .font(.cascaded(ofSize: .h24, weight: .bold))
                 Spacer()
                 Image(systemName: showSubtasks ? "chevron.up.circle.fill" : "chevron.down.circle.fill")
@@ -217,14 +237,13 @@ struct TaskItemView: View {
                         showSubtasks.toggle()
                     }
             }
-            Text(task.description)
+            Text(task.description ?? "")
                 .foregroundColor(.secondary)
                 .font(.cascaded(ofSize: .h16, weight: .regular))
-            
-            
+
             if showSubtasks {
-                ForEach(task.subtasks.indices, id: \.self) { index in
-                    SubtaskView(subtask: task.subtasks[index], isChecked: $subtaskStatus[index])
+                ForEach(task.subtasks?.indices ?? 0..<0, id: \.self) { index in
+                    SubtaskView(subtask: task.subtasks?[index], isChecked: $subtaskStatus[index])
                         .onTapGesture {
                             subtaskStatus[index].toggle()
                         }
@@ -243,8 +262,7 @@ struct TaskItemView: View {
                                             selectedImageIndex = index
                                             isImagePickerPresented = true
                                         }
-                                }
-                                else {
+                                } else {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 16)
                                             .stroke(Color.gray, lineWidth: 1)
@@ -267,11 +285,11 @@ struct TaskItemView: View {
                     .sheet(isPresented: $isImagePickerPresented) {
                         ImagePicker(image: $selectedImages[selectedImageIndex])
                     }
-                    Text("Select atleast one image for verification of the completed task!")
+                    Text("Select at least one image for verification of the completed task!")
                         .lineLimit(2, reservesSpace: true)
                         .foregroundColor(.secondary)
                         .font(.cascaded(ofSize: .h14, weight: .regular))
-                    if selectedImages.contains { $0 != nil } {
+                    if selectedImages.contains(where: { $0 != nil }) {
                         RoundedButton(title: "Submit verification images", action: {
                             showSubtasks.toggle()
                         }, color: .black, textColor: .white)
@@ -283,7 +301,7 @@ struct TaskItemView: View {
                     .resizable()
                     .frame(width: 12, height: 16)
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appPrimaryBlue))
-                Text("\(task.subtasks.count) Sub-Task")
+                Text("\(task.subtasks?.count ?? 0) Sub-Task")
                     .font(.cascaded(ofSize: .h12, weight: .medium))
                     .foregroundStyle(.gray)
             }

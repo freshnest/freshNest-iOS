@@ -26,14 +26,6 @@ struct MapView: View {
             .onReceive(Just(region.center)) { // Update annotation's coordinate when region changes
                 annotation.coordinate = $0
             }
-            .overlay(
-                GeometryReader { geo in
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 10, height: 10)
-                        .position(x: geo.frame(in: .global).midX, y: geo.frame(in: .global).midY)
-                }
-            )
     }
 }
 
@@ -58,14 +50,6 @@ struct NonInteractiveMapView: View {
             .onReceive(Just(region.center)) { // Update annotation's coordinate when region changes
                 annotation.coordinate = $0
             }
-            .overlay(
-                GeometryReader { geo in
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 10, height: 10)
-                        .position(x: geo.frame(in: .global).midX, y: geo.frame(in: .global).midY)
-                }
-            )
             .gesture(DragGesture().onChanged{_ in})
     }
 }

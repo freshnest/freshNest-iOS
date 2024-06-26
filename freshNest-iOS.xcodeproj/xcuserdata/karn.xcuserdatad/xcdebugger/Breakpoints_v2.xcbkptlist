@@ -7,64 +7,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2"
+            uuid = "9A4CE271-53D0-4CD7-8CFD-E9F2D5490197"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "freshNest-iOS/Shared Components/BackButton.swift"
+            filePath = "freshNest-iOS/Views/Modules/Authentication/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B463BB6-6F8E-4A59-BEBF-1A534575B244"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "freshNest-iOS/Views/Modules/Authentication/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2 - c1a6f747165547e6"
+                  uuid = "3B463BB6-6F8E-4A59-BEBF-1A534575B244 - 8dba6d428ca719f4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "freshNest_iOS.BackButton.body.getter : some"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; () in closure #3 () -&gt; freshNest_iOS.RoundedButton in closure #1 () -&gt; SwiftUI.TupleView&lt;(freshNest_iOS.BackButton, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;freshNest_iOS.RoundedButton&gt;)&gt; in freshNest_iOS.LoginView.body.getter : some"
                   moduleName = "freshNest-iOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Shared%20Components/BackButton.swift"
+                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Views/Modules/Authentication/LoginView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "268">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "244">
                </Location>
                <Location
-                  uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2 - 3e59bed7917d36"
+                  uuid = "3B463BB6-6F8E-4A59-BEBF-1A534575B244 - ae58e89f2cda222c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in freshNest_iOS.BackButton.body.getter : some"
+                  symbolName = "(6) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; () in closure #3 () -&gt; freshNest_iOS.RoundedButton in closure #1 () -&gt; SwiftUI.TupleView&lt;(freshNest_iOS.BackButton, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;freshNest_iOS.RoundedButton&gt;)&gt; in freshNest_iOS.LoginView.body.getter : some"
                   moduleName = "freshNest-iOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Shared%20Components/BackButton.swift"
+                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Views/Modules/Authentication/LoginView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "348">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "44">
                </Location>
                <Location
-                  uuid = "008D3636-9466-47DD-AC6A-2C9EC02840F2 - a84afcdecc0a0280"
+                  uuid = "3B463BB6-6F8E-4A59-BEBF-1A534575B244 - 26cb4f80a1fb859a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0 in freshNest_iOS.BackButton.body.getter : some"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; () in closure #3 () -&gt; freshNest_iOS.RoundedButton in closure #1 () -&gt; SwiftUI.TupleView&lt;(freshNest_iOS.BackButton, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;freshNest_iOS.RoundedButton&gt;)&gt; in freshNest_iOS.LoginView.body.getter : some"
                   moduleName = "freshNest-iOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Shared%20Components/BackButton.swift"
+                  urlString = "file:///Users/karn/Documents/GitHub/freshNest-iOS/freshNest-iOS/Views/Modules/Authentication/LoginView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "208">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "136">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "505D11D3-A5FE-4E6D-A5A5-F18A16EDD8DD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "freshNest-iOS/Views/Modules/Jobs/Available/AvailableJobsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF0832FD-EDB5-405B-BE6D-7FF987C938DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "freshNest-iOS/Views/Modules/Jobs/Available/AvailableJobsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

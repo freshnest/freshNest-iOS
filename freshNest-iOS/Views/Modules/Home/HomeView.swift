@@ -10,16 +10,16 @@ import SwiftUI
 struct HomeView: View {
     @State private var showScheduledJobs = false
     @State private var showAvailableJobs = false
-
+    @EnvironmentObject var supabaseClient: SupabaseManager
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
                 MapView()
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Hello there, John")
+                        Text("Hello there, \(supabaseClient.userProfile?.firstName ??  "")!")
                             .font(.cascaded(ofSize: .h32, weight: .bold))
-                        Text("You have 4 jobs scheduled!")
+                        Text("You have \(supabaseClient.scheduledJobsCount) jobs scheduled!")
                             .font(.cascaded(ofSize: .h24, weight: .regular))
                     }
                     .padding(.vertical, 20)
@@ -63,8 +63,10 @@ struct HomeView: View {
                         .fill(Color.white)
                         .clipShape(RoundedCorners(topLeft: 20, topRight: 20, bottomLeft: 0, bottomRight: 0))
                 )
-//                .offset(y: 40)
             }
+        }
+        .onAppear {
+            supabaseClient.fetchScheduledJobs()
         }
         .fullScreenCover(isPresented: $showAvailableJobs, content: {
             AvailableJobsView()

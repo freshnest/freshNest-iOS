@@ -14,7 +14,8 @@ struct AccountsView: View {
     @State var showOnboarding = false
     let emergencyNumber = "tel://911"
     @AppStorage("notification") var notificationStatus : Bool = false
-    @AppStorage("isVacationModeEnabled") var isVacationModeEnabled = false
+    @AppStorage("isAuthenticated") var isAuthenticated = false
+    @EnvironmentObject var supabaseClient: SupabaseManager
     var longPress: some Gesture {
         LongPressGesture(minimumDuration: 1)
             .updating($isDetectingLongPress) {
@@ -60,7 +61,7 @@ struct AccountsView: View {
                                 VStack(spacing: 16) {
                                     SettingsRowView(systemImage: "person.crop.circle", title: "Edit Profile", action: { showEditProfileView.toggle() })
                                     Divider()
-                                    SettingsRowView(systemImage: "location.circle", title: "Edit Job Radius", action: { showEditJobRadiusView.toggle() }, optionalText: "5 miles")
+                                    SettingsRowView(systemImage: "location.circle", title: "Edit Job Radius", action: { showEditJobRadiusView.toggle() }, optionalText: "\(supabaseClient.userProfile?.jobRadius ?? "") miles")
                                     Divider()
                                 }
                             }
@@ -70,7 +71,7 @@ struct AccountsView: View {
                                     .font(.cascaded(ofSize: .h18, weight: .bold))
                                     .padding(.vertical, 16)
                                 VStack(spacing: 16) {
-                                    SettingsRowView(systemImage: "bell.circle", title: "Notification", action: { showNotificationsView.toggle() }, optionalText: notificationStatus ? "On" : "Off")
+                                    SettingsRowView(systemImage: "bell.circle", title: "Notification", action: { showNotificationsView.toggle() }, optionalText: notificationStatus  ? "On" : "Off")
                                     Divider()
                                 }
                             }
@@ -82,7 +83,7 @@ struct AccountsView: View {
                                 VStack(spacing: 16) {
                                     SettingsRowView(systemImage: "clock", title: "Working Hours", action: { showWorkingHoursView.toggle() })
                                     Divider()
-                                    SettingsRowView(systemImage: "airplane.circle", title: "Vacation Mode", action: { showVacationModeView.toggle() }, optionalText: isVacationModeEnabled ? "On" : "Off")
+                                    SettingsRowView(systemImage: "airplane.circle", title: "Vacation Mode", action: { showVacationModeView.toggle() }, optionalText: supabaseClient.userProfile?.vacationMode ?? false ? "On" : "Off")
                                     Divider()
                                 }
                             }
@@ -188,8 +189,15 @@ struct AccountsView: View {
                                     let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                                     impactMed.impactOccurred()
                                     DispatchQueue.main.asyncAfter(deadline: .now()) {
-                                        // logout API CALL
-                                        showOnboarding = true
+                                        Task {
+                                            do {
+                                                try await supabaseClient.signOut()
+                                                isAuthenticated = false
+                                                showOnboarding = true
+                                            } catch {
+                                                print("Error Logging out: \(error)")
+                                            }
+                                        }
                                     }
                                 }
                             }

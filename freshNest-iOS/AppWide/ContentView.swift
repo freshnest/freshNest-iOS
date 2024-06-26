@@ -8,25 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showOnboarding = false
+    @State private var showSplashScreen = true
+    @AppStorage("isAuthenticated") var isAuthenticated = false
+    @EnvironmentObject var supabaseClient: SupabaseManager
+
     var body: some View {
-        ZStack {
-//            if showOnboarding {
-//                OnboardingView()
-//                    .preferredColorScheme(.light)
-//            } else {
-//                SplashScreen()
-//                    .onAppear {
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                            withAnimation {
-//                                self.showOnboarding = true
-//                            }
-//                        }
-//                    }
-//            }
-            MainView()
-                .preferredColorScheme(.light)
+        Group {
+            if showSplashScreen {
+                SplashScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            withAnimation {
+                                self.showSplashScreen = false
+                            }
+                        }
+                    }
+            } else {
+                if isAuthenticated {
+                    MainView()
+                        .onAppear {
+                            Task {
+                                try await supabaseClient.fetchUserData()
+                            }
+                        }
+                        .preferredColorScheme(.light)
+                } else {
+                    OnboardingView()
+                        .preferredColorScheme(.light)
+                }
+            }
+//            WorkFlowView()
+//                .preferredColorScheme(.light)
         }
+//        .task {
+//            for await state in await supabaseClient.supabase.auth.authStateChanges {
+//                if [.initialSession, .signedIn, .signedOut].contains(state.event) {
+//                    supabaseClient.isAuthenticated = state.session != nil
+//                    isAuthenticated = supabaseClient.isAuthenticated
+//                }
+//            }
+//        }
     }
 }
 

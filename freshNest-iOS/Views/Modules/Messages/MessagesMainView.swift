@@ -148,10 +148,13 @@ struct NotificationCell: View {
     var body: some View {
         VStack(alignment: .leading){
             HStack {
-                Image(image)
+                Image("profilePlaceholderImage")
                     .resizable()
-                    .clipShape(Circle())
                     .frame(width: 70, height: 70)
+                    .clipShape(Circle())
+                    .overlay(
+                        Circle().stroke(Color.black.opacity(0.05), lineWidth: 1)
+                    )
                 
                 VStack(alignment: .leading) {
                     Text(name)

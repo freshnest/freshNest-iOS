@@ -2,11 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>UIAppFonts</key>
-    <array>
-        <string>UberMove-Regular.ttf</string>
-        <string>UberMove-Medium.ttf</string>
-        <string>UberMove-Bold.ttf</string>
-    </array>
+	<key>PROJECT_URL</key>
+	<string>$(PROJECT_URL)</string>
+	<key>PUBLIC_KEY</key>
+	<string>$(PUBLIC_KEY)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>UberMove-Regular.ttf</string>
+		<string>UberMove-Medium.ttf</string>
+		<string>UberMove-Bold.ttf</string>
+	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to show available jobs near you.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>We need your location to show available jobs near you.</string>
 </dict>
 </plist>

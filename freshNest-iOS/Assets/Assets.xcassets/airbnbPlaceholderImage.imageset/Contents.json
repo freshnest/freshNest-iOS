@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "airbnbPlaceholderImage.jpeg",
+      "filename" : "For sale illustration.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "For sale illustration 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "For sale illustration 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

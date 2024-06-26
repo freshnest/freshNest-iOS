@@ -30,7 +30,7 @@ struct SupportItemsView: View {
             }, color: .black, textColor: .white)
         }
         .padding(16)
-        .background(BackgroundBlurView())
+        .background(.white)
         .navigationBarBackButtonHidden()
     }
 }

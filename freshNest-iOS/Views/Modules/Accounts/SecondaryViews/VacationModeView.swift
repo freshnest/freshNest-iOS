@@ -10,15 +10,18 @@ import SwiftUI
 struct VacationModeView: View {
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @Namespace var animation
-    @AppStorage("isVacationModeEnabled") var isVacationModeEnabled = false
+    @State var isVacationModeEnabled = false
+    @EnvironmentObject var supabaseClient: SupabaseManager
     var body: some View {
         ZStack(alignment: .top) {
             VStack(spacing: 24) {
                 HeaderCell(headerTitle: "Vacation Mode")
                 VStack(alignment: .leading, spacing: 8) {
-                    
-                    ToggleRow(text: "Enable Vacation Mode", bool: isVacationModeEnabled, onTap: {
+                    // supabaseClient.userProfile?.vacationMode ?? false
+                    ToggleRow(text: "Enable Vacation Mode", bool: isVacationModeEnabled , onTap: {
+                        
                         isVacationModeEnabled.toggle()
+                        updateVacationMode(isOn: isVacationModeEnabled)
                     })
                     
                     Text(
@@ -31,9 +34,32 @@ struct VacationModeView: View {
                 }
                 Spacer()
             }
+            .onAppear{
+                if let vacationMode = supabaseClient.userProfile?.vacationMode {
+                    isVacationModeEnabled = vacationMode
+                }
+            }
             .padding(16)
         }
         .navigationBarBackButtonHidden()
+    }
+    
+    func updateVacationMode(isOn: Bool){
+        Task {
+            do {
+                let updatedProfile = CleanersModel(vacationMode: isOn)
+                let currentUser = try await supabaseClient.supabase.auth.session.user
+                let response = try await supabaseClient.supabase
+                    .from("cleaners")
+                    .update(updatedProfile)
+                    .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
+                    .execute()
+                print("\(response.response.statusCode): VacationMode Updated Successfully")
+                try await supabaseClient.fetchUserData()
+            } catch {
+                print("Failed to update VacationMode: \(error.localizedDescription)")
+            }
+        }
     }
     
     @ViewBuilder

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct freshNest_iOSApp: App {
+    @StateObject var authVM = SupabaseManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(authVM)
         }
     }
 }

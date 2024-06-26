@@ -33,7 +33,11 @@ struct RoundedTextField: View {
             }
         }
         .padding()
-        .background(Color.black.opacity(0.1))
-        .cornerRadius(10)
+        .overlay {
+            RoundedRectangle(cornerRadius: 10).stroke(.black.opacity(0.1), lineWidth: 1)
+                .background(Color.clear)
+                .cornerRadius(10)
+        }
+        
     }
 }

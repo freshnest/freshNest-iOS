@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    // TabBar
     @State private var tabSelected: Tab = .home
     init() {
-           UITabBar.appearance().isHidden = false
-       }
+        UITabBar.appearance().isHidden = false
+    }
     var body: some View {
         ZStack(alignment: .bottom) {
-            Spacer()
             TabView(selection: $tabSelected) {
                 HomeView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -38,6 +36,7 @@ struct MainView: View {
                     .tag(Tab.account)
             }
             CustomTabBar(selectedTab: $tabSelected)
+                .frame(height: 70)
         }
         .ignoresSafeArea(.all)
     }

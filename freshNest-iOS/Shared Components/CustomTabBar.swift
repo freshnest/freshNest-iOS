@@ -18,39 +18,20 @@ enum Tab: String, CaseIterable {
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
-    private var fillImage: String {
-        selectedTab.rawValue + ".fill"
-    }
-    private var tabColor: Color {
-        switch selectedTab {
-        case .home:
-            return .blue
-        case .earning:
-            return .indigo
-        case .inbox:
-            return .purple
-        case .calendar:
-            return .green
-        case .account:
-            return .orange
-        }
-    }
-    
-    
     var body: some View {
         VStack {
             HStack {
-                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                ForEach(Tab.allCases, id: \.self) { tab in
                     Spacer()
                     Image(tab.rawValue)
                         .resizable()
                         .frame(width: 24, height: 24)
                         .scaleEffect(tab == selectedTab ? 1.25 : 1.0)
-                        .foregroundColor(tab == selectedTab ? tabColor : .gray)
-                        .font(.system(size: 20))
+                        .foregroundColor(tab == selectedTab ? .black : .gray)
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.1)) {
                                 selectedTab = tab
+                                print(selectedTab.rawValue)
                             }
                         }
                         .background(
@@ -65,9 +46,11 @@ struct CustomTabBar: View {
                     Spacer()
                 }
             }
-            .frame(width: nil, height: 60)
-            .cornerRadius(20)
-            .padding()
+            .frame(width: nil, height: 50)
+            .background(.white)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 16)
         }
     }
 }
