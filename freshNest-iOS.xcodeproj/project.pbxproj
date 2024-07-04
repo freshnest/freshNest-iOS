@@ -49,6 +49,11 @@
 		C886A3BB2BED5CE700E059B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3BA2BED5CE700E059B0 /* MainView.swift */; };
 		C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3BE2BED623000E059B0 /* MessagesMainView.swift */; };
 		C886A3C12BED623700E059B0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C886A3C02BED623600E059B0 /* CalendarView.swift */; };
+		C89144F02C2E1B0600FDDAF3 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89144EF2C2E1B0600FDDAF3 /* ChatBubble.swift */; };
+		C89144F22C2E1B3800FDDAF3 /* CustomChatTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89144F12C2E1B3800FDDAF3 /* CustomChatTextField.swift */; };
+		C89144F42C2E1B5A00FDDAF3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89144F32C2E1B5A00FDDAF3 /* ChatView.swift */; };
+		C89144F72C2E21B400FDDAF3 /* TabBarVisibilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89144F62C2E21B400FDDAF3 /* TabBarVisibilityModifier.swift */; };
+		C89144F92C2E222E00FDDAF3 /* TabBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89144F82C2E222E00FDDAF3 /* TabBarManager.swift */; };
 		C89AE33E2C107E9A002BAC3D /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = C89AE33D2C107E9A002BAC3D /* Auth */; };
 		C89AE3402C107E9A002BAC3D /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = C89AE33F2C107E9A002BAC3D /* Functions */; };
 		C89AE3422C107E9A002BAC3D /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = C89AE3412C107E9A002BAC3D /* PostgREST */; };
@@ -72,6 +77,7 @@
 		C8B17F242C2973880099E4B0 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B17F232C2973880099E4B0 /* EmptyView.swift */; };
 		C8B17F262C2A36120099E4B0 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B17F252C2A36120099E4B0 /* TaskListModel.swift */; };
 		C8B17F2E2C2B88F50099E4B0 /* GlassBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B17F2D2C2B88F50099E4B0 /* GlassBackground.swift */; };
+		C8B17F302C2B9A590099E4B0 /* EditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B17F2F2C2B9A590099E4B0 /* EditImageView.swift */; };
 		C8BC3C732C222E360050A8F1 /* EditShortTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BC3C722C222E360050A8F1 /* EditShortTextView.swift */; };
 		C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */; };
 		C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA82BE9318A00E17993 /* ContentView.swift */; };
@@ -120,6 +126,7 @@
 		C81449042C11E3160029C223 /* AddPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneNumber.swift; sourceTree = "<group>"; };
 		C81449072C11E6130029C223 /* CleanersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanersModel.swift; sourceTree = "<group>"; };
 		C82097F02BEC137A0020EBE1 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		C835B2A82C35B05B00E00F24 /* freshNest-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "freshNest-iOS.entitlements"; sourceTree = "<group>"; };
 		C84951E42C09989200A2265B /* AccountUserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUserInfoCell.swift; sourceTree = "<group>"; };
 		C84B9AD42BF5FE030025A31F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C84B9AD62BF622C90025A31F /* WorkFlowSuccessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowSuccessScreen.swift; sourceTree = "<group>"; };
@@ -159,6 +166,11 @@
 		C886A3BA2BED5CE700E059B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C886A3BE2BED623000E059B0 /* MessagesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesMainView.swift; sourceTree = "<group>"; };
 		C886A3C02BED623600E059B0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		C89144EF2C2E1B0600FDDAF3 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
+		C89144F12C2E1B3800FDDAF3 /* CustomChatTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChatTextField.swift; sourceTree = "<group>"; };
+		C89144F32C2E1B5A00FDDAF3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		C89144F62C2E21B400FDDAF3 /* TabBarVisibilityModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVisibilityModifier.swift; sourceTree = "<group>"; };
+		C89144F82C2E222E00FDDAF3 /* TabBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarManager.swift; sourceTree = "<group>"; };
 		C89AE3492C107FED002BAC3D /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		C89C9D212BEC9DD50066DA14 /* AccountRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRowView.swift; sourceTree = "<group>"; };
 		C89C9D232BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPlaceholderTextField.swift; sourceTree = "<group>"; };
@@ -177,6 +189,7 @@
 		C8B17F232C2973880099E4B0 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		C8B17F252C2A36120099E4B0 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
 		C8B17F2D2C2B88F50099E4B0 /* GlassBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassBackground.swift; sourceTree = "<group>"; };
+		C8B17F2F2C2B9A590099E4B0 /* EditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageView.swift; sourceTree = "<group>"; };
 		C8BC3C722C222E360050A8F1 /* EditShortTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortTextView.swift; sourceTree = "<group>"; };
 		C8E60AA32BE9318A00E17993 /* freshNest-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "freshNest-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freshNest_iOSApp.swift; sourceTree = "<group>"; };
@@ -303,6 +316,7 @@
 				C866A1342C0DC11200054244 /* BackgroundCheckView.swift */,
 				C866A13A2C0DD3F200054244 /* SupportItemsView.swift */,
 				C8BC3C722C222E360050A8F1 /* EditShortTextView.swift */,
+				C8B17F2F2C2B9A590099E4B0 /* EditImageView.swift */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -320,6 +334,7 @@
 			children = (
 				C81449002C11E0AC0029C223 /* SupabaseManager.swift */,
 				C868B59C2C1B3ADE005BD271 /* LocationManager.swift */,
+				C89144F82C2E222E00FDDAF3 /* TabBarManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -336,7 +351,10 @@
 		C886A3BC2BED621C00E059B0 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				C89144F52C2E1F7700FDDAF3 /* Model */,
+				C89144EE2C2E1AF700FDDAF3 /* Componenets */,
 				C886A3BE2BED623000E059B0 /* MessagesMainView.swift */,
+				C89144F32C2E1B5A00FDDAF3 /* ChatView.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -347,6 +365,22 @@
 				C886A3C02BED623600E059B0 /* CalendarView.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		C89144EE2C2E1AF700FDDAF3 /* Componenets */ = {
+			isa = PBXGroup;
+			children = (
+				C89144EF2C2E1B0600FDDAF3 /* ChatBubble.swift */,
+				C89144F12C2E1B3800FDDAF3 /* CustomChatTextField.swift */,
+			);
+			path = Componenets;
+			sourceTree = "<group>";
+		};
+		C89144F52C2E1F7700FDDAF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C8B17F222C2973730099E4B0 /* EmptyView */ = {
@@ -380,6 +414,7 @@
 		C8E60AA52BE9318A00E17993 /* freshNest-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C835B2A82C35B05B00E00F24 /* freshNest-iOS.entitlements */,
 				C868B59B2C1B3AC5005BD271 /* ServiceManagers */,
 				C81449062C11E6020029C223 /* DataModels */,
 				C85EA8882C0728A20048C56A /* Info.plist */,
@@ -459,6 +494,7 @@
 				C866A13C2C0DD9B100054244 /* SupportEmail.swift */,
 				C8FF0A1F2C2624B700647DD7 /* Loader.swift */,
 				C8B17F2D2C2B88F50099E4B0 /* GlassBackground.swift */,
+				C89144F62C2E21B400FDDAF3 /* TabBarVisibilityModifier.swift */,
 			);
 			path = "Shared Components";
 			sourceTree = "<group>";
@@ -764,9 +800,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C89C9D302BEC9EC10066DA14 /* FormView.swift in Sources */,
+				C89144F02C2E1B0600FDDAF3 /* ChatBubble.swift in Sources */,
 				C8BC3C732C222E360050A8F1 /* EditShortTextView.swift in Sources */,
 				C8E60AE22BE9386F00E17993 /* SplashScreen.swift in Sources */,
+				C89144F42C2E1B5A00FDDAF3 /* ChatView.swift in Sources */,
 				C8E60AF22BE987F400E17993 /* TestData.swift in Sources */,
+				C89144F92C2E222E00FDDAF3 /* TabBarManager.swift in Sources */,
 				C89C9D342BEC9EEC0066DA14 /* RoundedTextField.swift in Sources */,
 				C81449032C11E0F40029C223 /* AddZipCode.swift in Sources */,
 				C8E60AE42BE9746200E17993 /* HomeView.swift in Sources */,
@@ -779,9 +818,11 @@
 				C8B17F242C2973880099E4B0 /* EmptyView.swift in Sources */,
 				C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */,
 				C84E86112C26A54D00EC9F24 /* PropertyInfoModel.swift in Sources */,
+				C89144F72C2E21B400FDDAF3 /* TabBarVisibilityModifier.swift in Sources */,
 				C866A13B2C0DD3F200054244 /* SupportItemsView.swift in Sources */,
 				C868B59D2C1B3ADE005BD271 /* LocationManager.swift in Sources */,
 				C866A1352C0DC11200054244 /* BackgroundCheckView.swift in Sources */,
+				C89144F22C2E1B3800FDDAF3 /* CustomChatTextField.swift in Sources */,
 				C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */,
 				C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */,
 				C868B59A2C1B2157005BD271 /* AddLocationView.swift in Sources */,
@@ -833,6 +874,7 @@
 				C84951E52C09989200A2265B /* AccountUserInfoCell.swift in Sources */,
 				C81449082C11E6140029C223 /* CleanersModel.swift in Sources */,
 				C87966352BF2B8130065FB39 /* CardStack.swift in Sources */,
+				C8B17F302C2B9A590099E4B0 /* EditImageView.swift in Sources */,
 				C84B9ADA2BF63B380025A31F /* JobInfoView.swift in Sources */,
 				C866A12B2C0DC0B500054244 /* VacationModeView.swift in Sources */,
 				C87966372BF2B8550065FB39 /* WorkFlowView.swift in Sources */,
@@ -998,6 +1040,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "freshNest-iOS/freshNest-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "freshNest-iOS/Preview\\ Content freshNest-iOS/API/Info.plist";
@@ -1010,6 +1053,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1017,9 +1061,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1028,6 +1076,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "freshNest-iOS/freshNest-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "freshNest-iOS/Preview\\ Content freshNest-iOS/API/Info.plist";
@@ -1040,6 +1089,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1047,9 +1097,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nitinkumar.www.freshNest-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

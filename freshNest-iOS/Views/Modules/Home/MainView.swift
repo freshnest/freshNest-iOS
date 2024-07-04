@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var tabSelected: Tab = .home
+    @EnvironmentObject var tabBarManager: TabBarManager
     init() {
         UITabBar.appearance().isHidden = false
     }
@@ -35,8 +36,10 @@ struct MainView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tag(Tab.account)
             }
+            .offset(y: tabBarManager.hideTab ? 70 : 0)
             CustomTabBar(selectedTab: $tabSelected)
                 .frame(height: 70)
+                .offset(y: tabBarManager.hideTab ? 70 : 0)
         }
         .ignoresSafeArea(.all)
     }
@@ -45,34 +48,4 @@ struct MainView: View {
 #Preview {
     MainView()
     
-}
-
-
-import Foundation
-
-class TabBarManager: ObservableObject {
-    @Published var hideTab = false
-    @Published var inNavigationLink = false
-
-    func navigationHideTab() {
-        inNavigationLink = true
-        hideTab = true
-    }
-
-    func navigationShowTab() {
-        inNavigationLink = false
-        hideTab = false
-    }
-
-    func scrollHideTab() {
-        if !inNavigationLink {
-            hideTab = true
-        }
-    }
-
-    func scrollShowTab() {
-        if !inNavigationLink {
-            hideTab = false
-        }
-    }
 }

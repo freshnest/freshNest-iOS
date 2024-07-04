@@ -9,31 +9,56 @@ import SwiftUI
 
 struct AccountUserInfoCell: View {
     var action: () -> Void?
-    @EnvironmentObject var supabaseClient: SupabaseManager
+    @EnvironmentObject var supabaseClient: SupabaseManager    
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
             ZStack {
-                Image("profilePlaceholderImage")
-                    .resizable()
-                    .frame(width: 70, height: 70)
-                    .clipShape(Circle())
-                    .overlay(
-                        Circle().stroke(Color.black.opacity(0.05), lineWidth: 1)
-                    )
-                    .overlay {
-                        Image(systemName: "square.and.pencil")
-                            .frame(width: 12, height: 12)
-                            .padding(8)
-                            .background(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .foregroundStyle(.white)
-                            )
-                            .offset(x: 20, y: 20)
-                    }
-                    .onTapGesture {
-                        print("Profile Picture Edit Button clicked!")
-                        action()
-                    }
+                if let selectedImage = supabaseClient.selectedImage {
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .frame(width: 70, height: 70)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle().stroke(Color.black.opacity(0.05), lineWidth: 1)
+                        )
+                        .overlay {
+                            Image(systemName: "square.and.pencil")
+                                .frame(width: 12, height: 12)
+                                .padding(8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .foregroundStyle(.white)
+                                )
+                                .offset(x: 20, y: 20)
+                        }
+                        .onTapGesture {
+                            print("Profile Picture Edit Button clicked!")
+                            action()
+                        }
+                    
+                } else {
+                    Image("profilePlaceholderImage")
+                        .resizable()
+                        .frame(width: 70, height: 70)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle().stroke(Color.black.opacity(0.05), lineWidth: 1)
+                        )
+                        .overlay {
+                            Image(systemName: "square.and.pencil")
+                                .frame(width: 12, height: 12)
+                                .padding(8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .foregroundStyle(.white)
+                                )
+                                .offset(x: 20, y: 20)
+                        }
+                        .onTapGesture {
+                            print("Profile Picture Edit Button clicked!")
+                            action()
+                        }
+                }
             }
             VStack(alignment: .leading, spacing: 0) {
                 Text("\(supabaseClient.userProfile?.firstName ?? "") \(supabaseClient.userProfile?.lastName ?? "")")
@@ -50,6 +75,13 @@ struct AccountUserInfoCell: View {
             Spacer()
         }
         .frame(maxHeight: 60)
+        .onAppear {
+            Task {
+                let currentUser = try await supabaseClient.supabase.auth.session.user
+                let fileName = "\(currentUser.id).jpeg"
+                supabaseClient.selectedImage = try await supabaseClient.downloadImage(path: fileName)
+            }
+        }
     }
 }
 

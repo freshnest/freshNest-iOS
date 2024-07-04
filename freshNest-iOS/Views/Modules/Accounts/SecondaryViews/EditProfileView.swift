@@ -47,7 +47,7 @@ struct EditProfileView: View {
                         showAlert.toggle()
                     }
                 }, inputText: $firstName, secondInputText: $lastName)) {
-                    SettingsRowView(systemImage: "", title: "Name", optionalText: "\(supabaseClient.userProfile?.firstName ?? "") \(supabaseClient.userProfile?.lastName ?? "")")
+                    ProfileItemCell(systemImage: "", title: "Name", optionalText: "\(supabaseClient.userProfile?.firstName ?? "") \(supabaseClient.userProfile?.lastName ?? "")")
                 }
                 
                 if let phoneNumberToShow = supabaseClient.userProfile?.phoneNumber {
@@ -64,7 +64,7 @@ struct EditProfileView: View {
                             showAlert.toggle()
                         }
                     }, inputText: $phoneNumber, secondInputText: $lastName)) {
-                        SettingsRowView(systemImage: "", title: "Phone", optionalText: formattedPhoneNumber)
+                        ProfileItemCell(systemImage: "", title: "Phone", optionalText: formattedPhoneNumber)
                     }
                 } else {
                     NavigationLink(destination: EditShortTextView(titleText: "Edit Phone", placeholderText: "Enter 10 digit phone number", ctaTitle: "Save", action: {
@@ -79,16 +79,16 @@ struct EditProfileView: View {
                             showAlert.toggle()
                         }
                     }, inputText: $phoneNumber, secondInputText: $lastName)) {
-                        SettingsRowView(systemImage: "", title: "Phone", optionalText: "")
+                        ProfileItemCell(systemImage: "", title: "Phone", optionalText: "")
                     }
                 }
                 
                 Button(action: {
-                    alertMessage = "You cannot update email. For support contact us."
+                    alertMessage = "Email cannot be updated.\nFor enquiry or support contact us."
                     alertTitle = "Cannot Update Email"
                     showAlert.toggle()
                 }){
-                    SettingsRowView(systemImage: "", title: "Email", optionalText: "\(supabaseClient.userProfile?.email ?? "")")
+                    ProfileItemCell(systemImage: "", title: "Email", optionalText: "\(supabaseClient.userProfile?.email ?? "")")
                 }
                 
                 Spacer()
@@ -113,7 +113,7 @@ struct EditProfileView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): Email Updated Successfully")
-                try await supabaseClient.fetchUserData()
+                supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update email: \(error.localizedDescription)")
             }
@@ -131,7 +131,7 @@ struct EditProfileView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): Phone Updated Successfully")
-                try await supabaseClient.fetchUserData()
+                supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update phone: \(error.localizedDescription)")
             }
@@ -149,7 +149,7 @@ struct EditProfileView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): Name Updated Successfully")
-                try await supabaseClient.fetchUserData()
+                supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update Name: \(error.localizedDescription)")
             }

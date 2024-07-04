@@ -33,7 +33,7 @@ struct ScheduledJobsView: View {
                 .padding(.bottom, 16)
                 
                 ScrollView(showsIndicators: false) {
-                    VStack {
+                    VStack(spacing: 16) {
                         if isLoading {
                             ZStack {
                                 VStack {

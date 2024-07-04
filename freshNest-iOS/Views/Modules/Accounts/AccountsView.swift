@@ -34,6 +34,7 @@ struct AccountsView: View {
     @State var showEditJobRadiusView = false
     @State var showEditProfileView = false
     @State var showSupportItems = false
+    @State var showEditImageView = false
     
     var body: some View {
         NavigationView {
@@ -48,10 +49,9 @@ struct AccountsView: View {
                         Spacer()
                     }
                     
-                    AccountUserInfoCell(action: {})
+                    AccountUserInfoCell(action: {showEditImageView.toggle()})
                     
                     ScrollView(showsIndicators: false) {
-                        
                         VStack(spacing: 16) {
                             VStack(spacing: 5) {
                                 Text("Basic")
@@ -226,6 +226,12 @@ struct AccountsView: View {
         .fullScreenCover(isPresented: $showEditJobRadiusView, content: {
             EditJobRadiusView()
         })
+        .sheet(isPresented: $showEditImageView) {
+            EditImageView() {
+                showEditImageView.toggle()
+            }
+            .presentationDetents([.medium])
+        }
         .sheet(isPresented: $showSupportItems, content: {
             SupportItemsView()
                 .presentationDetents([.large])

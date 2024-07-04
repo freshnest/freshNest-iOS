@@ -55,6 +55,7 @@ struct PropertyInfoView: View {
                                 )
                             Spacer()
                         }
+                        .padding(1)
                         
                         Text("\(data.propertyName ?? "")")
                             .font(.cascaded(ofSize: .h28, weight: .bold))

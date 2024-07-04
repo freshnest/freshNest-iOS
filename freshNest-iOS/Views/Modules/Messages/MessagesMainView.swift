@@ -9,47 +9,92 @@ import SwiftUI
 
 struct InboxMainView: View {
     @State private var selectedTab: Switch = .inbox
-    
+    @EnvironmentObject var supabaseClient: SupabaseManager
+    @State private var connectedPeople: [MessageCellData] = []
+    @State private var notifications: [NotificationCellData] = []
+    @State private var fetchedMessageFromChannel: [Message] = []
+    @State private var navigateToChatView = false
+    @State private var messageTitle = ""
+    @State private var recipient = ""
     enum Switch {
         case inbox
         case notification
     }
     var body: some View {
-        VStack(alignment: .leading) {
-            ZStack {
-                Spacer()
-                Text("Inbox")
-                    .font(.cascaded(ofSize: .h28, weight: .bold))
-                    .accessibility(addTraits: .isHeader)
-                    .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
-                Spacer()
-            }
-            
-            HStack {
-                SwitchView(selectedTab: $selectedTab)
-                Spacer()
-            }
-            
-            if selectedTab == .inbox {
-                ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: 20) {
-                        ForEach(notifications, id: \.id) { notification in
-                            NotificationCell(image: notification.image, name: notification.name, message: notification.message, bookingStatus: notification.bookingStatus)
+        NavigationView {
+            VStack(alignment: .leading) {
+                ZStack {
+                    Spacer()
+                    Text("Inbox")
+                        .font(.cascaded(ofSize: .h28, weight: .bold))
+                        .accessibility(addTraits: .isHeader)
+                        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+                    Spacer()
+                }
+                
+                HStack {
+                    SwitchView(selectedTab: $selectedTab)
+                    Spacer()
+                }
+                
+                if selectedTab == .inbox {
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 20) {
+                            if connectedPeople.isEmpty {
+                                EmptyStateView(message: "You don't have any messages currently.", imageText: "📨")
+                                    .padding(.top, 16)
+                            } else {
+                                ForEach(connectedPeople, id: \.self) { messageItem in
+                                    NotificationCell(image: "", name: messageItem.firstName, message: messageItem.message, bookingStatus: messageItem.bookingStatus)
+                                    .onTapGesture {
+                                        Task {
+                                            do {
+                                                messageTitle = messageItem.firstName
+                                                let currentUser = try await supabaseClient.supabase.auth.session.user
+                                                let response: [MessageData] = try await supabaseClient
+                                                    .supabase
+                                                    .rpc("get_thread", params: ["u_id" : currentUser.id.uuidString])
+                                                    .execute()
+                                                    .value
+                                                recipient = messageItem.hostUserID.uuidString
+                                                fetchedMessageFromChannel = response.map { data in
+                                                    Message(text: data.text, direction: data.direction ? .left : .right)
+                                                }
+                                                navigateToChatView = true
+                                            } catch {
+                                                print(error)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
+                } else {
+                    NotificationItemCell()
+                        .padding(16)
                 }
-            } else {
-//                VStack(alignment: .center) {
-//                    NotificationEmptyViewCell()
-//                        .padding(.top, 90)
-//                }
-//                .frame(maxWidth: .infinity)
-                NotificationItemCell()
-                    .padding(16)
+                Spacer()
             }
-           Spacer()
+            .padding(16)
+            .onAppear {
+                Task {
+                    do {
+                        let messageList: [MessageCellData] = try await supabaseClient
+                            .supabase
+                            .rpc("fetch_connected_hosts")
+                            .execute()
+                            .value
+                        connectedPeople = messageList
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $navigateToChatView) {
+                ChatView(messages: $fetchedMessageFromChannel, pageTitle: $messageTitle, recipient: $recipient)
+            }
         }
-        .padding(16)
     }
 }
 
@@ -139,6 +184,36 @@ struct NotificationCellData: Identifiable {
     var bookingStatus: String
 }
 
+struct MessageCellData: Codable, Hashable {
+    
+    static func == (lhs: MessageCellData, rhs: MessageCellData) -> Bool {
+        return lhs.createdAt == rhs.createdAt
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(createdAt)
+    }
+    var hostUserID: UUID
+    var firstName: String
+    var lastName: String
+    var bookingStatus: String
+    var message: String
+    var createdAt: Date
+    enum CodingKeys: String, CodingKey {
+        case hostUserID = "host_user_id"
+        case firstName = "host_first_name"
+        case lastName = "host_last_name"
+        case bookingStatus = "status"
+        case message = "text"
+        case createdAt = "created_at"
+    }
+}
+
+
+struct MessageData: Codable {
+    var text: String
+    var direction: Bool
+}
 
 struct NotificationCell: View {
     var image: String
@@ -159,10 +234,16 @@ struct NotificationCell: View {
                 VStack(alignment: .leading) {
                     Text(name)
                         .font(.cascaded(ofSize: .h16, weight: .regular))
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.leading)
                     Text(message)
                         .font(.cascaded(ofSize: .h18, weight: .medium))
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.leading)
                     Text(bookingStatus)
                         .font(.cascaded(ofSize: .h16, weight: .regular))
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.leading)
                 }
             }
             Divider()

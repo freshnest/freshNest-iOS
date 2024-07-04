@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Storage
 
 struct WorkFlowView: View {
     @Binding var data: TaskListModel
     @State private var listViewToggle = false
     @State private var showSuccessScreen = false
+    @State private var isLoading = false
+    @State private var showConfirmationAlert = false
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var supabaseClient: SupabaseManager
     var dateTime: String?
@@ -46,22 +49,53 @@ struct WorkFlowView: View {
 
                 Spacer()
                 List(data.task ?? []) { task in
-                    TaskItemView(task: task)
+                    // TODO: FIX THIS
+                    TaskItemView(task: task, jobID: data.jobId?.uuidString ?? "", isLoading: $isLoading)
                 }
                 .listStyle(.plain)
                 .scrollIndicators(.hidden)
                 .padding(.horizontal, -16)
 
                 RoundedButton(title: "Finish Job", action: {
-                    // TODO: api call
-                    showSuccessScreen.toggle()
+                    showConfirmationAlert.toggle()
                 }, color: .black, textColor: .white)
             }
             .padding(16)
         }
+        .overlay(
+            ZStack {
+                if isLoading {
+                    GlassBackGround(color: .black)
+                        .ignoresSafeArea(.all)
+                    GrowingArcIndicatorView(color: Color(hex: AppUserInterface.Colors.gradientColor1), lineWidth: 2)
+                        .frame(width: 50)
+                }
+            }
+        )
         .navigationBarBackButtonHidden()
         .fullScreenCover(isPresented: $showSuccessScreen) {
             WorkFlowSuccessScreen()
+        }
+        .alert(isPresented: $showConfirmationAlert) {
+            Alert(
+                title: Text("Confirmation"),
+                message: Text("Are you sure you want to submit this job?"),
+                primaryButton: .default(Text("Yes")) {
+                    //update call
+                    Task {
+                        do {
+                            let response = try await supabaseClient.supabase.rpc("finish_job", params: ["j_id": data.jobId]).execute()
+                            print("Successfully Completed the JOB\(String(describing: data.jobId))", response.status)
+                            supabaseClient.fetchScheduledJobs()
+                            showSuccessScreen.toggle()
+                        } catch {
+                            print("Error: \(error)")
+                        }
+                    }
+                    
+                },
+                secondaryButton: .cancel(Text("No"))
+            )
         }
     }
     
@@ -184,25 +218,30 @@ struct SubtaskView: View {
 //Color(hex: "#00E676")
 struct TaskItemView: View {
     let task: TaskModel
+    var jobID: String
+    @Binding var isLoading: Bool
     @State private var showSubtasks = false
     @State private var subtaskStatus: [Bool]
     @State private var selectedImages: [UIImage?] = [nil, nil, nil]
     @State private var selectedImageIndex = 0
     @State private var isImagePickerPresented = false
-
-    init(task: TaskModel) {
+    @EnvironmentObject var supabaseClient: SupabaseManager
+    
+    init(task: TaskModel, jobID: String, isLoading: Binding<Bool>) {
         self.task = task
+        self.jobID = jobID
+        self._isLoading = isLoading
         self._subtaskStatus = State(initialValue: Array(repeating: false, count: task.subtasks?.count ?? 0))
     }
-
+    
     var allSubtasksCompleted: Bool {
         !subtaskStatus.contains(false)
     }
-
+    
     var allSubtasksCompletedAndVerified: Bool {
         !subtaskStatus.contains(false) && selectedImages.contains { $0 != nil }
     }
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -240,7 +279,7 @@ struct TaskItemView: View {
             Text(task.description ?? "")
                 .foregroundColor(.secondary)
                 .font(.cascaded(ofSize: .h16, weight: .regular))
-
+            
             if showSubtasks {
                 ForEach(task.subtasks?.indices ?? 0..<0, id: \.self) { index in
                     SubtaskView(subtask: task.subtasks?[index], isChecked: $subtaskStatus[index])
@@ -291,7 +330,9 @@ struct TaskItemView: View {
                         .font(.cascaded(ofSize: .h14, weight: .regular))
                     if selectedImages.contains(where: { $0 != nil }) {
                         RoundedButton(title: "Submit verification images", action: {
-                            showSubtasks.toggle()
+                            saveImages{
+                                showSubtasks.toggle()
+                            }
                         }, color: .black, textColor: .white)
                     }
                 }
@@ -306,5 +347,63 @@ struct TaskItemView: View {
                     .foregroundStyle(.gray)
             }
         }
+        .onAppear {
+            Task {
+                do {
+                    let images = try await downloadImages(jobID: jobID, task: task)
+                    selectedImages = images
+                } catch {
+                    print("Failed to download images: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    func saveImages(completion: @escaping () -> Void) {
+        isLoading = true
+        Task {
+            do {
+                let currentUser = try await supabaseClient.supabase.auth.session.user
+                
+                for (index, image) in selectedImages.enumerated() {
+                    if let image = image, let imageData = image.jpegData(compressionQuality: 0.1) {
+                        let fileName = "\(jobID)/\(task.taskID ?? UUID())/\(task.title ?? "")-image\(index+1).jpeg"
+                        print(fileName)
+                        let response = try await supabaseClient
+                            .supabase
+                            .storage
+                            .from("cleaning_verification")
+                            .upload(path: fileName, file: imageData, options: FileOptions(contentType: "image/jpeg", upsert: true))
+                        
+                        print(response)
+                        print(response.fullPath)
+                        isLoading = false
+                    }
+                }
+                completion()
+            } catch {
+                print("Failed to upload images: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func downloadImages(jobID: String, task: TaskModel) async throws -> [UIImage?] {
+        var images: [UIImage?] = [nil, nil, nil]
+
+        for index in 0...2 {
+            let fileName = "\(jobID)/\(task.taskID ?? UUID())/\(task.title ?? "")-image\(index+1).jpeg"
+            do {
+                let data = try await supabaseClient.supabase.storage.from("cleaning_verification").download(path: fileName)
+                if let image = UIImage(data: data) {
+                    images[index] = image
+                    subtaskStatus = subtaskStatus.map { _ in true }
+                } else {
+                    print("Failed to convert data to image for index \(index)")
+                }
+            } catch {
+                print("Failed to download image for index \(index): As data is not present")
+            }
+        }
+        return images
     }
 }

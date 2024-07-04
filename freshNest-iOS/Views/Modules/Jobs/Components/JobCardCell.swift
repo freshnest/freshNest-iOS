@@ -98,12 +98,15 @@ struct AvailableJobCardCell: View {
     }
 }
 
-
 struct ScheduledJobCardCell: View {
     var data: ScheduledJobsModel
     @State var showTaskListInfoView = false
     @State var tasklistInfo: TaskListModel = TaskListModel()
     @EnvironmentObject var supabaseClient: SupabaseManager
+    @State private var navigation: Int? = 0
+    @State private var showSuccessScreen = false
+    @State private var isJobInReview = false
+    @State private var statusText = ""
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
@@ -127,23 +130,34 @@ struct ScheduledJobCardCell: View {
                 }
                 
                 Spacer()
-                
-                Text("\(data.bedroom ?? 0) Bed, \(data.bathroom ?? 0) Bath")
-                    .font(.cascaded(ofSize: .h22, weight: .medium))
-                    .foregroundColor(Color.black.opacity(0.5))
-                    .lineLimit(1)
+                VStack (alignment: .trailing, spacing: 0) {
+                    if isJobInReview {
+                        Text(statusText)
+                            .foregroundStyle(getStatusColor(for: statusText))
+                            .font(.cascaded(ofSize: .h16, weight: .bold))
+                    }
+                    Text("\(data.bedroom ?? 0) Bed, \(data.bathroom ?? 0) Bath")
+                        .font(.cascaded(ofSize: .h22, weight: .medium))
+                        .foregroundColor(Color.black.opacity(0.5))
+                        .lineLimit(1)
+                }
             }
             
+            ZStack {
+                NavigationLink(destination: WorkFlowInReviewScreen(), tag: 1, selection: $navigation) { EmptyView() }
+                NavigationLink(destination: WorkFlowCompletedScreen(), tag: 2, selection: $navigation) { EmptyView() }
+                NavigationLink(destination: WorkFlowView(data: $tasklistInfo, dateTime: data.dateTime), tag: 3, selection: $navigation) { EmptyView() }
+            }
+            .opacity(0)
+            .frame(width: 0, height: 0)
+            
             VStack(alignment: .leading, spacing: 4) {
-//                Text(data.timeToDestination)
-//                    .font(.cascaded(ofSize: .h18, weight: .medium))
-//                    .foregroundColor(Color.black.opacity(0.9))
-//                    .lineLimit(1)
                 Text("Location: \(data.addressJSON?.street ?? ""), \(data.addressJSON?.city ?? ""), \(data.addressJSON?.state ?? "")")
                     .font(.cascaded(ofSize: .h16, weight: .medium))
                     .foregroundColor(Color.black.opacity(0.9))
                     .lineLimit(1)
             }
+            
             NotSoRoundedButton(title: "View Job Info", action: {
                 Task {
                     do {
@@ -154,12 +168,24 @@ struct ScheduledJobCardCell: View {
                             .eq("job_id", value: data.jobID)
                             .execute()
                             .value
-                        print(data.jobID)
-                        if let data = fetchedTasklist.first {
-                            tasklistInfo = data
+                        
+                        let reviewStatus: String = try await supabaseClient
+                            .supabase
+                            .rpc("check_status", params: ["j_id": data.jobID ?? ""])
+                            .execute()
+                            .value
+                        print("REVIEW STATUS: \(reviewStatus)")
+                        if reviewStatus == "In Review" {
+                            self.navigation = 1
+                        } else if reviewStatus == "Completed" {
+                            self.navigation = 2
+                        } else {
+                            if let data = fetchedTasklist.first {
+                                tasklistInfo = data
+                            }
+                            print(tasklistInfo)
+                            self.navigation = 3
                         }
-                        print(tasklistInfo)
-                        showTaskListInfoView.toggle()
                     } catch {
                         print("Error: \(error)")
                     }
@@ -170,8 +196,21 @@ struct ScheduledJobCardCell: View {
         .frame(maxWidth: 400, alignment: .leading)
         .background(Color(hex: "#F7F7F7"))
         .cornerRadius(10)
-        .fullScreenCover(isPresented: $showTaskListInfoView) {
-            WorkFlowView(data: $tasklistInfo, dateTime: data.dateTime)
+        .onAppear {
+            Task {
+                do {
+                    let reviewStatus: String = try await supabaseClient
+                        .supabase
+                        .rpc("check_status", params: ["j_id": data.jobID ?? ""])
+                        .execute()
+                        .value
+                    
+                    isJobInReview = !reviewStatus.isEmpty
+                    statusText = reviewStatus
+                } catch {
+                    print("Error: \(error)")
+                }
+            }
         }
     }
     
@@ -188,5 +227,20 @@ struct ScheduledJobCardCell: View {
         dateFormatter.dateFormat = "MM/dd/yy"
         let formattedDate = dateFormatter.string(from: date)
         return formattedDate
+    }
+    
+    func getStatusColor(for status: String) -> Color {
+        switch status {
+        case "In Review":
+            return .orange
+        case "Completed":
+            return .green
+        case "In Progress":
+            return .blue
+        case "Assigned":
+            return .black
+        default:
+            return .black
+        }
     }
 }

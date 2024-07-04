@@ -27,7 +27,7 @@ final class SupabaseManager: ObservableObject {
     @Published var availableJobsArray: [AvailableJobModel] = []
     @Published var scheduledJobsArray: [ScheduledJobsModel] = []
     @Published var scheduledJobsCount = 0
-    
+    @Published var selectedImage: UIImage? = nil
     let supabase = SupabaseClient(supabaseURL: URL(string: "https://cundjcwzibpwiiuxitul.supabase.co")!, supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bmRqY3d6aWJwd2lpdXhpdHVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM1MzU2MjQsImV4cCI6MjAyOTExMTYyNH0.AoiSo5wdnV5A6WVPwaEIk9W1r_-6ZdMUoE5kbEXqfKI")
     
     func signUp(email: String, password: String, firstName: String, lastName: String) async {
@@ -66,7 +66,6 @@ final class SupabaseManager: ObservableObject {
         }
     }
     
-    
     func isUserAuthenticated() async {
         do {
             _ = try await supabase.auth.session.user
@@ -87,22 +86,24 @@ final class SupabaseManager: ObservableObject {
         }
     }
     
-    func fetchUserData() async throws {
-        do {
-            let currentUser = try await supabase.auth.session.user
-            
-            let profile: [CleanersModel] = try await supabase
-                .from("cleaners")
-                .select()
-                .eq("id", value: currentUser.id)
-                .execute()
-                .value
-            
-            userProfile = profile.first ?? CleanersModel()
-            // MARK: PRINT PROFILE
-//            print("Response \(profile)")
-        } catch {
-            print("Error fetching user profile: \(error)")
+    func fetchUserData() {
+        Task{
+            do {
+                let currentUser = try await supabase.auth.session.user
+                
+                let profile: [CleanersModel] = try await supabase
+                    .from("cleaners")
+                    .select()
+                    .eq("id", value: currentUser.id)
+                    .execute()
+                    .value
+                
+                userProfile = profile.first ?? CleanersModel()
+                // MARK: PRINT PROFILE
+                //            print("Response \(profile)")
+            } catch {
+                print("Error fetching user profile: \(error)")
+            }
         }
     }
     
@@ -203,6 +204,39 @@ final class SupabaseManager: ObservableObject {
             }
         } catch {
             print("Error: \(error)")
+            throw error
+        }
+    }
+    
+    func downloadImage(path: String) async throws -> UIImage {
+        let data = try await supabase.storage.from("avatars").download(path: path)
+        guard let image = UIImage(data: data) else {
+            throw NSError(domain: "ImageConversionError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to convert data to image"])
+        }
+        return image
+    }
+    
+    func sendMessageAndUpdateThread(recipient: String, messageText: String) async throws -> [Message] {
+        do {
+            let currentUser = try await supabase.auth.session.user
+            let item = InsertMessageCellData(
+                userID: UUID(uuidString: recipient) ?? UUID(),
+                message: messageText,
+                sentBy: UUID(uuidString: currentUser.id.uuidString) ?? UUID()
+            )
+            let insertResponse = try await supabase.from(Table.messages).insert(item).execute()
+            print("Insert response:", insertResponse)
+            let threadResponse: [MessageData] = try await supabase
+                .rpc("get_thread", params: ["u_id" : currentUser.id.uuidString])
+                .execute()
+                .value
+            let updatedMessages = threadResponse.map { data in
+                Message(text: data.text, direction: data.direction ? .left : .right)
+            }
+            
+            return updatedMessages
+        } catch {
+            print("Error sending message and updating thread: \(error)")
             throw error
         }
     }

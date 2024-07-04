@@ -19,7 +19,8 @@ struct CalendarView: View {
                 VStack {
                     CalendarViewCell(selectedDate: $selectedDate)
                         .padding(.top, 16)
-                    
+                    Divider()
+                        .padding(.horizontal, -16)
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 16) {
                             let jobs = chunkedJobs(for: selectedDate)
@@ -74,9 +75,10 @@ struct CalendarView: View {
                                     .padding()
                                     .background(
                                         RoundedRectangle(cornerRadius: 25)
+                                            .stroke(.black.opacity(0.2), lineWidth: 1)
                                             .fill(Color.white)
-                                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+                                            .shadow(color: Color.white.opacity(0.5), radius: 5, x: -3, y: -3)
                                     )
                                     .padding(.horizontal, 16)
                                 }

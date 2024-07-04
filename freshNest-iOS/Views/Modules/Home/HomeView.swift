@@ -22,8 +22,8 @@ struct HomeView: View {
                         Text("You have \(supabaseClient.scheduledJobsCount) jobs scheduled!")
                             .font(.cascaded(ofSize: .h24, weight: .regular))
                     }
-                    .padding(.vertical, 20)
-                    VStack(spacing: 20) {
+                    .padding(.vertical, 16)
+                    VStack(spacing: 16) {
                         HStack {
                             Text("Scheduled Jobs")
                                 .frame(height: 40)
@@ -55,14 +55,9 @@ struct HomeView: View {
                         }
                     }
                 }
-                .frame(maxHeight: 300, alignment: .topLeading)
                 .padding(.horizontal, 32)
-                .padding(.bottom, 16)
-                .background(
-                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .fill(Color.white)
-                        .clipShape(RoundedCorners(topLeft: 20, topRight: 20, bottomLeft: 0, bottomRight: 0))
-                )
+                .frame(maxHeight: 300, alignment: .topLeading)
+                .clipShape(RoundedCorners(topLeft: 20, topRight: 20, bottomLeft: 0, bottomRight: 0))
             }
         }
         .onAppear {

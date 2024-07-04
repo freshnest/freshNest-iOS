@@ -63,7 +63,7 @@ struct WorkingHoursView: View {
                     .execute()
                 
                 print("\(response.response.statusCode): WorkHours Updated Successfully")
-                try await supabaseClient.fetchUserData()
+                supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update WorkHours: \(error.localizedDescription)")
             }

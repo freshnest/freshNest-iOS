@@ -27,9 +27,9 @@ struct ContentView: View {
                 if isAuthenticated {
                     MainView()
                         .onAppear {
-                            Task {
-                                try await supabaseClient.fetchUserData()
-                            }
+                            supabaseClient.fetchUserData()
+                            supabaseClient.fetchScheduledJobs()
+                            supabaseClient.fetchAvailableJobsWithoutLoader()
                         }
                         .preferredColorScheme(.light)
                 } else {
