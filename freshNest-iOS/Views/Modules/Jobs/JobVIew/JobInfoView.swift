@@ -118,6 +118,8 @@ struct PropertyInfoView: View {
                                 generator.impactOccurred()
                                 isLoading = true
                                 supabaseClient.matchWithJob(jobID: jobID)
+                                isLoading = false
+                                presentationMode.wrappedValue.dismiss()
                             }
                         }
                         .padding(.vertical, 16)

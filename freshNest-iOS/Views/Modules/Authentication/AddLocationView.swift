@@ -13,8 +13,9 @@ struct AddLocationView: View {
     @StateObject private var locationManagerDelegate = LocationManagerDelegate.shared
     @State private var locationStatus: CLAuthorizationStatus?
     @State private var showLocationPermissionAlert = false
-    @State private var sendLocationData = false
     @State private var showMainView = false
+    @State private var alertItem: AlertItem?
+    @State private var isLoading = false
     @EnvironmentObject var supabaseClient: SupabaseManager
     var body: some View {
         VStack(alignment: .leading) {
@@ -38,34 +39,6 @@ struct AddLocationView: View {
             VStack(spacing: 16) {
                 RoundedButton(title: "Give Location Permission", action: {
                     checkLocationPermission()
-                    if sendLocationData {
-                        if let location = locationManagerDelegate.location {
-                            let latitude = location.coordinate.latitude
-                            let longitude = location.coordinate.longitude
-                            let formattedLatitude = Double(String(format: "%.4f", latitude))!
-                            let formattedLongitude = Double(String(format: "%.4f", longitude))!
-                            Task {
-                                do {
-                                    let updatedProfile = CleanersModel(longitude: longitude, latitude: latitude)
-                                    let currentUser = try await supabaseClient.supabase.auth.session.user
-                                    let response = try await supabaseClient.supabase
-                                        .from("cleaners")
-                                        .update(updatedProfile)
-                                        .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
-                                        .execute()
-                                    
-                                    if response.status == 200 {
-                                        showMainView.toggle()
-                                    }
-                                    print(response.status)
-                                    print(response.data)
-                                    print(response.response.statusCode)
-                                } catch {
-                                    print("Failed to update location: \(error.localizedDescription)")
-                                }
-                            }
-                        }
-                    }
                 }, color: Color(hex: AppUserInterface.Colors.appButtonBlack), textColor: .white)
             }
         }
@@ -74,6 +47,16 @@ struct AddLocationView: View {
         .fullScreenCover(isPresented: $showMainView, content: {
             MainView()
         })
+        .overlay(
+            ZStack {
+                if isLoading {
+                    GlassBackGround(color: .black)
+                        .ignoresSafeArea(.all)
+                    GrowingArcIndicatorView(color: Color(hex: AppUserInterface.Colors.gradientColor1), lineWidth: 2)
+                        .frame(width: 50)
+                }
+            }
+        )
         .alert(isPresented: $showLocationPermissionAlert) {
             Alert(
                 title: Text("📍Location Required"),
@@ -85,6 +68,13 @@ struct AddLocationView: View {
                         UIApplication.shared.open(url)
                     }
                 }
+            )
+        }
+        .alert(item: $alertItem) { item in
+            Alert(
+                title: Text(item.title),
+                message: Text(item.message),
+                dismissButton: .default(Text("OK"))
             )
         }
     }
@@ -103,13 +93,75 @@ struct AddLocationView: View {
             print("Alert Status: \(showLocationPermissionAlert)")
         case .authorizedWhenInUse, .authorizedAlways:
             print("Location access is granted.")
-            sendLocationData = true
+            Task {
+                await sendLocationData()
+            }
+        case .none:
+            print("Unknown location authorization status.")
         @unknown default:
             print("Unknown location authorization status.")
         }
+    }
+    
+    private func sendLocationData() async {
+        if let location = locationManagerDelegate.location {
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            let formattedLatitude = Double(String(format: "%.4f", latitude))!
+            let formattedLongitude = Double(String(format: "%.4f", longitude))!
+            
+            DispatchQueue.main.async {
+                isLoading = true
+            }
+            
+            do {
+                let updatedProfile = CleanersModel(longitude: formattedLongitude, latitude: formattedLatitude)
+                let currentUser = try await supabaseClient.supabase.auth.session.user
+                let response = try await supabaseClient.supabase
+                    .from("cleaners")
+                    .update(updatedProfile)
+                    .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
+                    .execute()
+                
+                DispatchQueue.main.async {
+                    isLoading = false
+                    if response.status == 200 {
+                        showMainView = true
+                    } else {
+                        showAlert(title: "Update Failed", message: "Failed to update location. Please try again.")
+                        print("Failed to update location. Status code: \(response.status)")
+                    }
+                }
+                
+                print(response.status)
+                print(response.data)
+                print(response.response.statusCode)
+            } catch {
+                DispatchQueue.main.async {
+                    isLoading = false
+                    showAlert(title: "Error", message: "Failed to update location: \(error.localizedDescription)")
+                    print("Failed to update location: \(error.localizedDescription)")
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                isLoading = false
+                showAlert(title: "Location Unavailable", message: "Unable to access your location. Please ensure location services are enabled and try again.")
+                print("Location data is not available")
+            }
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        alertItem = AlertItem(title: title, message: message)
     }
 }
 #Preview {
     AddLocationView()
 }
 
+struct AlertItem: Identifiable {
+    let id = UUID()
+    let title: String
+    let message: String
+}

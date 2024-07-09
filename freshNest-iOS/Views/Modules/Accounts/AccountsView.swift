@@ -193,9 +193,13 @@ struct AccountsView: View {
                                             do {
                                                 try await supabaseClient.signOut()
                                                 isAuthenticated = false
+                                                let newAuth = SupabaseManager()
+                                                let newtabBarManager = TabBarManager()
                                                 if let window = UIApplication.shared.windows.first {
                                                     window.rootViewController = UIHostingController(rootView:
-                                                                                                        SignUpView(isBackButtonHidden: true)
+                                                                                                        OnboardingView()
+                                                        .environmentObject(newAuth)
+                                                        .environmentObject(newtabBarManager)
                                                         .preferredColorScheme(.light)
                                                     )
                                                     window.makeKeyAndVisible()

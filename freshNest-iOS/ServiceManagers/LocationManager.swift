@@ -25,8 +25,10 @@ class LocationManagerDelegate: NSObject, ObservableObject, CLLocationManagerDele
             print("Location authorization status is not determined.")
         case .restricted:
             print("Location authorization status is restricted.")
+            locationManager.requestLocation()
         case .denied:
             print("Location authorization status is denied.")
+            locationManager.requestLocation()
         case .authorizedAlways, .authorizedWhenInUse:
             print("Location authorization status is authorized.")
             locationManager.requestLocation()

@@ -99,6 +99,7 @@ final class SupabaseManager: ObservableObject {
                     .value
                 
                 userProfile = profile.first ?? CleanersModel()
+                print(profile)
             } catch {
                 print("Error fetching user profile: \(error)")
             }
