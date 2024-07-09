@@ -118,16 +118,6 @@ struct PropertyInfoView: View {
                                 generator.impactOccurred()
                                 isLoading = true
                                 supabaseClient.matchWithJob(jobID: jobID)
-                                supabaseClient.fetchAvailableJobs{ success in
-                                    DispatchQueue.main.async {
-                                        isLoading = false
-                                        if success {
-                                            presentationMode.wrappedValue.dismiss()
-                                        } else {
-                                            // why would this come here??
-                                        }
-                                    }
-                                }
                             }
                         }
                         .padding(.vertical, 16)

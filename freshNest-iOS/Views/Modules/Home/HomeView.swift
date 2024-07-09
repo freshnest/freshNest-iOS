@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var showScheduledJobs = false
     @State private var showAvailableJobs = false
     @EnvironmentObject var supabaseClient: SupabaseManager
+    @AppStorage("isAuthenticated") var isAuthenticated = false
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
@@ -61,6 +62,7 @@ struct HomeView: View {
             }
         }
         .onAppear {
+            isAuthenticated = true
             supabaseClient.fetchScheduledJobs()
         }
         .fullScreenCover(isPresented: $showAvailableJobs, content: {

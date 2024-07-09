@@ -99,8 +99,6 @@ final class SupabaseManager: ObservableObject {
                     .value
                 
                 userProfile = profile.first ?? CleanersModel()
-                // MARK: PRINT PROFILE
-                //            print("Response \(profile)")
             } catch {
                 print("Error fetching user profile: \(error)")
             }
@@ -110,23 +108,13 @@ final class SupabaseManager: ObservableObject {
     func fetchAvailableJobs(completion: @escaping (Bool) -> Void) {
         Task{
             do {
-                let response = try await supabase.rpc("fetch_available_jobs").execute().data
-                let decoder = JSONDecoder()
-                do {
-                    let decodedData = try decoder.decode([AvailableJobModel].self, from: response)
-                    DispatchQueue.main.async {
-                        self.availableJobsArray = decodedData
-                        completion(true)
-                        print("New data fetched successfully for available jobs.")
-                    }
-                } catch {
-                    print("Decoding error: \(error.localizedDescription)")
-                    DispatchQueue.main.async {
-                        completion(false)
-                    }
+                let response: [AvailableJobModel] = try await supabase.rpc("fetch_available_jobs").execute().value
+                DispatchQueue.main.async {
+                    self.availableJobsArray = response
+                    completion(true)
+                    print("New data fetched successfully for available jobs.")
                 }
             } catch {
-                print("Error: \(error)")
                 DispatchQueue.main.async {
                     completion(false)
                 }
@@ -137,17 +125,13 @@ final class SupabaseManager: ObservableObject {
     func fetchAvailableJobsWithoutLoader() {
         Task{
             do {
-                let response = try await supabase.rpc("fetch_available_jobs").execute().data
-                let decoder = JSONDecoder()
-                do {
-                    let decodedData = try decoder.decode([AvailableJobModel].self, from: response)
-                    availableJobsArray = decodedData
-                    print(decodedData[0])
-                } catch {
-                    print(error.localizedDescription)
-                }
+                let response: [AvailableJobModel] = try await supabase.rpc("fetch_available_jobs").execute().value
+                self.availableJobsArray = response
+                print("DEBUGGING AV JOBS ARRAY L", response)
+                print("DEBUGGING AV JOBS SIZE L", self.availableJobsArray.count)
+                print("New data fetched successfully for available jobs.")
             } catch {
-                print("Error: \(error)")
+                print(error)
             }
         }
     }
@@ -162,7 +146,7 @@ final class SupabaseManager: ObservableObject {
                     let decodedData = try decoder.decode([ScheduledJobsModel].self, from: response)
                     scheduledJobsArray = decodedData
                     scheduledJobsCount = scheduledJobsArray.count
-                    print(decodedData[0])
+//                    print(decodedData[0])
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -177,11 +161,11 @@ final class SupabaseManager: ObservableObject {
             do {
                 let currentUser = try await supabase.auth.session.user
                 let response = try await supabase.rpc("accept_job", params: ["j_id": UUID(uuidString: jobID)]).execute()
-                print("Match Response: ",response.status)
+                print("Response for Matching Job", response)
                 fetchScheduledJobs()
                 fetchAvailableJobsWithoutLoader()
             } catch {
-                print("Failed to update phone: \(error.localizedDescription)")
+                print("Failed to match with job: \(error)")
             }
         }
     }

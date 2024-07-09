@@ -193,7 +193,13 @@ struct AccountsView: View {
                                             do {
                                                 try await supabaseClient.signOut()
                                                 isAuthenticated = false
-                                                showOnboarding = true
+                                                if let window = UIApplication.shared.windows.first {
+                                                    window.rootViewController = UIHostingController(rootView:
+                                                                                                        SignUpView(isBackButtonHidden: true)
+                                                        .preferredColorScheme(.light)
+                                                    )
+                                                    window.makeKeyAndVisible()
+                                                }
                                             } catch {
                                                 print("Error Logging out: \(error)")
                                             }
@@ -208,9 +214,6 @@ struct AccountsView: View {
             }
             .padding(16)
         }
-        .fullScreenCover(isPresented: $showOnboarding, content: {
-            SignUpView(isBackButtonHidden: true)
-        })
         .fullScreenCover(isPresented: $showVacationModeView, content: {
             VacationModeView()
         })
