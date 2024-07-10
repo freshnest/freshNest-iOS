@@ -93,6 +93,7 @@
 		C8BA92E32C3EF43E00CDAE3F /* NotificationItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E22C3EF43E00CDAE3F /* NotificationItemCell.swift */; };
 		C8BA92E52C3EF48900CDAE3F /* JobItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E42C3EF48800CDAE3F /* JobItemCell.swift */; };
 		C8BA92E72C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E62C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift */; };
+		C8BA92EA2C3EF8FF00CDAE3F /* ScheduledJobVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E92C3EF8FF00CDAE3F /* ScheduledJobVM.swift */; };
 		C8BC3C732C222E360050A8F1 /* EditShortTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BC3C722C222E360050A8F1 /* EditShortTextView.swift */; };
 		C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */; };
 		C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA82BE9318A00E17993 /* ContentView.swift */; };
@@ -221,6 +222,7 @@
 		C8BA92E22C3EF43E00CDAE3F /* NotificationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemCell.swift; sourceTree = "<group>"; };
 		C8BA92E42C3EF48800CDAE3F /* JobItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobItemCell.swift; sourceTree = "<group>"; };
 		C8BA92E62C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledJobCardCell.swift; sourceTree = "<group>"; };
+		C8BA92E92C3EF8FF00CDAE3F /* ScheduledJobVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledJobVM.swift; sourceTree = "<group>"; };
 		C8BC3C722C222E360050A8F1 /* EditShortTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortTextView.swift; sourceTree = "<group>"; };
 		C8E60AA32BE9318A00E17993 /* freshNest-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "freshNest-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freshNest_iOSApp.swift; sourceTree = "<group>"; };
@@ -456,6 +458,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		C8BA92E82C3EF8F100CDAE3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C8BA92E92C3EF8FF00CDAE3F /* ScheduledJobVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C8E60A9A2BE9318A00E17993 = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +666,7 @@
 		C8E60AE92BE983F000E17993 /* Jobs */ = {
 			isa = PBXGroup;
 			children = (
+				C8BA92E82C3EF8F100CDAE3F /* ViewModel */,
 				C84B9AD82BF63B270025A31F /* JobVIew */,
 				C8E60AEC2BE9840700E17993 /* Components */,
 				C8E60AEB2BE9840000E17993 /* Scheduled */,
@@ -885,6 +896,7 @@
 				C866A1352C0DC11200054244 /* BackgroundCheckView.swift in Sources */,
 				C89144F22C2E1B3800FDDAF3 /* CustomChatTextField.swift in Sources */,
 				C8BA92DD2C3EF40800CDAE3F /* NotificationCell.swift in Sources */,
+				C8BA92EA2C3EF8FF00CDAE3F /* ScheduledJobVM.swift in Sources */,
 				C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */,
 				C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */,
 				C8BA92D32C3EF34F00CDAE3F /* CalendarViewCell.swift in Sources */,
