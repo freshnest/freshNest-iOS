@@ -8,16 +8,6 @@
 import SwiftUI
 import Realtime
 
-struct Message: Hashable {
-    let text: String?
-    let direction: ChatDirection
-}
-
-enum ChatDirection {
-    case left
-    case right
-}
-
 struct ChatView: View {
     @EnvironmentObject var supabaseClient: SupabaseManager
     @State private var newMessageText = ""
@@ -105,17 +95,5 @@ struct ChatView: View {
             }
         }
         .navigationBarBackButtonHidden()
-    }
-}
-
-
-struct InsertMessageCellData: Codable {
-    var userID: UUID
-    var message: String
-    var sentBy: UUID
-    enum CodingKeys: String, CodingKey {
-        case userID = "user_id"
-        case message = "text"
-        case sentBy = "sent_by"
     }
 }

@@ -167,22 +167,3 @@ struct EditProfileView: View {
 //#Preview {
 //    EditProfileView()
 //}
-
-extension String {
-    func formattedPhoneNumber() -> String {
-        // Ensure the phone number string contains only digits
-        let digits = self.filter { $0.isNumber }
-        
-        // Check if the phone number has the required length
-        guard digits.count == 10 else {
-            return self
-        }
-        
-        // Format the phone number as +1 (XXX) XXXXX
-        let areaCode = digits.prefix(3)
-        let remaining = digits.suffix(7)
-        let formatted = "+1 (\(areaCode)) \(remaining.prefix(5))\(remaining.suffix(2))"
-        
-        return formatted
-    }
-}

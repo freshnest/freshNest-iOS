@@ -71,6 +71,7 @@ struct LoginView: View {
             await viewModel.signIn(email: email, password: password)
             await viewModel.isUserAuthenticated()
             if viewModel.isAuthenticated {
+                try await viewModel.fetchUserData()
                 await checkLocationAccess()
                 if longitude == 0.0 && latitude == 0.0 {
                     showLocationScreen.toggle()

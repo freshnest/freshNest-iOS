@@ -145,25 +145,6 @@ struct PropertyInfoView: View {
     }
 }
 
-struct WorkItemCell: View {
-    var image: String
-    var text: String
-    var value: String
-    var body: some View {
-        HStack(spacing: 4) {
-            Image(systemName: image)
-                .resizable()
-                .frame(width: 24, height: 24)
-                .foregroundColor(.black)
-            Text(text)
-                .font(.cascaded(ofSize: .h20, weight: .regular))
-            Text(value)
-                .font(.cascaded(ofSize: .h20, weight: .regular))
-            Spacer()
-        }
-    }
-}
-
 //#Preview {
 //    PropertyInfoView(data: .constant(PropertyInfoModel(propertyId: "", createdAt: Date(), propertyType: "Apartment", bedroomCount: 3, isLaundryMachineAvailable: true, isCleaningSuppliesAvailable: true, updatedAt: Date(), hostId: UUID(), cleaningFee: "191", addressJSON: Address(zip: "", city: "Boston", state: "MA", number: "12123", street: "Blue Stree", aptNumber: "123"), bathroomCount: 4, propertyName: "Havenwood Estate")))
 //}

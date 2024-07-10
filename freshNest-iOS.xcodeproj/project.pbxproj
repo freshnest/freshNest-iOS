@@ -78,6 +78,21 @@
 		C8B17F262C2A36120099E4B0 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B17F252C2A36120099E4B0 /* TaskListModel.swift */; };
 		C8B17F2E2C2B88F50099E4B0 /* GlassBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B17F2D2C2B88F50099E4B0 /* GlassBackground.swift */; };
 		C8B17F302C2B9A590099E4B0 /* EditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B17F2F2C2B9A590099E4B0 /* EditImageView.swift */; };
+		C8BA92CA2C3EF2F500CDAE3F /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92C92C3EF2F500CDAE3F /* CircularButton.swift */; };
+		C8BA92CC2C3EF30900CDAE3F /* SubTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92CB2C3EF30900CDAE3F /* SubTaskView.swift */; };
+		C8BA92CE2C3EF31B00CDAE3F /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92CD2C3EF31B00CDAE3F /* TaskItemView.swift */; };
+		C8BA92D12C3EF33E00CDAE3F /* CalendarViewItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92D02C3EF33E00CDAE3F /* CalendarViewItemCell.swift */; };
+		C8BA92D32C3EF34F00CDAE3F /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92D22C3EF34F00CDAE3F /* CalendarViewCell.swift */; };
+		C8BA92D52C3EF36300CDAE3F /* CalendarDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92D42C3EF36300CDAE3F /* CalendarDateView.swift */; };
+		C8BA92D72C3EF37900CDAE3F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92D62C3EF37900CDAE3F /* Date+.swift */; };
+		C8BA92D92C3EF3A200CDAE3F /* ChatBubbleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92D82C3EF3A200CDAE3F /* ChatBubbleShape.swift */; };
+		C8BA92DB2C3EF3B900CDAE3F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92DA2C3EF3B900CDAE3F /* Message.swift */; };
+		C8BA92DD2C3EF40800CDAE3F /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92DC2C3EF40800CDAE3F /* NotificationCell.swift */; };
+		C8BA92DF2C3EF41B00CDAE3F /* NotificationEmptyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92DE2C3EF41B00CDAE3F /* NotificationEmptyViewCell.swift */; };
+		C8BA92E12C3EF43000CDAE3F /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E02C3EF43000CDAE3F /* SwitchView.swift */; };
+		C8BA92E32C3EF43E00CDAE3F /* NotificationItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E22C3EF43E00CDAE3F /* NotificationItemCell.swift */; };
+		C8BA92E52C3EF48900CDAE3F /* JobItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E42C3EF48800CDAE3F /* JobItemCell.swift */; };
+		C8BA92E72C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA92E62C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift */; };
 		C8BC3C732C222E360050A8F1 /* EditShortTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BC3C722C222E360050A8F1 /* EditShortTextView.swift */; };
 		C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */; };
 		C8E60AA92BE9318A00E17993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AA82BE9318A00E17993 /* ContentView.swift */; };
@@ -93,7 +108,7 @@
 		C8E60AE42BE9746200E17993 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AE32BE9746200E17993 /* HomeView.swift */; };
 		C8E60AE62BE977FA00E17993 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AE52BE977FA00E17993 /* SignUpView.swift */; };
 		C8E60AE82BE97D2300E17993 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AE72BE97D2300E17993 /* LoginView.swift */; };
-		C8E60AEF2BE9841F00E17993 /* JobCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AEE2BE9841F00E17993 /* JobCardCell.swift */; };
+		C8E60AEF2BE9841F00E17993 /* AvailableJobCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AEE2BE9841F00E17993 /* AvailableJobCardCell.swift */; };
 		C8E60AF22BE987F400E17993 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF12BE987F400E17993 /* TestData.swift */; };
 		C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF32BE9883400E17993 /* JobModel.swift */; };
 		C8E60AF62BE98B5100E17993 /* ScheduledJobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF52BE98B5100E17993 /* ScheduledJobsView.swift */; };
@@ -191,6 +206,21 @@
 		C8B17F252C2A36120099E4B0 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
 		C8B17F2D2C2B88F50099E4B0 /* GlassBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassBackground.swift; sourceTree = "<group>"; };
 		C8B17F2F2C2B9A590099E4B0 /* EditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageView.swift; sourceTree = "<group>"; };
+		C8BA92C92C3EF2F500CDAE3F /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		C8BA92CB2C3EF30900CDAE3F /* SubTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskView.swift; sourceTree = "<group>"; };
+		C8BA92CD2C3EF31B00CDAE3F /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
+		C8BA92D02C3EF33E00CDAE3F /* CalendarViewItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewItemCell.swift; sourceTree = "<group>"; };
+		C8BA92D22C3EF34F00CDAE3F /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
+		C8BA92D42C3EF36300CDAE3F /* CalendarDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateView.swift; sourceTree = "<group>"; };
+		C8BA92D62C3EF37900CDAE3F /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		C8BA92D82C3EF3A200CDAE3F /* ChatBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleShape.swift; sourceTree = "<group>"; };
+		C8BA92DA2C3EF3B900CDAE3F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C8BA92DC2C3EF40800CDAE3F /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		C8BA92DE2C3EF41B00CDAE3F /* NotificationEmptyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEmptyViewCell.swift; sourceTree = "<group>"; };
+		C8BA92E02C3EF43000CDAE3F /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
+		C8BA92E22C3EF43E00CDAE3F /* NotificationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemCell.swift; sourceTree = "<group>"; };
+		C8BA92E42C3EF48800CDAE3F /* JobItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobItemCell.swift; sourceTree = "<group>"; };
+		C8BA92E62C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledJobCardCell.swift; sourceTree = "<group>"; };
 		C8BC3C722C222E360050A8F1 /* EditShortTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortTextView.swift; sourceTree = "<group>"; };
 		C8E60AA32BE9318A00E17993 /* freshNest-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "freshNest-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E60AA62BE9318A00E17993 /* freshNest_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freshNest_iOSApp.swift; sourceTree = "<group>"; };
@@ -209,7 +239,7 @@
 		C8E60AE32BE9746200E17993 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C8E60AE52BE977FA00E17993 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C8E60AE72BE97D2300E17993 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		C8E60AEE2BE9841F00E17993 /* JobCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardCell.swift; sourceTree = "<group>"; };
+		C8E60AEE2BE9841F00E17993 /* AvailableJobCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableJobCardCell.swift; sourceTree = "<group>"; };
 		C8E60AF12BE987F400E17993 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		C8E60AF32BE9883400E17993 /* JobModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobModel.swift; sourceTree = "<group>"; };
 		C8E60AF52BE98B5100E17993 /* ScheduledJobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledJobsView.swift; sourceTree = "<group>"; };
@@ -256,6 +286,11 @@
 			children = (
 				C81449072C11E6130029C223 /* CleanersModel.swift */,
 				C8E757982C3DDFAC004D56CB /* AlertItem.swift */,
+				C8A9B9352C238D13005D0D3C /* RequestedCleaningsModel.swift */,
+				C84E86102C26A54D00EC9F24 /* PropertyInfoModel.swift */,
+				C8B17F252C2A36120099E4B0 /* TaskListModel.swift */,
+				C8BA92DA2C3EF3B900CDAE3F /* Message.swift */,
+				C8E60AF32BE9883400E17993 /* JobModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -345,6 +380,7 @@
 		C87966332BF2B76D0065FB39 /* WorkFlow */ = {
 			isa = PBXGroup;
 			children = (
+				C8BA92C82C3EF2EA00CDAE3F /* Components */,
 				C87966362BF2B8550065FB39 /* WorkFlowView.swift */,
 				C84B9AD62BF622C90025A31F /* WorkFlowSuccessScreen.swift */,
 			);
@@ -365,6 +401,7 @@
 		C886A3BD2BED622600E059B0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				C8BA92CF2C3EF32A00CDAE3F /* Components */,
 				C886A3C02BED623600E059B0 /* CalendarView.swift */,
 			);
 			path = Calendar;
@@ -375,6 +412,11 @@
 			children = (
 				C89144EF2C2E1B0600FDDAF3 /* ChatBubble.swift */,
 				C89144F12C2E1B3800FDDAF3 /* CustomChatTextField.swift */,
+				C8BA92D82C3EF3A200CDAE3F /* ChatBubbleShape.swift */,
+				C8BA92DC2C3EF40800CDAE3F /* NotificationCell.swift */,
+				C8BA92DE2C3EF41B00CDAE3F /* NotificationEmptyViewCell.swift */,
+				C8BA92E02C3EF43000CDAE3F /* SwitchView.swift */,
+				C8BA92E22C3EF43E00CDAE3F /* NotificationItemCell.swift */,
 			);
 			path = Componenets;
 			sourceTree = "<group>";
@@ -392,6 +434,26 @@
 				C8B17F232C2973880099E4B0 /* EmptyView.swift */,
 			);
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		C8BA92C82C3EF2EA00CDAE3F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C8BA92C92C3EF2F500CDAE3F /* CircularButton.swift */,
+				C8BA92CB2C3EF30900CDAE3F /* SubTaskView.swift */,
+				C8BA92CD2C3EF31B00CDAE3F /* TaskItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C8BA92CF2C3EF32A00CDAE3F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C8BA92D02C3EF33E00CDAE3F /* CalendarViewItemCell.swift */,
+				C8BA92D22C3EF34F00CDAE3F /* CalendarViewCell.swift */,
+				C8BA92D42C3EF36300CDAE3F /* CalendarDateView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		C8E60A9A2BE9318A00E17993 = {
@@ -518,6 +580,7 @@
 				C85EA8802C0727AE0048C56A /* Label+.swift */,
 				C866A13E2C0DD9F300054244 /* Device+.swift */,
 				C866A1402C0DDBB400054244 /* App+.swift */,
+				C8BA92D62C3EF37900CDAE3F /* Date+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -594,7 +657,6 @@
 			isa = PBXGroup;
 			children = (
 				C84B9AD82BF63B270025A31F /* JobVIew */,
-				C8E60AED2BE9840E00E17993 /* Model */,
 				C8E60AEC2BE9840700E17993 /* Components */,
 				C8E60AEB2BE9840000E17993 /* Scheduled */,
 				C8E60AEA2BE983F700E17993 /* Available */,
@@ -621,20 +683,11 @@
 		C8E60AEC2BE9840700E17993 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C8E60AEE2BE9841F00E17993 /* JobCardCell.swift */,
+				C8E60AEE2BE9841F00E17993 /* AvailableJobCardCell.swift */,
+				C8BA92E42C3EF48800CDAE3F /* JobItemCell.swift */,
+				C8BA92E62C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		C8E60AED2BE9840E00E17993 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C8E60AF32BE9883400E17993 /* JobModel.swift */,
-				C8A9B9352C238D13005D0D3C /* RequestedCleaningsModel.swift */,
-				C84E86102C26A54D00EC9F24 /* PropertyInfoModel.swift */,
-				C8B17F252C2A36120099E4B0 /* TaskListModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		C8E60AF02BE987E700E17993 /* TestData */ = {
@@ -802,6 +855,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BA92CC2C3EF30900CDAE3F /* SubTaskView.swift in Sources */,
+				C8BA92D12C3EF33E00CDAE3F /* CalendarViewItemCell.swift in Sources */,
 				C89C9D302BEC9EC10066DA14 /* FormView.swift in Sources */,
 				C89144F02C2E1B0600FDDAF3 /* ChatBubble.swift in Sources */,
 				C8BC3C732C222E360050A8F1 /* EditShortTextView.swift in Sources */,
@@ -819,32 +874,41 @@
 				C85EA8842C0727CC0048C56A /* AppFont.swift in Sources */,
 				C866A12F2C0DC0E300054244 /* TaxInformationView.swift in Sources */,
 				C8B17F242C2973880099E4B0 /* EmptyView.swift in Sources */,
+				C8BA92CA2C3EF2F500CDAE3F /* CircularButton.swift in Sources */,
 				C8E60AF42BE9883400E17993 /* JobModel.swift in Sources */,
+				C8BA92D72C3EF37900CDAE3F /* Date+.swift in Sources */,
 				C84E86112C26A54D00EC9F24 /* PropertyInfoModel.swift in Sources */,
 				C89144F72C2E21B400FDDAF3 /* TabBarVisibilityModifier.swift in Sources */,
 				C866A13B2C0DD3F200054244 /* SupportItemsView.swift in Sources */,
 				C868B59D2C1B3ADE005BD271 /* LocationManager.swift in Sources */,
+				C8BA92E32C3EF43E00CDAE3F /* NotificationItemCell.swift in Sources */,
 				C866A1352C0DC11200054244 /* BackgroundCheckView.swift in Sources */,
 				C89144F22C2E1B3800FDDAF3 /* CustomChatTextField.swift in Sources */,
+				C8BA92DD2C3EF40800CDAE3F /* NotificationCell.swift in Sources */,
 				C886A3BF2BED623000E059B0 /* MessagesMainView.swift in Sources */,
 				C89C9D2E2BEC9EA20066DA14 /* MapView.swift in Sources */,
+				C8BA92D32C3EF34F00CDAE3F /* CalendarViewCell.swift in Sources */,
 				C868B59A2C1B2157005BD271 /* AddLocationView.swift in Sources */,
 				C886A3BB2BED5CE700E059B0 /* MainView.swift in Sources */,
 				C866A1252C0DC04F00054244 /* EditJobRadiusView.swift in Sources */,
 				C8E60AD82BE9338D00E17993 /* Color+.swift in Sources */,
 				C84B9AD72BF622C90025A31F /* WorkFlowSuccessScreen.swift in Sources */,
 				C81449012C11E0AC0029C223 /* SupabaseManager.swift in Sources */,
-				C8E60AEF2BE9841F00E17993 /* JobCardCell.swift in Sources */,
+				C8BA92DB2C3EF3B900CDAE3F /* Message.swift in Sources */,
+				C8E60AEF2BE9841F00E17993 /* AvailableJobCardCell.swift in Sources */,
 				C8E757992C3DDFAC004D56CB /* AlertItem.swift in Sources */,
 				C8FF0A202C2624B700647DD7 /* Loader.swift in Sources */,
 				C866A13D2C0DD9B100054244 /* SupportEmail.swift in Sources */,
 				C8B17F262C2A36120099E4B0 /* TaskListModel.swift in Sources */,
 				C8EA10862C18D2230052B050 /* AddNameScreen.swift in Sources */,
+				C8BA92D52C3EF36300CDAE3F /* CalendarDateView.swift in Sources */,
 				C82097F12BEC137A0020EBE1 /* AccountsView.swift in Sources */,
 				C89C9D382BEC9F1C0066DA14 /* BackButton.swift in Sources */,
 				C866A1232C0DC04600054244 /* EditProfileView.swift in Sources */,
+				C8BA92CE2C3EF31B00CDAE3F /* TaskItemView.swift in Sources */,
 				C89C9D222BEC9DD50066DA14 /* AccountRowView.swift in Sources */,
 				C89C9D362BEC9F070066DA14 /* RoundedButton.swift in Sources */,
+				C8BA92E12C3EF43000CDAE3F /* SwitchView.swift in Sources */,
 				C87966392BF2BA520065FB39 /* TaskFlowData.swift in Sources */,
 				C89C9D262BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift in Sources */,
 				C886A3B72BED4D3A00E059B0 /* CustomTabBar.swift in Sources */,
@@ -857,6 +921,7 @@
 				C84B9ADC2BF7CF790025A31F /* EarningListView.swift in Sources */,
 				C8B17F2E2C2B88F50099E4B0 /* GlassBackground.swift in Sources */,
 				C866A1312C0DC0F000054244 /* AppLanguageView.swift in Sources */,
+				C8BA92E52C3EF48900CDAE3F /* JobItemCell.swift in Sources */,
 				C8E60AF82BE9902500E17993 /* AvailableJobsView.swift in Sources */,
 				C8E60AE62BE977FA00E17993 /* SignUpView.swift in Sources */,
 				C8E60ADE2BE9345700E17993 /* AppUserInterface.swift in Sources */,
@@ -864,10 +929,12 @@
 				C85EA8812C0727AE0048C56A /* Label+.swift in Sources */,
 				C81449052C11E3160029C223 /* AddPhoneNumber.swift in Sources */,
 				C8E60AFB2BEAD2A800E17993 /* EarningsMainView.swift in Sources */,
+				C8BA92D92C3EF3A200CDAE3F /* ChatBubbleShape.swift in Sources */,
 				C8E60AE02BE934EC00E17993 /* OnboardingView.swift in Sources */,
 				C8E60AA72BE9318A00E17993 /* freshNest_iOSApp.swift in Sources */,
 				C8E60AF62BE98B5100E17993 /* ScheduledJobsView.swift in Sources */,
 				C89C9D2A2BEC9E550066DA14 /* String+.swift in Sources */,
+				C8BA92DF2C3EF41B00CDAE3F /* NotificationEmptyViewCell.swift in Sources */,
 				C8A9B9362C238D13005D0D3C /* RequestedCleaningsModel.swift in Sources */,
 				C866A1292C0DC0A000054244 /* WorkingHoursView.swift in Sources */,
 				C866A1332C0DC10300054244 /* ReviewsView.swift in Sources */,
@@ -875,6 +942,7 @@
 				C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */,
 				C866A13F2C0DD9F300054244 /* Device+.swift in Sources */,
 				C886A3B92BED574800E059B0 /* TabTestView.swift in Sources */,
+				C8BA92E72C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift in Sources */,
 				C84951E52C09989200A2265B /* AccountUserInfoCell.swift in Sources */,
 				C81449082C11E6140029C223 /* CleanersModel.swift in Sources */,
 				C87966352BF2B8130065FB39 /* CardStack.swift in Sources */,

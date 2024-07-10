@@ -39,6 +39,7 @@ struct SettingsRowView: View {
         .frame(height: 20)
         .frame(maxWidth: .infinity)
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        .contentShape(Rectangle())
         .onTapGesture {
             action()
         }
