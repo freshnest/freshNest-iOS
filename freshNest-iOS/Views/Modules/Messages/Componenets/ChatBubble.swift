@@ -55,32 +55,52 @@ struct ChatBubbleShape: Shape {
     private func getLeftBubblePath(in rect: CGRect) -> Path {
         let width = rect.width
         let height = rect.height
+        let cornerRadius: CGFloat = 20
+        let smallCornerRadius: CGFloat = 5
+        
         let path = Path { p in
-            p.move(to: CGPoint(x: 25, y: height))
-            p.addLine(to: CGPoint(x: width - 20, y: height))
-            p.addCurve(to: CGPoint(x: width, y: height - 20),
-                       control1: CGPoint(x: width - 8, y: height),
-                       control2: CGPoint(x: width, y: height - 8))
-            p.addLine(to: CGPoint(x: width, y: 20))
-            p.addCurve(to: CGPoint(x: width - 20, y: 0),
-                       control1: CGPoint(x: width, y: 8),
-                       control2: CGPoint(x: width - 8, y: 0))
-            p.addLine(to: CGPoint(x: 21, y: 0))
-            p.addCurve(to: CGPoint(x: 4, y: 20),
-                       control1: CGPoint(x: 12, y: 0),
-                       control2: CGPoint(x: 4, y: 8))
-            p.addLine(to: CGPoint(x: 4, y: height - 11))
-            p.addCurve(to: CGPoint(x: 0, y: height),
-                       control1: CGPoint(x: 4, y: height - 1),
-                       control2: CGPoint(x: 0, y: height))
-            p.addLine(to: CGPoint(x: -0.05, y: height - 0.01))
-            p.addCurve(to: CGPoint(x: 11.0, y: height - 4.0),
-                       control1: CGPoint(x: 4.0, y: height + 0.5),
-                       control2: CGPoint(x: 8, y: height - 1))
-            p.addCurve(to: CGPoint(x: 25, y: height),
-                       control1: CGPoint(x: 16, y: height),
-                       control2: CGPoint(x: 20, y: height))
+            // Top left corner
+            p.move(to: CGPoint(x: cornerRadius, y: 0))
             
+            // Top edge
+            p.addLine(to: CGPoint(x: width - cornerRadius, y: 0))
+            
+            // Top right corner
+            p.addArc(center: CGPoint(x: width - cornerRadius, y: cornerRadius),
+                     radius: cornerRadius,
+                     startAngle: Angle(degrees: -90),
+                     endAngle: Angle(degrees: 0),
+                     clockwise: false)
+            
+            // Right edge
+            p.addLine(to: CGPoint(x: width, y: height - cornerRadius))
+            
+            // Bottom right corner
+            p.addArc(center: CGPoint(x: width - cornerRadius, y: height - cornerRadius),
+                     radius: cornerRadius,
+                     startAngle: Angle(degrees: 0),
+                     endAngle: Angle(degrees: 90),
+                     clockwise: false)
+            
+            // Bottom edge
+            p.addLine(to: CGPoint(x: smallCornerRadius, y: height))
+            
+            // Bottom left corner (less rounded)
+            p.addArc(center: CGPoint(x: smallCornerRadius, y: height - smallCornerRadius),
+                     radius: smallCornerRadius,
+                     startAngle: Angle(degrees: 90),
+                     endAngle: Angle(degrees: 180),
+                     clockwise: false)
+            
+            // Left edge
+            p.addLine(to: CGPoint(x: 0, y: cornerRadius))
+            
+            // Top left corner
+            p.addArc(center: CGPoint(x: cornerRadius, y: cornerRadius),
+                     radius: cornerRadius,
+                     startAngle: Angle(degrees: 180),
+                     endAngle: Angle(degrees: 270),
+                     clockwise: false)
         }
         return path
     }
@@ -88,32 +108,52 @@ struct ChatBubbleShape: Shape {
     private func getRightBubblePath(in rect: CGRect) -> Path {
         let width = rect.width
         let height = rect.height
+        let cornerRadius: CGFloat = 20
+        let smallCornerRadius: CGFloat = 5
+        
         let path = Path { p in
-            p.move(to: CGPoint(x: 25, y: height))
-            p.addLine(to: CGPoint(x:  20, y: height))
-            p.addCurve(to: CGPoint(x: 0, y: height - 20),
-                       control1: CGPoint(x: 8, y: height),
-                       control2: CGPoint(x: 0, y: height - 8))
-            p.addLine(to: CGPoint(x: 0, y: 20))
-            p.addCurve(to: CGPoint(x: 20, y: 0),
-                       control1: CGPoint(x: 0, y: 8),
-                       control2: CGPoint(x: 8, y: 0))
-            p.addLine(to: CGPoint(x: width - 21, y: 0))
-            p.addCurve(to: CGPoint(x: width - 4, y: 20),
-                       control1: CGPoint(x: width - 12, y: 0),
-                       control2: CGPoint(x: width - 4, y: 8))
-            p.addLine(to: CGPoint(x: width - 4, y: height - 11))
-            p.addCurve(to: CGPoint(x: width, y: height),
-                       control1: CGPoint(x: width - 4, y: height - 1),
-                       control2: CGPoint(x: width, y: height))
-            p.addLine(to: CGPoint(x: width + 0.05, y: height - 0.01))
-            p.addCurve(to: CGPoint(x: width - 11, y: height - 4),
-                       control1: CGPoint(x: width - 4, y: height + 0.5),
-                       control2: CGPoint(x: width - 8, y: height - 1))
-            p.addCurve(to: CGPoint(x: width - 25, y: height),
-                       control1: CGPoint(x: width - 16, y: height),
-                       control2: CGPoint(x: width - 20, y: height))
+            // Top left corner
+            p.move(to: CGPoint(x: cornerRadius, y: 0))
             
+            // Top edge
+            p.addLine(to: CGPoint(x: width - cornerRadius, y: 0))
+            
+            // Top right corner
+            p.addArc(center: CGPoint(x: width - cornerRadius, y: cornerRadius),
+                     radius: cornerRadius,
+                     startAngle: Angle(degrees: -90),
+                     endAngle: Angle(degrees: 0),
+                     clockwise: false)
+            
+            // Right edge
+            p.addLine(to: CGPoint(x: width, y: height - smallCornerRadius))
+            
+            // Bottom right corner (less rounded)
+            p.addArc(center: CGPoint(x: width - smallCornerRadius, y: height - smallCornerRadius),
+                     radius: smallCornerRadius,
+                     startAngle: Angle(degrees: 0),
+                     endAngle: Angle(degrees: 90),
+                     clockwise: false)
+            
+            // Bottom edge
+            p.addLine(to: CGPoint(x: cornerRadius, y: height))
+            
+            // Bottom left corner
+            p.addArc(center: CGPoint(x: cornerRadius, y: height - cornerRadius),
+                     radius: cornerRadius,
+                     startAngle: Angle(degrees: 90),
+                     endAngle: Angle(degrees: 180),
+                     clockwise: false)
+            
+            // Left edge
+            p.addLine(to: CGPoint(x: 0, y: cornerRadius))
+            
+            // Top left corner
+            p.addArc(center: CGPoint(x: cornerRadius, y: cornerRadius),
+                     radius: cornerRadius,
+                     startAngle: Angle(degrees: 180),
+                     endAngle: Angle(degrees: 270),
+                     clockwise: false)
         }
         return path
     }

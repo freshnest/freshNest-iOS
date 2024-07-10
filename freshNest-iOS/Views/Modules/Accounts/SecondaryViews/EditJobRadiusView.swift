@@ -66,7 +66,7 @@ struct EditJobRadiusView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): JobRadius Updated Successfully")
-                supabaseClient.fetchUserData()
+                try await supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update JobRadius: \(error.localizedDescription)")
             }

@@ -53,6 +53,7 @@ struct ChatView: View {
                         
                         Divider()
                             .padding(.horizontal, -16)
+                            .padding(.top, 16)
                     }
                     .frame(height: 40)
                     

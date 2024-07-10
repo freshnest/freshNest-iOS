@@ -30,15 +30,14 @@ final class SupabaseManager: ObservableObject {
     @Published var selectedImage: UIImage? = nil
     let supabase = SupabaseClient(supabaseURL: URL(string: "https://cundjcwzibpwiiuxitul.supabase.co")!, supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bmRqY3d6aWJwd2lpdXhpdHVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM1MzU2MjQsImV4cCI6MjAyOTExMTYyNH0.AoiSo5wdnV5A6WVPwaEIk9W1r_-6ZdMUoE5kbEXqfKI")
     
-    func signUp(email: String, password: String, firstName: String, lastName: String) async {
+    func signUp(email: String, password: String, firstName: String, lastName: String) async throws {
         do {
             let response = try await supabase.auth.signUp(email: email, password: password, data: [
                 "first_name": .string(firstName),
                 "last_name": .string(lastName),
                 "sub": .string("cleaner")
-              ])
-            print("Sign-up successful: \(response)")
-        
+            ])
+            
             accessToken = response.session?.accessToken ?? ""
             refreshToken = response.session?.refreshToken ?? ""
             userID = response.session?.user.id.uuidString ?? ""
@@ -47,6 +46,7 @@ final class SupabaseManager: ObservableObject {
         } catch {
             print("Sign-up error: \(error.localizedDescription)")
             isAuthenticated = false
+            throw error
         }
     }
     
@@ -86,23 +86,30 @@ final class SupabaseManager: ObservableObject {
         }
     }
     
-    func fetchUserData() {
-        Task{
-            do {
-                let currentUser = try await supabase.auth.session.user
-                
-                let profile: [CleanersModel] = try await supabase
-                    .from("cleaners")
-                    .select()
-                    .eq("id", value: currentUser.id)
-                    .execute()
-                    .value
-                
-                userProfile = profile.first ?? CleanersModel()
-                print(profile)
-            } catch {
-                print("Error fetching user profile: \(error)")
+    func fetchUserData() async throws {
+        do {
+            let currentUser = try await supabase.auth.session.user
+            
+            let profile: [CleanersModel] = try await supabase
+                .from("cleaners")
+                .select()
+                .eq("id", value: currentUser.id)
+                .execute()
+                .value
+            
+            if let fetchedProfile = profile.first {
+                DispatchQueue.main.async {
+                    self.userProfile = fetchedProfile
+                }
+                print("Fetched user profile: \(fetchedProfile)")
+            } else {
+                print("Profile not yet available for user")
+                // You might want to implement a retry mechanism here
+                throw NSError(domain: "ProfileError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Profile not yet available"])
             }
+        } catch {
+            print("Error fetching user profile: \(error)")
+            throw error
         }
     }
     

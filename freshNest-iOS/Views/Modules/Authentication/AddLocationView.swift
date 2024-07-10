@@ -12,11 +12,11 @@ struct AddLocationView: View {
     @State private var phoneNumber = ""
     @StateObject private var locationManagerDelegate = LocationManagerDelegate.shared
     @State private var locationStatus: CLAuthorizationStatus?
-    @State private var showLocationPermissionAlert = false
     @State private var showMainView = false
     @State private var alertItem: AlertItem?
     @State private var isLoading = false
     @EnvironmentObject var supabaseClient: SupabaseManager
+    
     var body: some View {
         VStack(alignment: .leading) {
             BackButton()
@@ -25,7 +25,7 @@ struct AddLocationView: View {
                     .font(.cascaded(ofSize: .h28, weight: .bold))
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appTitleColor))
                 
-                Text("We need your location permission to dectect nearby available jobs for you.")
+                Text("We need your location permission to detect nearby available jobs for you.")
                     .font(.cascaded(ofSize: .h16, weight: .regular))
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appTitleColor))
                 Image("location")
@@ -57,27 +57,17 @@ struct AddLocationView: View {
                 }
             }
         )
-        .alert(isPresented: $showLocationPermissionAlert) {
-            Alert(
-                title: Text("📍Location Required"),
-                message: Text("We need your location to show available jobs near you. \nYou can enable location permission from the settings."),
-                dismissButton: .default(Text("Open Location Permission").fontWeight(.bold)) {
-                    showLocationPermissionAlert = false
-                    print("Alert Status: \(showLocationPermissionAlert)")
-                    if let url = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(url)
-                    }
-                }
-            )
-        }
         .alert(item: $alertItem) { item in
             Alert(
                 title: Text(item.title),
                 message: Text(item.message),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text(item.buttonTitle)) {
+                    item.action?()
+                }
             )
         }
     }
+    
     private func checkLocationPermission() {
         locationManagerDelegate.locationManager.delegate = locationManagerDelegate
         locationStatus = locationManagerDelegate.locationManager.authorizationStatus
@@ -89,8 +79,7 @@ struct AddLocationView: View {
             }
         case .restricted, .denied:
             print("Location access is restricted or denied.")
-            showLocationPermissionAlert = true
-            print("Alert Status: \(showLocationPermissionAlert)")
+            showLocationPermissionAlert()
         case .authorizedWhenInUse, .authorizedAlways:
             print("Location access is granted.")
             Task {
@@ -101,6 +90,19 @@ struct AddLocationView: View {
         @unknown default:
             print("Unknown location authorization status.")
         }
+    }
+    
+    private func showLocationPermissionAlert() {
+        alertItem = AlertItem(
+            title: "📍Location Required",
+            message: "We need your location to show available jobs near you. \nYou can enable location permission from the settings.",
+            buttonTitle: "Open Location Permission",
+            action: {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+        )
     }
     
     private func sendLocationData() async {
@@ -128,7 +130,7 @@ struct AddLocationView: View {
                     if response.status == 200 {
                         showMainView = true
                     } else {
-                        showAlert(title: "Update Failed", message: "Failed to update location. Please try again.")
+                        alertItem = AlertItem(title: "Update Failed", message: "Failed to update location. Please try again.")
                         print("Failed to update location. Status code: \(response.status)")
                     }
                 }
@@ -139,29 +141,20 @@ struct AddLocationView: View {
             } catch {
                 DispatchQueue.main.async {
                     isLoading = false
-                    showAlert(title: "Error", message: "Failed to update location: \(error.localizedDescription)")
+                    alertItem = AlertItem(title: "Error", message: "Failed to update location: \(error.localizedDescription)")
                     print("Failed to update location: \(error.localizedDescription)")
                 }
             }
         } else {
             DispatchQueue.main.async {
                 isLoading = false
-                showAlert(title: "Location Unavailable", message: "Unable to access your location. Please ensure location services are enabled and try again.")
+                alertItem = AlertItem(title: "Location Unavailable", message: "Unable to access your location. Please ensure location services are enabled and try again.")
                 print("Location data is not available")
             }
         }
     }
-    
-    private func showAlert(title: String, message: String) {
-        alertItem = AlertItem(title: title, message: message)
-    }
-}
-#Preview {
-    AddLocationView()
 }
 
-struct AlertItem: Identifiable {
-    let id = UUID()
-    let title: String
-    let message: String
+#Preview {
+    AddLocationView()
 }

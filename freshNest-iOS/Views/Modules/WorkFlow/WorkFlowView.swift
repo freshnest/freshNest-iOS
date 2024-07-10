@@ -17,6 +17,12 @@ struct WorkFlowView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var supabaseClient: SupabaseManager
     var dateTime: String?
+    
+    private var allTasksComplete: Bool {
+        guard let tasks = data.task, !tasks.isEmpty else { return false }
+        return tasks.allSatisfy { $0.isComplete == true }
+    }
+    
     var body: some View {
         ZStack(alignment: .top) {
             VStack(alignment: .leading) {
@@ -34,7 +40,7 @@ struct WorkFlowView: View {
                         }
                     }
                     .padding(.bottom, 16)
-
+                    
                     HStack(alignment: .center) {
                         Text("Scheduled For: \(getFormattedTime(from: dateTime))")
                             .font(.cascaded(ofSize: .h20, weight: .medium))
@@ -46,19 +52,23 @@ struct WorkFlowView: View {
                         .font(.cascaded(ofSize: .h16, weight: .regular))
                         .foregroundStyle(.black.opacity(0.6))
                 }
-
+                
                 Spacer()
-                List(data.task ?? []) { task in
-                    // TODO: FIX THIS
-                    TaskItemView(task: task, jobID: data.jobId?.uuidString ?? "", isLoading: $isLoading)
+                List(data.task?.indices ?? 0..<0, id: \.self) { index in
+                    TaskItemView(task: Binding(
+                        get: { data.task?[index] ?? TaskModel() },
+                        set: { data.task?[index] = $0 }
+                    ), jobID: data.jobId?.uuidString ?? "", isLoading: $isLoading)
                 }
                 .listStyle(.plain)
                 .scrollIndicators(.hidden)
                 .padding(.horizontal, -16)
-
-                RoundedButton(title: "Finish Job", action: {
-                    showConfirmationAlert.toggle()
-                }, color: .black, textColor: .white)
+                
+                if allTasksComplete {
+                    RoundedButton(title: "Finish Job", action: {
+                        showConfirmationAlert.toggle()
+                    }, color: .black, textColor: .white)
+                }
             }
             .padding(16)
         }
@@ -140,58 +150,6 @@ struct CircularButton: View {
     }
 }
 
-
-struct CardView1: View {
-    let task: TaskItem
-    @State private var subtaskStatus: [Bool]
-    
-    init(task: TaskItem) {
-        self.task = task
-        self._subtaskStatus = State(initialValue: Array(repeating: false, count: task.subtasks.count))
-    }
-    
-    var body: some View {
-        RoundedRectangle(cornerRadius: 20, style: .continuous)
-            .fill(Color.white)
-            .overlay(
-                VStack(alignment: .leading) {
-                    Text(task.title)
-                        .font(.cascaded(ofSize: .h24, weight: .bold))
-                        .padding(.horizontal, 16)
-                        .padding(.top, 16)
-                        .foregroundColor(Color.black.opacity(0.9))
-                        .lineLimit(2)
-                    Text(task.description)
-                        .font(.cascaded(ofSize: .h12, weight: .bold))
-                        .padding(.horizontal, 16)
-                        .foregroundColor(Color.black.opacity(0.3))
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        ForEach(task.subtasks.indices, id: \.self) { index in
-                            SubtaskView(subtask: task.subtasks[index], isChecked: $subtaskStatus[index])
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 16)
-                                .foregroundColor(.black.opacity(0.8))
-                                .multilineTextAlignment(.leading)
-                                .onTapGesture {
-                                    subtaskStatus[index].toggle()
-                                }
-                        }
-                    }
-                    .padding(.top, 4)
-                    
-                    RoundedButton(title: "📸 Verify Task", action: {}, color: .black, textColor: .white)
-                        .padding(.horizontal, 16)
-                }
-            )
-            .frame(height: 500)
-            .cornerRadius(10)
-            .padding(1)
-            .shadow(color: Color.gray.opacity(0.4), radius: 8, x: 0, y: 2)
-            .padding(20)
-    }
-}
-
 struct SubtaskView: View {
     let subtask: String?
     @Binding var isChecked: Bool
@@ -217,7 +175,7 @@ struct SubtaskView: View {
 
 //Color(hex: "#00E676")
 struct TaskItemView: View {
-    let task: TaskModel
+    @Binding var task: TaskModel
     var jobID: String
     @Binding var isLoading: Bool
     @State private var showSubtasks = false
@@ -227,11 +185,11 @@ struct TaskItemView: View {
     @State private var isImagePickerPresented = false
     @EnvironmentObject var supabaseClient: SupabaseManager
     
-    init(task: TaskModel, jobID: String, isLoading: Binding<Bool>) {
-        self.task = task
+    init(task: Binding<TaskModel>, jobID: String, isLoading: Binding<Bool>) {
+        self._task = task
         self.jobID = jobID
         self._isLoading = isLoading
-        self._subtaskStatus = State(initialValue: Array(repeating: false, count: task.subtasks?.count ?? 0))
+        self._subtaskStatus = State(initialValue: Array(repeating: false, count: task.wrappedValue.subtasks?.count ?? 0))
     }
     
     var allSubtasksCompleted: Bool {
@@ -347,6 +305,9 @@ struct TaskItemView: View {
                     .foregroundStyle(.gray)
             }
         }
+        .onChange(of: allSubtasksCompletedAndVerified) { newValue in
+            task.isComplete = newValue
+        }
         .onAppear {
             Task {
                 do {
@@ -389,7 +350,7 @@ struct TaskItemView: View {
     
     func downloadImages(jobID: String, task: TaskModel) async throws -> [UIImage?] {
         var images: [UIImage?] = [nil, nil, nil]
-
+        
         for index in 0...2 {
             let fileName = "\(jobID)/\(task.taskID ?? UUID())/\(task.title ?? "")-image\(index+1).jpeg"
             do {

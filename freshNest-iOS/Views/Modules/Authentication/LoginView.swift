@@ -13,12 +13,13 @@ struct LoginView: View {
     @EnvironmentObject private var viewModel: SupabaseManager
     @State private var email = ""
     @State private var password = ""
-    @State private var alertMessage = ""
-    @State private var showAlert = false
     @State private var showHomeScreen = false
     @State private var showLocationScreen = false
+    @State private var alertItem: AlertItem?
+    @State private var isLoading = false
     @State var longitude = 0.0
     @State var latitude = 0.0
+    
     var body: some View {
         VStack(alignment: .leading) {
             BackButton()
@@ -35,29 +36,14 @@ struct LoginView: View {
                 RoundedTextField(text: $email, placeholderText: "johndoe@example.com", isSecure: false)
                 RoundedTextField(text: $password, placeholderText: "password", isSecure: true)
             }
-                .padding(.top, 24)
+            .padding(.top, 24)
             Spacer()
             VStack(spacing: 16) {
                 RoundedButton(title: "Sign In", action: {
-                    // Sign In logic
                     Task {
                         print("Email: \(email), Password: \(password)")
-                        let validationResult = validateInput(email: email, password: password)
-                        if validationResult {
-                            await viewModel.signIn(email: email, password: password)
-                            await viewModel.isUserAuthenticated()
-                            if viewModel.isAuthenticated {
-                                await checkLocationAccess()
-                                if longitude == 0.0 && latitude == 0.0 {
-                                    showLocationScreen.toggle()
-                                } else {
-                                    isAuthenticated = true
-                                    showHomeScreen.toggle()
-                                    print("\(longitude), \(latitude)")
-                                }
-                            }
-                        } else {
-                            showAlert.toggle()
+                        if validateInput(email: email, password: password) {
+                            await signIn()
                         }
                     }
                 }, color: Color(hex: AppUserInterface.Colors.appButtonBlack), textColor: .white)
@@ -71,10 +57,36 @@ struct LoginView: View {
         .fullScreenCover(isPresented: $showLocationScreen) {
             AddLocationView()
         }
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Validation Result"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        .alert(item: $alertItem) { item in
+            Alert(
+                title: Text(item.title),
+                message: Text(item.message),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
+    
+    func signIn() async {
+        do {
+            await viewModel.signIn(email: email, password: password)
+            await viewModel.isUserAuthenticated()
+            if viewModel.isAuthenticated {
+                await checkLocationAccess()
+                if longitude == 0.0 && latitude == 0.0 {
+                    showLocationScreen.toggle()
+                } else {
+                    isAuthenticated = true
+                    showHomeScreen.toggle()
+                    print("\(longitude), \(latitude)")
+                }
+            } else {
+                alertItem = AlertItem(title: "Authentication Failed", message: "Please check your credentials and try again.")
+            }
+        } catch {
+            alertItem = AlertItem(title: "Error", message: "Failed to Login: \(error.localizedDescription)")
+        }
+    }
+    
     func checkLocationAccess() async {
         do {
             let currentUser = try await viewModel.supabase.auth.session.user
@@ -90,18 +102,18 @@ struct LoginView: View {
             longitude = clearnerProfile.longitude ?? 0.0
             latitude = clearnerProfile.latitude ?? 0.0
         } catch {
-            debugPrint(error)
+            alertItem = AlertItem(title: "Error", message: "Failed to retrieve location: \(error.localizedDescription)")
         }
     }
     
     func validateInput(email: String, password: String) -> Bool {
         if !isValidEmail(email) {
-            alertMessage = "Invalid email address."
+            alertItem = AlertItem(title: "Invalid Email", message: "Please enter a valid email address.")
             return false
         }
         
         if password.count < 6 {
-            alertMessage = "Password must be at least 6 characters long."
+            alertItem = AlertItem(title: "Invalid Password", message: "Password must be at least 6 characters long.")
             return false
         }
         

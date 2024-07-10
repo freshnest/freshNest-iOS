@@ -19,17 +19,17 @@ struct SignUpView: View {
     @State private var isTermsChecked = false
     @State private var showLocationScreen = false
     @State private var showMainScreen = false
-    @State private var showAlert = false
-    @State private var alertMessage = ""
+    @State private var alertItem: AlertItem?
     @State var longitude = 0.0
     @State var latitude = 0.0
+    
     var body: some View {
         VStack(alignment: .leading) {
             if !isBackButtonHidden {
                 BackButton()
             }
             VStack(alignment: .leading, spacing: 8) {
-                Text("Let’s Get Started!")
+                Text("Let's Get Started!")
                     .font(.cascaded(ofSize: .h28, weight: .bold))
                     .foregroundStyle(Color(hex: AppUserInterface.Colors.appTitleColor))
                 Text("Fill the form to continue.")
@@ -46,30 +46,13 @@ struct SignUpView: View {
                 RoundedButton(title: "Sign Up", action: {
                     Task {
                         print("Email: \(email), Password: \(password)")
-                        let validationResult = validateInput(email: email, firstName: firstName, lastName: lastName, password: password)
-                        if validationResult {
-                            await viewModel.signUp(email: email, password: password, firstName: firstName, lastName: lastName)
-                            await viewModel.isUserAuthenticated()
-                            if viewModel.isAuthenticated {
-                                await checkLocationAccess()
-                                if longitude == 0.0 && latitude == 0.0 {
-                                    showLocationScreen.toggle()
-                                } else {
-                                    isAuthenticated = true
-                                    showMainScreen.toggle()
-                                    print("\(longitude), \(latitude)")
-                                }
-                            } else {
-                                print("Error in signUp View line 50")
-                            }
-                        } else {
-                            showAlert.toggle()
+                        if validateInput(email: email, firstName: firstName, lastName: lastName, password: password) {
+                            await signUp()
                         }
                     }
                 }, color: Color(hex: AppUserInterface.Colors.appButtonBlack), textColor: .white)
                 
                 RoundedButton(title: "Existing User?", action: {
-                    // login action
                     showLoginScreen.toggle()
                 }, color: Color(hex: AppUserInterface.Colors.appButtonBlack), textColor: .white)
             }
@@ -86,8 +69,50 @@ struct SignUpView: View {
         .fullScreenCover(isPresented: $showMainScreen) {
             MainView()
         }
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Validation Result"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        .alert(item: $alertItem) { item in
+            Alert(
+                title: Text(item.title),
+                message: Text(item.message),
+                dismissButton: .default(Text(item.buttonTitle)) {
+                    item.action?()
+                }
+            )
+        }
+    }
+    
+    func signUp() async {
+        do {
+            try await viewModel.signUp(email: email, password: password, firstName: firstName, lastName: lastName)
+            await viewModel.isUserAuthenticated()
+            if viewModel.isAuthenticated {
+                await fetchProfileWithRetry()
+            } else {
+                alertItem = AlertItem(title: "Sign Up Failed", message: "Unable to create account. Please check credentials and try again.")
+            }
+        } catch {
+            alertItem = AlertItem(title: "Error", message: "An error occurred during sign up: \(error.localizedDescription)")
+        }
+    }
+
+    func fetchProfileWithRetry(retries: Int = 3) async {
+        do {
+            try await viewModel.fetchUserData()
+            await checkLocationAccess()
+            if longitude == 0.0 && latitude == 0.0 {
+                showLocationScreen.toggle()
+            } else {
+                isAuthenticated = true
+                showMainScreen.toggle()
+                print("\(longitude), \(latitude)")
+            }
+        } catch {
+            if retries > 0 {
+                print("Profile fetch failed, retrying... (\(retries) attempts left)")
+                try? await Task.sleep(nanoseconds: 1_000_000_000) // Wait for 1 second
+                await fetchProfileWithRetry(retries: retries - 1)
+            } else {
+                alertItem = AlertItem(title: "Profile Error", message: "Failed to fetch user profile after multiple attempts. Please try again later.")
+            }
         }
     }
     
@@ -106,28 +131,33 @@ struct SignUpView: View {
             longitude = clearnerProfile.longitude ?? 0.0
             latitude = clearnerProfile.latitude ?? 0.0
         } catch {
-            debugPrint(error)
+            alertItem = AlertItem(title: "Error", message: "Failed to retrieve location: \(error.localizedDescription)")
         }
     }
     
     func validateInput(email: String, firstName: String, lastName: String, password: String) -> Bool {
         if firstName.isEmpty {
-            alertMessage = "First name cannot be empty."
+            alertItem = AlertItem(title: "Invalid Input", message: "First name cannot be empty.")
             return false
         }
         
         if lastName.isEmpty {
-            alertMessage = "Last name cannot be empty."
+            alertItem = AlertItem(title: "Invalid Input", message: "Last name cannot be empty.")
             return false
         }
         
         if !isValidEmail(email) {
-            alertMessage = "Invalid email address."
+            alertItem = AlertItem(title: "Invalid Input", message: "Invalid email address.")
             return false
         }
         
         if password.count < 6 {
-            alertMessage = "Password must be at least 6 characters long."
+            alertItem = AlertItem(title: "Invalid Input", message: "Password must be at least 6 characters long.")
+            return false
+        }
+        
+        if !isTermsChecked {
+            alertItem = AlertItem(title: "Terms and Conditions", message: "Please accept the terms and conditions to continue.")
             return false
         }
         

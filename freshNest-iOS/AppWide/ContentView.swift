@@ -11,7 +11,8 @@ struct ContentView: View {
     @State private var showSplashScreen = true
     @AppStorage("isAuthenticated") var isAuthenticated = false
     @EnvironmentObject var supabaseClient: SupabaseManager
-
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     var body: some View {
         Group {
             if showSplashScreen {
@@ -26,28 +27,35 @@ struct ContentView: View {
             } else {
                 if isAuthenticated {
                     MainView()
-                        .onAppear {
-                            supabaseClient.fetchUserData()
-                            supabaseClient.fetchScheduledJobs()
-                            supabaseClient.fetchAvailableJobsWithoutLoader()
+                        .task {
+                            await fetchData()
                         }
                         .preferredColorScheme(.light)
+                        .alert("Error", isPresented: $showAlert) {
+                            Button("OK") {
+                                showAlert = false
+                            }
+                        } message: {
+                            Text(alertMessage)
+                        }
                 } else {
                     OnboardingView()
                         .preferredColorScheme(.light)
                 }
             }
-//            WorkFlowView()
-//                .preferredColorScheme(.light)
+            //            WorkFlowView()
+            //                .preferredColorScheme(.light)
         }
-//        .task {
-//            for await state in await supabaseClient.supabase.auth.authStateChanges {
-//                if [.initialSession, .signedIn, .signedOut].contains(state.event) {
-//                    supabaseClient.isAuthenticated = state.session != nil
-//                    isAuthenticated = supabaseClient.isAuthenticated
-//                }
-//            }
-//        }
+    }
+    private func fetchData() async {
+        do {
+            try await supabaseClient.fetchUserData()
+            supabaseClient.fetchScheduledJobs()
+            supabaseClient.fetchAvailableJobsWithoutLoader()
+        } catch {
+            alertMessage = "Failed to fetch data: \(error.localizedDescription)"
+            showAlert = true
+        }
     }
 }
 

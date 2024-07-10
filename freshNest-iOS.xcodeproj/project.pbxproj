@@ -99,6 +99,7 @@
 		C8E60AF62BE98B5100E17993 /* ScheduledJobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF52BE98B5100E17993 /* ScheduledJobsView.swift */; };
 		C8E60AF82BE9902500E17993 /* AvailableJobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AF72BE9902500E17993 /* AvailableJobsView.swift */; };
 		C8E60AFB2BEAD2A800E17993 /* EarningsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E60AFA2BEAD2A800E17993 /* EarningsMainView.swift */; };
+		C8E757992C3DDFAC004D56CB /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E757982C3DDFAC004D56CB /* AlertItem.swift */; };
 		C8EA10862C18D2230052B050 /* AddNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EA10852C18D2230052B050 /* AddNameScreen.swift */; };
 		C8FF0A202C2624B700647DD7 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FF0A1F2C2624B700647DD7 /* Loader.swift */; };
 /* End PBXBuildFile section */
@@ -214,6 +215,7 @@
 		C8E60AF52BE98B5100E17993 /* ScheduledJobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledJobsView.swift; sourceTree = "<group>"; };
 		C8E60AF72BE9902500E17993 /* AvailableJobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableJobsView.swift; sourceTree = "<group>"; };
 		C8E60AFA2BEAD2A800E17993 /* EarningsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsMainView.swift; sourceTree = "<group>"; };
+		C8E757982C3DDFAC004D56CB /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		C8EA10852C18D2230052B050 /* AddNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNameScreen.swift; sourceTree = "<group>"; };
 		C8FF0A1F2C2624B700647DD7 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				C81449072C11E6130029C223 /* CleanersModel.swift */,
+				C8E757982C3DDFAC004D56CB /* AlertItem.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 				C84B9AD72BF622C90025A31F /* WorkFlowSuccessScreen.swift in Sources */,
 				C81449012C11E0AC0029C223 /* SupabaseManager.swift in Sources */,
 				C8E60AEF2BE9841F00E17993 /* JobCardCell.swift in Sources */,
+				C8E757992C3DDFAC004D56CB /* AlertItem.swift in Sources */,
 				C8FF0A202C2624B700647DD7 /* Loader.swift in Sources */,
 				C866A13D2C0DD9B100054244 /* SupportEmail.swift in Sources */,
 				C8B17F262C2A36120099E4B0 /* TaskListModel.swift in Sources */,

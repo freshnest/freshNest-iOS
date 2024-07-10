@@ -115,7 +115,7 @@ struct EditImageView: View {
                         .from("avatars")
                         .upload(path: "\(fileName)", file: imageData, options: FileOptions(contentType: "image/jpeg", upsert: true))
                     print(response)
-                    supabaseClient.fetchUserData()
+                    try await supabaseClient.fetchUserData()
                     action()
                     isLoading = false
                 } catch {

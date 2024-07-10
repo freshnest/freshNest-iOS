@@ -113,7 +113,7 @@ struct EditProfileView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): Email Updated Successfully")
-                supabaseClient.fetchUserData()
+                try await supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update email: \(error.localizedDescription)")
             }
@@ -131,7 +131,7 @@ struct EditProfileView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): Phone Updated Successfully")
-                supabaseClient.fetchUserData()
+                try await supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update phone: \(error.localizedDescription)")
             }
@@ -149,7 +149,7 @@ struct EditProfileView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): Name Updated Successfully")
-                supabaseClient.fetchUserData()
+                try await supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update Name: \(error.localizedDescription)")
             }

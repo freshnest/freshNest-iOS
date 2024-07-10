@@ -55,7 +55,7 @@ struct VacationModeView: View {
                     .eq("id", value: UUID(uuidString: currentUser.id.uuidString))
                     .execute()
                 print("\(response.response.statusCode): VacationMode Updated Successfully")
-                supabaseClient.fetchUserData()
+                try await supabaseClient.fetchUserData()
             } catch {
                 print("Failed to update VacationMode: \(error.localizedDescription)")
             }
