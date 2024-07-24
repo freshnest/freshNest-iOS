@@ -28,6 +28,7 @@ final class SupabaseManager: ObservableObject {
     @Published var scheduledJobsArray: [ScheduledJobsModel] = []
     @Published var scheduledJobsCount = 0
     @Published var selectedImage: UIImage? = nil
+    @Published var stripeURL: URL?
     let supabase = SupabaseClient(supabaseURL: URL(string: "https://cundjcwzibpwiiuxitul.supabase.co")!, supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bmRqY3d6aWJwd2lpdXhpdHVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM1MzU2MjQsImV4cCI6MjAyOTExMTYyNH0.AoiSo5wdnV5A6WVPwaEIk9W1r_-6ZdMUoE5kbEXqfKI")
     
     func signUp(email: String, password: String, firstName: String, lastName: String) async throws {

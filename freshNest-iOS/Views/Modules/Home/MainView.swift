@@ -20,7 +20,7 @@ struct MainView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tag(Tab.home)
                 
-                EarningsMainView()
+                EarningListView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tag(Tab.earning)
                 

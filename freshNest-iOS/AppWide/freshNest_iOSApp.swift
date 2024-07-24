@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StripeCore
 
 @main
 struct freshNest_iOSApp: App {
@@ -16,6 +17,12 @@ struct freshNest_iOSApp: App {
             ContentView()
                 .environmentObject(authVM)
                 .environmentObject(tabBarManager)
+                .onOpenURL { incomingURL in
+                    let stripeHandled = StripeAPI.handleURLCallback(with: incomingURL)
+                    if (!stripeHandled) {
+                        // This was not a Stripe url – handle the URL normally as you would
+                    }
+                }
         }
     }
 }

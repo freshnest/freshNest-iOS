@@ -18,6 +18,13 @@
 		C84B9ADA2BF63B380025A31F /* JobInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9AD92BF63B380025A31F /* JobInfoView.swift */; };
 		C84B9ADC2BF7CF790025A31F /* EarningListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9ADB2BF7CF790025A31F /* EarningListView.swift */; };
 		C84E86112C26A54D00EC9F24 /* PropertyInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E86102C26A54D00EC9F24 /* PropertyInfoModel.swift */; };
+		C85457A32C5173150054CFE5 /* EarningsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85457A22C5173150054CFE5 /* EarningsListViewCell.swift */; };
+		C85C93B62C51559700D69E89 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = C85C93B52C51559700D69E89 /* Stripe */; };
+		C85C93B82C51559700D69E89 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = C85C93B72C51559700D69E89 /* StripeApplePay */; };
+		C85C93BA2C51559700D69E89 /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = C85C93B92C51559700D69E89 /* StripeCardScan */; };
+		C85C93BC2C51559700D69E89 /* StripeFinancialConnections in Frameworks */ = {isa = PBXBuildFile; productRef = C85C93BB2C51559700D69E89 /* StripeFinancialConnections */; };
+		C85C93BE2C51559700D69E89 /* StripeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = C85C93BD2C51559700D69E89 /* StripeIdentity */; };
+		C85C93C12C51580B00D69E89 /* StripeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85C93C02C51580B00D69E89 /* StripeVC.swift */; };
 		C85EA87C2C0727870048C56A /* UberMove-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85EA8792C0727870048C56A /* UberMove-Bold.ttf */; };
 		C85EA87D2C0727870048C56A /* UberMove-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85EA87A2C0727870048C56A /* UberMove-Medium.ttf */; };
 		C85EA87E2C0727870048C56A /* UberMove-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85EA87B2C0727870048C56A /* UberMove-Regular.ttf */; };
@@ -150,6 +157,8 @@
 		C84B9AD92BF63B380025A31F /* JobInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobInfoView.swift; sourceTree = "<group>"; };
 		C84B9ADB2BF7CF790025A31F /* EarningListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningListView.swift; sourceTree = "<group>"; };
 		C84E86102C26A54D00EC9F24 /* PropertyInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInfoModel.swift; sourceTree = "<group>"; };
+		C85457A22C5173150054CFE5 /* EarningsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsListViewCell.swift; sourceTree = "<group>"; };
+		C85C93C02C51580B00D69E89 /* StripeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeVC.swift; sourceTree = "<group>"; };
 		C85EA8792C0727870048C56A /* UberMove-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Bold.ttf"; sourceTree = "<group>"; };
 		C85EA87A2C0727870048C56A /* UberMove-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Medium.ttf"; sourceTree = "<group>"; };
 		C85EA87B2C0727870048C56A /* UberMove-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Regular.ttf"; sourceTree = "<group>"; };
@@ -257,8 +266,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85C93BA2C51559700D69E89 /* StripeCardScan in Frameworks */,
+				C85C93B62C51559700D69E89 /* Stripe in Frameworks */,
+				C85C93B82C51559700D69E89 /* StripeApplePay in Frameworks */,
 				C89AE3422C107E9A002BAC3D /* PostgREST in Frameworks */,
 				C89AE3402C107E9A002BAC3D /* Functions in Frameworks */,
+				C85C93BE2C51559700D69E89 /* StripeIdentity in Frameworks */,
+				C85C93BC2C51559700D69E89 /* StripeFinancialConnections in Frameworks */,
 				C89AE3482C107E9A002BAC3D /* Supabase in Frameworks */,
 				C89AE33E2C107E9A002BAC3D /* Auth in Frameworks */,
 				C89AE3462C107E9A002BAC3D /* Storage in Frameworks */,
@@ -313,6 +327,14 @@
 				C84B9AD92BF63B380025A31F /* JobInfoView.swift */,
 			);
 			path = JobVIew;
+			sourceTree = "<group>";
+		};
+		C85C93BF2C5157F900D69E89 /* StripeFinancialConnect */ = {
+			isa = PBXGroup;
+			children = (
+				C85C93C02C51580B00D69E89 /* StripeVC.swift */,
+			);
+			path = StripeFinancialConnect;
 			sourceTree = "<group>";
 		};
 		C85EA87F2C0727920048C56A /* Font Group */ = {
@@ -489,6 +511,7 @@
 		C8E60AA52BE9318A00E17993 /* freshNest-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C85C93BF2C5157F900D69E89 /* StripeFinancialConnect */,
 				C835B2A82C35B05B00E00F24 /* freshNest-iOS.entitlements */,
 				C868B59B2C1B3AC5005BD271 /* ServiceManagers */,
 				C81449062C11E6020029C223 /* DataModels */,
@@ -717,6 +740,7 @@
 				C89C9D272BEC9E3D0066DA14 /* CardView.swift */,
 				C89C9D252BEC9E2B0066DA14 /* CardDetailsEntryBottomSheet.swift */,
 				C84B9ADB2BF7CF790025A31F /* EarningListView.swift */,
+				C85457A22C5173150054CFE5 /* EarningsListViewCell.swift */,
 			);
 			path = Earnings;
 			sourceTree = "<group>";
@@ -744,6 +768,11 @@
 				C89AE3432C107E9A002BAC3D /* Realtime */,
 				C89AE3452C107E9A002BAC3D /* Storage */,
 				C89AE3472C107E9A002BAC3D /* Supabase */,
+				C85C93B52C51559700D69E89 /* Stripe */,
+				C85C93B72C51559700D69E89 /* StripeApplePay */,
+				C85C93B92C51559700D69E89 /* StripeCardScan */,
+				C85C93BB2C51559700D69E89 /* StripeFinancialConnections */,
+				C85C93BD2C51559700D69E89 /* StripeIdentity */,
 			);
 			productName = "freshNest-iOS";
 			productReference = C8E60AA32BE9318A00E17993 /* freshNest-iOS.app */;
@@ -819,6 +848,7 @@
 			mainGroup = C8E60A9A2BE9318A00E17993;
 			packageReferences = (
 				C89AE33C2C107E9A002BAC3D /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				C85C93B42C51559700D69E89 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
 			);
 			productRefGroup = C8E60AA42BE9318A00E17993 /* Products */;
 			projectDirPath = "";
@@ -873,6 +903,7 @@
 				C8BC3C732C222E360050A8F1 /* EditShortTextView.swift in Sources */,
 				C8E60AE22BE9386F00E17993 /* SplashScreen.swift in Sources */,
 				C89144F42C2E1B5A00FDDAF3 /* ChatView.swift in Sources */,
+				C85C93C12C51580B00D69E89 /* StripeVC.swift in Sources */,
 				C8E60AF22BE987F400E17993 /* TestData.swift in Sources */,
 				C89144F92C2E222E00FDDAF3 /* TabBarManager.swift in Sources */,
 				C89C9D342BEC9EEC0066DA14 /* RoundedTextField.swift in Sources */,
@@ -954,6 +985,7 @@
 				C89C9D242BEC9DF80066DA14 /* FloatingPlaceholderTextField.swift in Sources */,
 				C866A13F2C0DD9F300054244 /* Device+.swift in Sources */,
 				C886A3B92BED574800E059B0 /* TabTestView.swift in Sources */,
+				C85457A32C5173150054CFE5 /* EarningsListViewCell.swift in Sources */,
 				C8BA92E72C3EF4BB00CDAE3F /* ScheduledJobCardCell.swift in Sources */,
 				C84951E52C09989200A2265B /* AccountUserInfoCell.swift in Sources */,
 				C81449082C11E6140029C223 /* CleanersModel.swift in Sources */,
@@ -1132,6 +1164,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "freshNest-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FreshNest;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to show available jobs near you.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show available jobs near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1170,6 +1204,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "freshNest-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FreshNest;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to show available jobs near you.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show available jobs near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1313,6 +1349,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C85C93B42C51559700D69E89 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.28.1;
+			};
+		};
 		C89AE33C2C107E9A002BAC3D /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/supabase/supabase-swift.git";
@@ -1324,6 +1368,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C85C93B52C51559700D69E89 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85C93B42C51559700D69E89 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = Stripe;
+		};
+		C85C93B72C51559700D69E89 /* StripeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85C93B42C51559700D69E89 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeApplePay;
+		};
+		C85C93B92C51559700D69E89 /* StripeCardScan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85C93B42C51559700D69E89 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeCardScan;
+		};
+		C85C93BB2C51559700D69E89 /* StripeFinancialConnections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85C93B42C51559700D69E89 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeFinancialConnections;
+		};
+		C85C93BD2C51559700D69E89 /* StripeIdentity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85C93B42C51559700D69E89 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeIdentity;
+		};
 		C89AE33D2C107E9A002BAC3D /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C89AE33C2C107E9A002BAC3D /* XCRemoteSwiftPackageReference "supabase-swift" */;

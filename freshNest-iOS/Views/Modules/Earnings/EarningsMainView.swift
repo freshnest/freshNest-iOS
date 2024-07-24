@@ -24,15 +24,10 @@ struct EarningsMainView: View {
                             .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                         Spacer()
                     }
-                    CardView(cardNumber: "1234123412341234", accountHolderName: "John Doe", expiry: "12/31", isStatic: true)
-                        .modifier(HoloEffect(animate: $animate))
-                        .onAppear {
-                            self.animate = true
-                        }
-                    
                     
                     Button(action: {
-                        showCardDetailsEntryBottomSheet.toggle()
+                        // add stripe onboarding logic
+                        print("Stripe Integrate button tapped!")
                     }){
                         RoundedRectangle(cornerRadius: 16)
                             .frame(width: 315, height: 200)
@@ -43,7 +38,7 @@ struct EarningsMainView: View {
                                     Image(systemName: "plus")
                                         .resizable()
                                         .frame(width: 24, height: 24)
-                                    Text(isFirstCard ? "Add New Card" : "Add Different Card")
+                                    Text("Integrate your Stripe account with FreshNest")
                                         .font(.cascaded(ofSize: .h14, weight: .regular))
                                 }
                                 .foregroundColor(.black)
@@ -60,10 +55,10 @@ struct EarningsMainView: View {
             }
             .padding(16)
         }
-        .sheet(isPresented: $showCardDetailsEntryBottomSheet, content: {
-            CardDetailsEntryBottomSheet()
-                .presentationDetents([.large])
-        })
+//        .sheet(isPresented: $showCardDetailsEntryBottomSheet, content: {
+//            CardDetailsEntryBottomSheet()
+//                .presentationDetents([.large])
+//        })
         .fullScreenCover(isPresented: $showEarningListView, content: {
             EarningListView()
         })
@@ -76,3 +71,9 @@ struct EarningsMainView: View {
 //    CardView(cardNumber: "1234123412341234", accountHolderName: "John Doe", expiry: "12/31", isStatic: true)
 //    CardDetailsEntryBottomSheet()
 }
+
+//CardView(cardNumber: "1234123412341234", accountHolderName: "John Doe", expiry: "12/31", isStatic: true)
+//    .modifier(HoloEffect(animate: $animate))
+//    .onAppear {
+//        self.animate = true
+//    }
